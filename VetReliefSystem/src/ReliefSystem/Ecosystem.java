@@ -27,6 +27,10 @@ public class Ecosystem extends Organization{
         return ReliefSystem;
     }
     
+    public static void setInstance(Ecosystem system) {
+        ReliefSystem = system;
+    }
+    
     
     @Override
     public ArrayList<Role> getSupportedRole() {

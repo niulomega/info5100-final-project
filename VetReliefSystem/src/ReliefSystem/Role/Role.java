@@ -7,6 +7,7 @@ package ReliefSystem.Role;
 
 import ReliefSystem.Ecosystem;
 import ReliefSystem.Organization;
+import ReliefSystem.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
 /**
@@ -36,10 +37,21 @@ public abstract class Role {
         public String getValue() {
             return value;
         }
+        
+        
 
         @Override
         public String toString() {
             return value;
         }
+    }
+    
+    public abstract JPanel createWorkArea(JPanel userProcessContainer, 
+            UserAccount account,  
+            Ecosystem business);
+
+    @Override
+    public String toString() {
+        return this.getClass().getName();
     }
 }

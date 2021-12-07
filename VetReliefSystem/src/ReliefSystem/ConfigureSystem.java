@@ -11,4 +11,22 @@ package ReliefSystem;
  */
 public class ConfigureSystem {
     
+    public static Ecosystem configure(){
+        
+        Ecosystem system = Ecosystem.getInstance();
+        
+        //Create a network
+        //create an enterprise
+        //initialize some organizations
+        //have some employees 
+        //create user account
+        
+        
+        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
+        
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount("Sysadmin","sysadmin", "sysadmin", employee, new SystemAdminRole());
+        
+        return system;
+    }
+    
 }

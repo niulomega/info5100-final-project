@@ -184,7 +184,7 @@ public class SysAdmin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(txtUsername.getText(), txtPassword.getText());
+//        UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(txtUsername.getText(), txtPassword.getText());
         
         //CardLayout crdLyt = (CardLayout) container.getLayout();
         //container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));

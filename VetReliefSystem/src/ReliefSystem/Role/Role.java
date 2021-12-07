@@ -27,7 +27,7 @@ public abstract class Role {
         PetVolunteer("PetVolunteer"),
         Driver("Driver"),
         Pharmacy("Pharmacy"),
-        Sponsor("Sponsror");
+        Sponsor("Sponsor");
         private String value;
 
         private RoleType(String value) {

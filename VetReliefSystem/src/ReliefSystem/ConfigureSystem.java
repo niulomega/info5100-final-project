@@ -5,6 +5,8 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.Person.Person;
+
 /**
  *
  * @author niulp
@@ -22,11 +24,11 @@ public class ConfigureSystem {
         //create user account
         
         
-        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
+//        Person person = system.getPersonDirectory().createPerson("RRH");
         
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount("Sysadmin","sysadmin", "sysadmin", employee, new SystemAdminRole());
+//        UserAccount ua = system.getUserAccountDirectory().createUserAccount("Sysadmin","sysadmin", "sysadmin", employee, new SystemAdminRole());
         
-        return system;
+//        return system;
     }
     
 }

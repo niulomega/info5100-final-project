@@ -5,6 +5,10 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.Person.Person;
+import ReliefSystem.Role.SystemAdminRole;
+import ReliefSystem.UserAccount.UserAccount;
+
 /**
  *
  * @author niulp
@@ -15,6 +19,8 @@ public class ConfigureSystem {
         
         Ecosystem system = Ecosystem.getInstance();
         
+        System.out.println("Test");
+//        return system;
         //Create a network
         //create an enterprise
         //initialize some organizations
@@ -22,9 +28,9 @@ public class ConfigureSystem {
         //create user account
         
         
-        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
+        Person person = system.getPersonDirectory().createPerson("RRH");
         
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount("Sysadmin","sysadmin", "sysadmin", employee, new SystemAdminRole());
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount("Sysadmin","sysadmin", "sysadmin", person, new SystemAdminRole());
         
         return system;
     }

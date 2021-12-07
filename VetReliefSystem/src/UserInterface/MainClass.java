@@ -17,7 +17,7 @@ public class MainClass {
         screen.setVisible(true);
         try {
             for (int row = 0; row <=100; row++) {
-                Thread.sleep(100);
+                Thread.sleep(10);
                 screen.loadingNumber.setText(Integer.toString(row)+"%");
                 screen.loadingprogressBar.setValue(row);
                 if (row == 100) {

@@ -5,10 +5,44 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.Role.Role;
+import ReliefSystem.Role.SystemAdminRole;
+import java.util.ArrayList;
+
 /**
  *
  * @author niulp
  */
-public class Ecosystem {
+public class Ecosystem extends Organization{
+    private static Ecosystem ReliefSystem;
+    
+    
+//    public Ecosystem() {
+//        
+//    }
+    public static Ecosystem getInstance() {
+        if (ReliefSystem == null) {
+            ReliefSystem = new Ecosystem();
+        }
+        return ReliefSystem;
+    }
+    
+    
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roleList = new ArrayList<Role>();
+        roleList.add(new SystemAdminRole());
+        return roleList;
+    }
+
+    private Ecosystem() {
+        super(null);
+//         networkList=new ArrayList<Network>();
+    }
+
+    public boolean checkIfUserIsUnique(String userName) {
+        //
+        return false;
+    }
     
 }

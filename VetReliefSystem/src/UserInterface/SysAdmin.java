@@ -10,8 +10,12 @@ import ReliefSystem.DB4oUtil.DB4OUtil;
 import ReliefSystem.Organization;
 
 import ReliefSystem.UserAccount.UserAccount;
+import UserInterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
 
 /**
  *
@@ -48,10 +52,10 @@ public class SysAdmin extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnLogout = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -60,6 +64,8 @@ public class SysAdmin extends javax.swing.JFrame {
         lblDog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sysadmin.png"))); // NOI18N
         lblDog.setText("jLabel1");
         jPanel1.add(lblDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 440, 550));
+
+        getContentPane().add(jPanel1, "card2");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -92,17 +98,6 @@ public class SysAdmin extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user-profile-icon-free-vector.jpg"))); // NOI18N
 
-        btnLogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnLogout.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(0, 153, 153));
-        btnLogout.setText("LOGOUT");
-        btnLogout.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -118,9 +113,7 @@ public class SysAdmin extends javax.swing.JFrame {
                 .addGap(161, 161, 161))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(103, 103, 103))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +129,7 @@ public class SysAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,25 +148,10 @@ public class SysAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(31, 31, 31)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel2, "card3");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,23 +164,17 @@ public class SysAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(txtUsername.getText(), txtPassword.getText());
         
-        //CardLayout crdLyt = (CardLayout) container.getLayout();
-        //container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
-        //crdLyt.next(container);
-        btnLogout.setEnabled(true);
+          JPanel container = new JPanel();
+          JPanel newContainer = new SystemAdminWorkAreaJPanel(container, system);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
+//        crdLyt.next(container);
+//          jPanel1.setVisible(false);
+//          jPanel2.setVisible(false);
+//          useraccount.getRole().createWorkArea(newContainer, useraccount, system).setVisible(true);
+//          dispose();
+        
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        btnLogout.setEnabled(false);
-        txtUsername.setEnabled(true);
-        txtPassword.setEnabled(true);
-        btnLogin.setEnabled(true);
-
-        txtUsername.setText("");
-        txtPassword.setText("");
-        dB4OUtil.storeSystem(system);
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,7 +213,6 @@ public class SysAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

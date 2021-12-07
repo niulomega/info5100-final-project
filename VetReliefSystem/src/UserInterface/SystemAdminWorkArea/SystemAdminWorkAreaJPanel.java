@@ -6,22 +6,20 @@
 package UserInterface.SystemAdminWorkArea;
 
 import ReliefSystem.Ecosystem;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
  *
  * @author divya
  */
-public class SystemAdminWorkAreaJPanel extends javax.swing.JFrame {
+public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SystemAdminWorkAreaJPanel
+     * Creates new form SysadminWorkArea
      */
-    JFrame userProcessContainer;
+    JPanel userProcessContainer;
     Ecosystem ecosystem;
-
-    public SystemAdminWorkAreaJPanel(JFrame userProcessContainer, Ecosystem ecosystem) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, Ecosystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
@@ -38,21 +36,31 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JFrame {
 
         backgroundPanel = new javax.swing.JPanel();
         sidePane = new javax.swing.JPanel();
-        Hospital = new javax.swing.JPanel();
+        manageHospital = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        PetOwner = new javax.swing.JPanel();
+        manageFundraisingAgency = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        backgroundPanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageVet = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        manageHealthCamp = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        manageFundraisingAgency1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
 
         sidePane.setBackground(new java.awt.Color(0, 153, 153));
         sidePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Hospital.setBackground(new java.awt.Color(0, 204, 204));
+        manageHospital.setBackground(new java.awt.Color(0, 204, 204));
+        manageHospital.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageHospitalMousePressed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\hospital-icon.jpg")); // NOI18N
 
@@ -61,58 +69,176 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JFrame {
         jTextField2.setText("Manage Hospital Network");
         jTextField2.setBorder(null);
 
-        javax.swing.GroupLayout HospitalLayout = new javax.swing.GroupLayout(Hospital);
-        Hospital.setLayout(HospitalLayout);
-        HospitalLayout.setHorizontalGroup(
-            HospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HospitalLayout.createSequentialGroup()
+        javax.swing.GroupLayout manageHospitalLayout = new javax.swing.GroupLayout(manageHospital);
+        manageHospital.setLayout(manageHospitalLayout);
+        manageHospitalLayout.setHorizontalGroup(
+            manageHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageHospitalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        HospitalLayout.setVerticalGroup(
-            HospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        manageHospitalLayout.setVerticalGroup(
+            manageHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HospitalLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageHospitalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        sidePane.add(Hospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
+        sidePane.add(manageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
 
-        PetOwner.setBackground(new java.awt.Color(0, 204, 204));
+        manageFundraisingAgency.setBackground(new java.awt.Color(0, 204, 204));
+        manageFundraisingAgency.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageFundraisingAgencyMousePressed(evt);
+            }
+        });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet_owner.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\fundraising.png")); // NOI18N
 
         jTextField3.setBackground(new java.awt.Color(0, 204, 204));
         jTextField3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jTextField3.setText("Manage Pet Owner");
+        jTextField3.setText("Manage Fundraising Agency");
         jTextField3.setBorder(null);
 
-        javax.swing.GroupLayout PetOwnerLayout = new javax.swing.GroupLayout(PetOwner);
-        PetOwner.setLayout(PetOwnerLayout);
-        PetOwnerLayout.setHorizontalGroup(
-            PetOwnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PetOwnerLayout.createSequentialGroup()
+        javax.swing.GroupLayout manageFundraisingAgencyLayout = new javax.swing.GroupLayout(manageFundraisingAgency);
+        manageFundraisingAgency.setLayout(manageFundraisingAgencyLayout);
+        manageFundraisingAgencyLayout.setHorizontalGroup(
+            manageFundraisingAgencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageFundraisingAgencyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        PetOwnerLayout.setVerticalGroup(
-            PetOwnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        manageFundraisingAgencyLayout.setVerticalGroup(
+            manageFundraisingAgencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PetOwnerLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageFundraisingAgencyLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        sidePane.add(PetOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
+        sidePane.add(manageFundraisingAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, -1));
+
+        manageVet.setBackground(new java.awt.Color(0, 204, 204));
+        manageVet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageVetMousePressed(evt);
+            }
+        });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet_owner.png"))); // NOI18N
+
+        jTextField4.setBackground(new java.awt.Color(0, 204, 204));
+        jTextField4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTextField4.setText("Manage Pet Volunteer");
+        jTextField4.setBorder(null);
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageVetLayout = new javax.swing.GroupLayout(manageVet);
+        manageVet.setLayout(manageVetLayout);
+        manageVetLayout.setHorizontalGroup(
+            manageVetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageVetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        manageVetLayout.setVerticalGroup(
+            manageVetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageVetLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        sidePane.add(manageVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
+
+        manageHealthCamp.setBackground(new java.awt.Color(0, 204, 204));
+        manageHealthCamp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageHealthCampMousePressed(evt);
+            }
+        });
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/health-camp.png"))); // NOI18N
+
+        jTextField5.setBackground(new java.awt.Color(0, 204, 204));
+        jTextField5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTextField5.setText("Manage Health Camp");
+        jTextField5.setBorder(null);
+
+        javax.swing.GroupLayout manageHealthCampLayout = new javax.swing.GroupLayout(manageHealthCamp);
+        manageHealthCamp.setLayout(manageHealthCampLayout);
+        manageHealthCampLayout.setHorizontalGroup(
+            manageHealthCampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageHealthCampLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        manageHealthCampLayout.setVerticalGroup(
+            manageHealthCampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageHealthCampLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        sidePane.add(manageHealthCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
+
+        manageFundraisingAgency1.setBackground(new java.awt.Color(0, 204, 204));
+        manageFundraisingAgency1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageFundraisingAgency1MousePressed(evt);
+            }
+        });
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\fundraising.png")); // NOI18N
+
+        jTextField6.setBackground(new java.awt.Color(0, 204, 204));
+        jTextField6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTextField6.setText("Manage Fundraising Agency");
+        jTextField6.setBorder(null);
+
+        javax.swing.GroupLayout manageFundraisingAgency1Layout = new javax.swing.GroupLayout(manageFundraisingAgency1);
+        manageFundraisingAgency1.setLayout(manageFundraisingAgency1Layout);
+        manageFundraisingAgency1Layout.setHorizontalGroup(
+            manageFundraisingAgency1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageFundraisingAgency1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        manageFundraisingAgency1Layout.setVerticalGroup(
+            manageFundraisingAgency1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageFundraisingAgency1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        sidePane.add(manageFundraisingAgency1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, -1));
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -120,70 +246,67 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JFrame {
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addComponent(sidePane, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 583, Short.MAX_VALUE))
+                .addGap(0, 576, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidePane, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+            .addComponent(sidePane, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(SystemAdminWorkAreaJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(SystemAdminWorkAreaJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(SystemAdminWorkAreaJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(SystemAdminWorkAreaJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new SystemAdminWorkAreaJPanel().setVisible(true);
-//            }
-//        });
-//    }
+    private void manageHospitalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageHospitalMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageHospitalMousePressed
+
+    private void manageFundraisingAgencyMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageFundraisingAgencyMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageFundraisingAgencyMousePressed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void manageVetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageVetMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageVetMousePressed
+
+    private void manageHealthCampMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageHealthCampMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageHealthCampMousePressed
+
+    private void manageFundraisingAgency1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageFundraisingAgency1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageFundraisingAgency1MousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Hospital;
-    private javax.swing.JPanel PetOwner;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JPanel manageFundraisingAgency;
+    private javax.swing.JPanel manageFundraisingAgency1;
+    private javax.swing.JPanel manageHealthCamp;
+    private javax.swing.JPanel manageHospital;
+    private javax.swing.JPanel manageVet;
     private javax.swing.JPanel sidePane;
     // End of variables declaration//GEN-END:variables
 }

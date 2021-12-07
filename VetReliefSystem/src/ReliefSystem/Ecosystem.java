@@ -17,9 +17,9 @@ public class Ecosystem extends Organization{
     private static Ecosystem ReliefSystem;
     
     
-    public Ecosystem() {
-        
-    }
+//    public Ecosystem() {
+//        
+//    }
     public static Ecosystem getInstance() {
         if (ReliefSystem == null) {
             ReliefSystem = new Ecosystem();
@@ -35,10 +35,10 @@ public class Ecosystem extends Organization{
         return roleList;
     }
 
-//    private Ecosystem() {
-//        super(null);
-        // networkList=new ArrayList<Network>();
-//    }
+    private Ecosystem() {
+        super(null);
+//         networkList=new ArrayList<Network>();
+    }
 
     public boolean checkIfUserIsUnique(String userName) {
         //

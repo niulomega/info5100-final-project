@@ -49,12 +49,14 @@ public class SysAdmin extends javax.swing.JFrame {
         lblDog = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         vetReliefLbl = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAdmin = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        btnLogin = new javax.swing.JButton();
-        container = new javax.swing.JPanel();
+        lblLogin = new javax.swing.JLabel();
         topLable = new javax.swing.JPanel();
+        greetingLbl = new javax.swing.JLabel();
+        lblLogout = new javax.swing.JLabel();
+        container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,26 +65,28 @@ public class SysAdmin extends javax.swing.JFrame {
 
         lblDog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sysadmin.png"))); // NOI18N
         lblDog.setText("jLabel1");
-        jPanel1.add(lblDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 0, 440, 577));
+        jPanel1.add(lblDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 440, 577));
 
         vetReliefLbl.setBackground(new java.awt.Color(0, 153, 153));
         vetReliefLbl.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         vetReliefLbl.setForeground(new java.awt.Color(0, 153, 153));
         vetReliefLbl.setText("VET RELIEF SYSTEM");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Capture_resized.PNG"))); // NOI18N
+        lblAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Capture_resized.PNG"))); // NOI18N
 
         txtUserName.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
 
         txtPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
 
-        btnLogin.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(0, 153, 153));
-        btnLogin.setText("LOGIN");
-        btnLogin.setBorder(new javax.swing.border.MatteBorder(null));
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+        lblLogin.setBackground(new java.awt.Color(0, 153, 153));
+        lblLogin.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(0, 153, 153));
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setText("LOGIN");
+        lblLogin.setBorder(new javax.swing.border.MatteBorder(null));
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblLoginMousePressed(evt);
             }
         });
 
@@ -94,20 +98,21 @@ public class SysAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUserName)
                             .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 75, Short.MAX_VALUE)
                 .addComponent(vetReliefLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,17 +120,15 @@ public class SysAdmin extends javax.swing.JFrame {
                 .addGap(85, 85, 85)
                 .addComponent(vetReliefLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 0, 460, 577));
 
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
@@ -133,45 +136,51 @@ public class SysAdmin extends javax.swing.JFrame {
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(886, 886, 886))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 580));
 
-        container.setLayout(new java.awt.CardLayout());
-        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 510));
+        topLable.setBackground(new java.awt.Color(0, 153, 153));
+        topLable.setForeground(new java.awt.Color(0, 153, 153));
+        topLable.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout topLableLayout = new javax.swing.GroupLayout(topLable);
-        topLable.setLayout(topLableLayout);
-        topLableLayout.setHorizontalGroup(
-            topLableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
-        );
-        topLableLayout.setVerticalGroup(
-            topLableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
+        greetingLbl.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        topLable.add(greetingLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 30));
+
+        lblLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.png"))); // NOI18N
+        topLable.add(lblLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(topLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 60));
+
+        container.setLayout(new java.awt.CardLayout());
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void lblLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMousePressed
         // TODO add your handling code here:
         UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(txtUserName.getText(), txtPassword.getText());
-        
+        loginPanel.setVisible(false);
+        txtPassword.setVisible(false);
+        txtUserName.setVisible(false);
+        lblLogin.setVisible(false);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
         crdLyt.next(container);
-//        logoutJButton.setEnabled(true);
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }//GEN-LAST:event_lblLoginMousePressed
 
     /**
      * @param args the command line arguments
@@ -209,12 +218,14 @@ public class SysAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
     private javax.swing.JPanel container;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel greetingLbl;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblDog;
+    private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblLogout;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPanel topLable;
     private javax.swing.JPasswordField txtPassword;

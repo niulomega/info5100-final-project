@@ -160,6 +160,11 @@ public class SysAdmin extends javax.swing.JFrame {
         topLable.add(greetingLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 30));
 
         lblLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.png"))); // NOI18N
+        lblLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblLogoutMousePressed(evt);
+            }
+        });
         topLable.add(lblLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(topLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 60));
@@ -181,6 +186,23 @@ public class SysAdmin extends javax.swing.JFrame {
         container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
         crdLyt.next(container);
     }//GEN-LAST:event_lblLoginMousePressed
+
+    private void lblLogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMousePressed
+        // TODO add your handling code here:
+        container.removeAll();
+        JPanel blankJP = new JPanel();
+        container.add("blank", blankJP);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(system);
+        loginPanel.setVisible(true);
+        txtPassword.setVisible(true);
+        txtUserName.setVisible(true);
+        lblLogin.setVisible(true);
+        txtPassword.setText("");
+        txtUserName.setText("");
+        topLable.setVisible(false);
+    }//GEN-LAST:event_lblLogoutMousePressed
 
     /**
      * @param args the command line arguments

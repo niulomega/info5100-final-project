@@ -32,7 +32,9 @@ public abstract class Organization {
         LabAssistant("LabAssistant"),
         PetVolunteer("PetVolunteer"),
         Driver("Driver"),
-        Pharmacy("Pharmacy");
+        Pharmacy("Pharmacy"),
+        Sponsor("Sponsor");
+        
 
         private String value;
 
@@ -53,9 +55,9 @@ public abstract class Organization {
         ++counter;
     }
 
-    public Organization() {
-
-    }
+//    public Organization() {
+//
+//    }
 
     public abstract ArrayList<Role> getSupportedRole();
 

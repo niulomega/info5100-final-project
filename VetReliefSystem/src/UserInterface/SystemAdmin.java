@@ -5,6 +5,9 @@
  */
 package UserInterface;
 
+import ReliefSystem.DB4oUtil.DB4OUtil;
+import ReliefSystem.Ecosystem;
+
 /**
  *
  * @author divya
@@ -14,8 +17,17 @@ public class SystemAdmin extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdmin
      */
+    private Ecosystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+
     public SystemAdmin() {
         initComponents();
+        system = dB4OUtil.retrieveSystem();
+        Ecosystem.setInstance(system);
+        loginPanel.setVisible(true);
+        container.setVisible(false);
+        topPanel.setVisible(false);
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -178,6 +190,37 @@ public class SystemAdmin extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SysAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SysAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SysAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SysAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SystemAdmin().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;

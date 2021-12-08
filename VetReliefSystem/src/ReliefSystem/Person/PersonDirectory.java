@@ -23,7 +23,7 @@ public class PersonDirectory {
         return personList;
     }
 
-    public Person createEmployee(String name) {
+    public Person createPerson(String name) {
         Person person = new Person();
         person.setName(name);
         personList.add(person);

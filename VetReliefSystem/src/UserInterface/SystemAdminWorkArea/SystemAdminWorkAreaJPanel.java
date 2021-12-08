@@ -5,6 +5,9 @@
  */
 package UserInterface.SystemAdminWorkArea;
 
+import ReliefSystem.Ecosystem;
+import javax.swing.JPanel;
+
 /**
  *
  * @author divya
@@ -14,8 +17,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SysadminWorkArea
      */
-    public SystemAdminWorkAreaJPanel() {
+    JPanel userProcessContainer;
+    Ecosystem ecosystem;
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, Ecosystem ecosystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
     }
 
     /**

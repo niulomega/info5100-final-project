@@ -51,7 +51,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHospitalNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital_network (4).png"))); // NOI18N
-        add(lblHospitalNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 485, 373));
+        add(lblHospitalNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 260, 280));
         lblHospitalNetwork.setOpaque(true);
 
         jLabel1.setBackground(new java.awt.Color(0, 153, 153));

@@ -5,6 +5,11 @@
  */
 package UserInterface.SystemAdminWorkArea;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author 18578
@@ -27,24 +32,37 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblusername = new javax.swing.JLabel();
-        lblpassword = new javax.swing.JLabel();
-        txtusername = new javax.swing.JTextField();
-        txtpass = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblhspnet = new javax.swing.JTable();
-        lblname = new javax.swing.JLabel();
-        txtname = new javax.swing.JTextField();
+        lblHospitalNetwork = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUsername = new javax.swing.JTable();
+        lblPassword = new javax.swing.JLabel();
+        lblName1 = new javax.swing.JLabel();
+        lblName2 = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        lblUserName1 = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        btnView = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
-        lblusername.setText("Username");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblpassword.setText("Password");
+        lblHospitalNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital_network (4).png"))); // NOI18N
+        add(lblHospitalNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 485, 373));
+        lblHospitalNetwork.setOpaque(true);
 
-        tblhspnet.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel1.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setText("MANAGE HOSPITAL NETWORK");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 370, 87));
+
+        tblUsername.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        tblUsername.setForeground(new java.awt.Color(0, 153, 153));
+        tblUsername.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -52,114 +70,95 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Name ", "Username", "Password"
+                "Name", "UserName", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblhspnet);
+        jScrollPane1.setViewportView(tblUsername);
 
-        lblname.setText("Name");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, 91));
 
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jLabel1.setText("MANAGE HOSPITAL NETWORK");
+        lblPassword.setBackground(new java.awt.Color(0, 153, 153));
+        lblPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 153, 153));
+        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPassword.setText("Password");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 210, 24));
 
-        jButton1.setText("View");
+        lblName1.setBackground(new java.awt.Color(0, 153, 153));
+        lblName1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        lblName1.setForeground(new java.awt.Color(0, 153, 153));
+        lblName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblName1.setText("Name");
+        add(lblName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, 24));
 
-        jButton2.setText("Update");
+        lblName2.setBackground(new java.awt.Color(0, 153, 153));
+        lblName2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        lblName2.setForeground(new java.awt.Color(0, 153, 153));
+        lblName2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblName2.setText("Name");
+        add(lblName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, 24));
 
-        jButton3.setText("Delete");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        txtUserName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtUserName.setForeground(new java.awt.Color(0, 153, 153));
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 180, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblusername, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblpassword)
-                                .addComponent(lblname))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(33, 33, 33)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtusername)
-                            .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jButton2)
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton3)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblname)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblusername)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpassword)
-                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        lblUserName1.setBackground(new java.awt.Color(0, 153, 153));
+        lblUserName1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        lblUserName1.setForeground(new java.awt.Color(0, 153, 153));
+        lblUserName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserName1.setText("UserName");
+        add(lblUserName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 210, 24));
+
+        txtUsername.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(0, 153, 153));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 180, 20));
+
+        txtPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(0, 153, 153));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 180, 30));
+
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 153, 153));
+        btnView.setText("VIEW");
+        btnView.setBorder(new javax.swing.border.MatteBorder(null));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 70, -1));
+
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 153, 153));
+        jButton1.setText("UPDATE");
+        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
+
+        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 153, 153));
+        jButton2.setText("DELETE");
+        jButton2.setBorder(new javax.swing.border.MatteBorder(null));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnView;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblname;
-    private javax.swing.JLabel lblpassword;
-    private javax.swing.JLabel lblusername;
-    private javax.swing.JTable tblhspnet;
-    private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtpass;
-    private javax.swing.JTextField txtusername;
+    private javax.swing.JLabel lblHospitalNetwork;
+    private javax.swing.JLabel lblName1;
+    private javax.swing.JLabel lblName2;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblUserName1;
+    private javax.swing.JTable tblUsername;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

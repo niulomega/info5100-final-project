@@ -27,23 +27,25 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblusername = new javax.swing.JLabel();
-        lblpassword = new javax.swing.JLabel();
-        txtusername = new javax.swing.JTextField();
-        txtpass = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblpetvol = new javax.swing.JTable();
-        lblname = new javax.swing.JLabel();
-        txtname = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        lblPetVolunteer = new javax.swing.JLabel();
+        lblPetVolunteerImg = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        btnSubmit = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
-        lblusername.setText("Username");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblpassword.setText("Password");
-
+        tblpetvol.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         tblpetvol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -65,104 +67,85 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblpetvol);
 
-        lblname.setText("Name");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 409, 100));
 
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jLabel1.setText("MANAGE PET VOLUNTEER");
+        lblPetVolunteer.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        lblPetVolunteer.setForeground(new java.awt.Color(0, 153, 153));
+        lblPetVolunteer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPetVolunteer.setText("MANAGE PET VOLUNTEER");
+        add(lblPetVolunteer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 420, 50));
 
-        jButton3.setText("Delete");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        lblPetVolunteerImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petVolunteer.jpg"))); // NOI18N
+        add(lblPetVolunteerImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 331, 280));
 
-        jButton1.setText("View");
+        lblPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 153, 153));
+        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPassword.setText("Password");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 230, 30));
 
-        jButton2.setText("Update");
+        lblName.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 153, 153));
+        lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblName.setText("Name");
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 220, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(15, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblusername, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblpassword)
-                                    .addComponent(lblname))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtusername)
-                                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(94, 94, 94)
-                                        .addComponent(jButton2)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(jButton3)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblname)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblusername)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpassword)
-                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        lblUserName.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(0, 153, 153));
+        lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserName.setText("User Name");
+        add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 230, 30));
+
+        txtUserName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtUserName.setForeground(new java.awt.Color(0, 153, 153));
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 190, 30));
+
+        txtName.setForeground(new java.awt.Color(0, 153, 153));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 190, 30));
+
+        jPasswordField1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(0, 153, 153));
+        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 190, 30));
+
+        btnSubmit.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(0, 153, 153));
+        btnSubmit.setText("SUBMIT");
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 470, 90, -1));
+
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setText("UPDATE");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 153, 153));
+        btnView.setText("VIEW");
+        btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 50, -1));
+
+        btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 153, 153));
+        btnDelete.setText("DELETE");
+        btnDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnView;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblname;
-    private javax.swing.JLabel lblpassword;
-    private javax.swing.JLabel lblusername;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPetVolunteer;
+    private javax.swing.JLabel lblPetVolunteerImg;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JTable tblpetvol;
-    private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtpass;
-    private javax.swing.JTextField txtusername;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

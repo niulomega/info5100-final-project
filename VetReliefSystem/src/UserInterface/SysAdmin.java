@@ -56,6 +56,7 @@ public class SysAdmin extends javax.swing.JFrame {
         topLable = new javax.swing.JPanel();
         greetingLbl = new javax.swing.JLabel();
         lblLogout = new javax.swing.JLabel();
+        lblBackBtn = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -167,6 +168,9 @@ public class SysAdmin extends javax.swing.JFrame {
         });
         topLable.add(lblLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lblBackBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\backbtn.png")); // NOI18N
+        topLable.add(lblBackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         getContentPane().add(topLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 60));
 
         container.setLayout(new java.awt.CardLayout());
@@ -245,6 +249,7 @@ public class SysAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAdmin;
+    private javax.swing.JLabel lblBackBtn;
     private javax.swing.JLabel lblDog;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblLogout;

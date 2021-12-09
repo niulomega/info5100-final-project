@@ -6,6 +6,7 @@
 package UserInterface.SystemAdminWorkArea;
 
 import ReliefSystem.Ecosystem;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -48,6 +49,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -136,10 +138,26 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         btnDelete.setText("DELETE");
         btnDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
+
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 470, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnUpdate;

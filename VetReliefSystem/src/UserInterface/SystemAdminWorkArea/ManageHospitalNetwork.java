@@ -6,6 +6,7 @@
 package UserInterface.SystemAdminWorkArea;
 
 import ReliefSystem.Ecosystem;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +24,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
+
     public ManageHospitalNetwork(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -52,6 +54,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,10 +151,26 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         jButton2.setText("DELETE");
         jButton2.setBorder(new javax.swing.border.MatteBorder(null));
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, -1));
+
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnView;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

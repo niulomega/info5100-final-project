@@ -57,11 +57,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageHospital.setBackground(new java.awt.Color(0, 204, 204));
-        manageHospital.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageHospitalMousePressed(evt);
-            }
-        });
 
         lblHospNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital-icon.jpg"))); // NOI18N
 
@@ -72,11 +67,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         txtHospitalNetwork.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtHospitalNetworkMousePressed(evt);
-            }
-        });
-        txtHospitalNetwork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHospitalNetworkActionPerformed(evt);
             }
         });
 
@@ -103,11 +93,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
 
         manageSponsors.setBackground(new java.awt.Color(0, 204, 204));
-        manageSponsors.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageSponsorsMousePressed(evt);
-            }
-        });
+
 
         txtManageSponsors.setBackground(new java.awt.Color(0, 204, 204));
         txtManageSponsors.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -143,11 +129,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageSponsors, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, -1));
 
         manageVet.setBackground(new java.awt.Color(0, 204, 204));
-        manageVet.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageVetMousePressed(evt);
-            }
-        });
+        
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet_owner.png"))); // NOI18N
 
@@ -160,11 +142,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 txtManagePetVolunteerMousePressed(evt);
             }
         });
-        txtManagePetVolunteer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtManagePetVolunteerActionPerformed(evt);
-            }
-        });
+        
 
         javax.swing.GroupLayout manageVetLayout = new javax.swing.GroupLayout(manageVet);
         manageVet.setLayout(manageVetLayout);
@@ -189,11 +167,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
         manageHealthCamp.setBackground(new java.awt.Color(0, 204, 204));
-        manageHealthCamp.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageHealthCampMousePressed(evt);
-            }
-        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/health-camp.png"))); // NOI18N
 
@@ -230,11 +203,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageHealthCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
         manageFundRaisongAgency.setBackground(new java.awt.Color(0, 204, 204));
-        manageFundRaisongAgency.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageFundRaisongAgencyMousePressed(evt);
-            }
-        });
+        
 
         lblFundRaiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundraising.png"))); // NOI18N
 

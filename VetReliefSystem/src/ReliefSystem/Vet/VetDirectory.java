@@ -42,9 +42,9 @@ public class VetDirectory {
         return vet;
     }
 
-    public void updateVetlInfo(Vet vet, String name, String phoneNumber) {
+    public void updateVetlInfo(Vet vet, String name) {
         vet.setName(name);
-        vet.setNumber(phoneNumber);
+//        vet.setNumber(phoneNumber);
     }
 
     public void deleteVet(String username) {

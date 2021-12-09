@@ -12,6 +12,7 @@ import ReliefSystem.Vet.Vet;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ManageVet extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-//        populateVetTable();
+        populateVetTable();
     }
 
     /**
@@ -42,10 +43,10 @@ public class ManageVet extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblfundagency = new javax.swing.JTable();
+        tblVet = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         lblname = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
         lblusername = new javax.swing.JLabel();
@@ -59,7 +60,7 @@ public class ManageVet extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("MANAGE VET");
 
-        tblfundagency.setModel(new javax.swing.table.DefaultTableModel(
+        tblVet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -78,7 +79,7 @@ public class ManageVet extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblfundagency);
+        jScrollPane1.setViewportView(tblVet);
 
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
@@ -88,12 +89,12 @@ public class ManageVet extends javax.swing.JPanel {
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
         jButton2.setText("UPDATE");
 
-        jButton3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("DELETE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 153, 153));
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -133,9 +134,9 @@ public class ManageVet extends javax.swing.JPanel {
                         .addGap(19, 19, 19)
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
+                        .addGap(206, 206, 206)
                         .addComponent(btnadd)))
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(72, 72, 72)
@@ -162,7 +163,7 @@ public class ManageVet extends javax.swing.JPanel {
                                             .addGap(94, 94, 94)
                                             .addComponent(jButton2)))
                                     .addGap(18, 18, 18)
-                                    .addComponent(jButton3))))
+                                    .addComponent(btnDelete))))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(46, 46, 46)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -173,9 +174,9 @@ public class ManageVet extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
                 .addComponent(btnadd)
-                .addGap(40, 40, 40))
+                .addGap(49, 49, 49))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(28, 28, 28)
@@ -186,7 +187,7 @@ public class ManageVet extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
                         .addComponent(jButton2)
-                        .addComponent(jButton3))
+                        .addComponent(btnDelete))
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblname)
@@ -203,9 +204,26 @@ public class ManageVet extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+        int selectedRow = tblVet.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblVet.getValueAt(selectedRow, 1);
+                String pwd = (String) tblVet.getValueAt(selectedRow, 2);
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
+
+                system.getUserAccountDirectory().deleteUserAccount(user);
+                system.getHospitalDirectory().deleteHospital(user.getUsername());
+                populateVetTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -230,20 +248,32 @@ public class ManageVet extends javax.swing.JPanel {
 
 
     public void populateVetTable() {
-//        
+        DefaultTableModel tablemodel = (DefaultTableModel) tblVet.getModel();
+
+        tablemodel.setRowCount(0);
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+
+            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.VetRole")) {
+                Object[] row = new Object[3];
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                tablemodel.addRow(row);
+            }
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblusername;
-    private javax.swing.JTable tblfundagency;
+    private javax.swing.JTable tblVet;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtpass;
     private javax.swing.JTextField txtusername;

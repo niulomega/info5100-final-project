@@ -6,8 +6,15 @@
 package UserInterface.SystemAdminWorkArea;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.Hospital.Hospital;
+import ReliefSystem.PetVolunteer.PetVolunteer;
+import ReliefSystem.Role.HospitalAdminRole;
+import ReliefSystem.Role.PetVolunteerRole;
+import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,10 +27,13 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
+    private UserAccount user;
+
     public ManagePetVolunteer(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        populatePetVolunteerTable();
     }
 
     /**
@@ -36,7 +46,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblpetvol = new javax.swing.JTable();
+        tblPetVolunteer = new javax.swing.JTable();
         lblPetVolunteer = new javax.swing.JLabel();
         lblPetVolunteerImg = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
@@ -44,7 +54,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         lblUserName = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         btnSubmit = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
@@ -54,8 +64,8 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblpetvol.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        tblpetvol.setModel(new javax.swing.table.DefaultTableModel(
+        tblPetVolunteer.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        tblPetVolunteer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -74,7 +84,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblpetvol);
+        jScrollPane1.setViewportView(tblPetVolunteer);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 409, 100));
 
@@ -112,31 +122,51 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         txtName.setForeground(new java.awt.Color(0, 153, 153));
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 190, 30));
 
-        jPasswordField1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(0, 153, 153));
-        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 190, 30));
+        txtPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(0, 153, 153));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 190, 30));
 
         btnSubmit.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(0, 153, 153));
         btnSubmit.setText("SUBMIT");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
         add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 470, 90, -1));
 
         btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(0, 153, 153));
         btnUpdate.setText("UPDATE");
         btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
 
         btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btnView.setForeground(new java.awt.Color(0, 153, 153));
         btnView.setText("VIEW");
         btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
         add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 50, -1));
 
         btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(0, 153, 153));
         btnDelete.setText("DELETE");
         btnDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
 
         btnBack.setText("<< Back");
@@ -155,6 +185,86 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())) {
+            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new PetVolunteerRole());
+            PetVolunteer petVolunteer = system.getPetVolunteerDirectory().createUserAccount(txtUserName.getText());
+            populatePetVolunteerTable();
+            txtName.setText("");
+            txtUserName.setText("");
+            txtPassword.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblPetVolunteer.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblPetVolunteer.getValueAt(selectedRow, 1);
+                String pwd = (String) tblPetVolunteer.getValueAt(selectedRow, 2);
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
+
+                system.getUserAccountDirectory().deleteUserAccount(user);
+                system.getHospitalDirectory().deleteHospital(user.getUsername());
+                populatePetVolunteerTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        int selectRow = tblPetVolunteer.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblPetVolunteer.getValueAt(selectRow, 0);
+            String username = (String) tblPetVolunteer.getValueAt(selectRow, 1);
+            String password = (String) tblPetVolunteer.getValueAt(selectRow, 2);
+
+            txtName.setText(name + "");
+            txtUserName.setText(username + "");
+            txtPassword.setText(password + "");
+        }
+
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectRow = tblPetVolunteer.getSelectedRow();
+        String name = (String) tblPetVolunteer.getValueAt(selectRow, 0);
+        String username = (String) tblPetVolunteer.getValueAt(selectRow, 1);
+        String password = (String) tblPetVolunteer.getValueAt(selectRow, 2);
+        user = system.getUserAccountDirectory().authenticateUser(username, password);
+        system.getUserAccountDirectory().updateUserAccount(user, txtName.getText(), txtUserName.getText(), txtPassword.getText());
+        populatePetVolunteerTable();
+
+        txtName.setText("");
+        txtUserName.setText("");
+        txtPassword.setText("");
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    public void populatePetVolunteerTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblPetVolunteer.getModel();
+
+        tablemodel.setRowCount(0);
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+
+            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.PetVolunteerRole")) {
+                Object[] row = new Object[3];
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                tablemodel.addRow(row);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -162,15 +272,15 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPetVolunteer;
     private javax.swing.JLabel lblPetVolunteerImg;
     private javax.swing.JLabel lblUserName;
-    private javax.swing.JTable tblpetvol;
+    private javax.swing.JTable tblPetVolunteer;
     private javax.swing.JTextField txtName;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

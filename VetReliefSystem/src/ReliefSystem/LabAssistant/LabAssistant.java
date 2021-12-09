@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ReliefSystem.Vet;
+package ReliefSystem.LabAssistant;
 
 /**
  *
  * @author niulp
  */
-public class Vet {
-
+public class LabAssistant {
     private String name;
     private String username;
-//    private String number;
 
     public String getName() {
         return name;
@@ -30,16 +28,8 @@ public class Vet {
     public void setUsername(String username) {
         this.username = username;
     }
-
-//    public String getNumber() {
-//        return number;
-//    }
-//
-//    public void setNumber(String number) {
-//        this.number = number;
-//    }
     
-    public Vet(String name) {
+    public LabAssistant(String name) {
         this.name = name;
     }
     

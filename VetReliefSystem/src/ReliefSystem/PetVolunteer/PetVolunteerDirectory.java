@@ -19,20 +19,20 @@ public class PetVolunteerDirectory {
         petVolunteerDirectory = new ArrayList<PetVolunteer>();
     }
     
-    public ArrayList<PetVolunteer> getHospitalDirectory() {
+    public ArrayList<PetVolunteer> getPetVolunteerDirectory() {
         return petVolunteerDirectory;
     }
 
-    public void setHospitalDirectory(ArrayList<PetVolunteer> petVolunteerDirectory) {
+    public void setPetVolunteerDirectory(ArrayList<PetVolunteer> petVolunteerDirectory) {
         this.petVolunteerDirectory = petVolunteerDirectory;
     }
 
 
-    public PetVolunteer getHospital() {
+    public PetVolunteer getPetVolunteer() {
         return petVolunteer;
     }
 
-    public void setHospital(PetVolunteer petVolunteer) {
+    public void setPetVolunteer(PetVolunteer petVolunteer) {
         this.petVolunteer = petVolunteer;
     }
 
@@ -42,12 +42,12 @@ public class PetVolunteerDirectory {
         return petVolunteer;
     }
 
-    public void updatePetVolunteerInfo(PetVolunteer petVolunteer, String name, String phoneNumber, String address) {
+    public void updatePetVolunteerInfo(PetVolunteer petVolunteer, String name, String petType) {
         petVolunteer.setName(name);
-        petVolunteer.setPetType(address);
+        petVolunteer.setPetType(petType);
     }
 
-    public void deleteHospital(String username) {
+    public void deletePetVolunteer(String username) {
         for (int i = 0; i < petVolunteerDirectory.size(); i++) {
             if (petVolunteerDirectory.get(i).getUsername() == username) {
                 petVolunteerDirectory.remove(i);

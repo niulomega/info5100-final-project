@@ -9,6 +9,7 @@ import ReliefSystem.DB4oUtil.DB4OUtil;
 import ReliefSystem.Ecosystem;
 import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.time.Duration;
 import javax.swing.JPanel;
 
 /**
@@ -40,48 +41,72 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         ControlPanel = new javax.swing.JPanel();
-        lblusername = new javax.swing.JLabel();
-        lblpassword = new javax.swing.JLabel();
         txtusername = new javax.swing.JTextField();
         txtpassword = new javax.swing.JTextField();
         btnlogin = new javax.swing.JButton();
         btnlogout = new javax.swing.JButton();
+        lblPassword = new javax.swing.JLabel();
+        lblUserName1 = new javax.swing.JLabel();
+        lblSysAdminImg = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
+        lblDogImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
 
         ControlPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ControlPanel.setMinimumSize(new java.awt.Dimension(350, 273));
         ControlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblusername.setText("Username");
-        ControlPanel.add(lblusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 50, -1));
+        txtusername.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        txtusername.setForeground(new java.awt.Color(0, 153, 153));
+        txtusername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
+        ControlPanel.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 140, 30));
 
-        lblpassword.setText("Password");
-        ControlPanel.add(lblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 60, -1));
-        ControlPanel.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, -1));
-        ControlPanel.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 70, -1));
+        txtpassword.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        txtpassword.setForeground(new java.awt.Color(0, 153, 153));
+        txtpassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
+        ControlPanel.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 140, 30));
 
-        btnlogin.setText("Login");
+        btnlogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnlogin.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btnlogin.setForeground(new java.awt.Color(0, 153, 153));
+        btnlogin.setText("LOGIN");
+        btnlogin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloginActionPerformed(evt);
             }
         });
-        ControlPanel.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        ControlPanel.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 90, -1));
 
-        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtn.png"))); // NOI18N
+        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.png"))); // NOI18N
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnlogoutActionPerformed(evt);
             }
         });
-        ControlPanel.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 30));
+        ControlPanel.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
+
+        lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/key_resized.jpg"))); // NOI18N
+        ControlPanel.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 50, 30));
+
+        lblUserName1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user-profile-icon-free-vector.jpg"))); // NOI18N
+        ControlPanel.add(lblUserName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 50, 30));
+
+        lblSysAdminImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\adminlogo.jfif")); // NOI18N
+        lblSysAdminImg.setText("jLabel2");
+        ControlPanel.add(lblSysAdminImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, 190));
 
         jSplitPane1.setLeftComponent(ControlPanel);
 
         container.setBackground(new java.awt.Color(255, 255, 255));
         container.setLayout(new java.awt.CardLayout());
+
+        lblDogImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\Sysadmin.png")); // NOI18N
+        container.add(lblDogImg, "card2");
+
         jSplitPane1.setRightComponent(container);
 
         getContentPane().add(jSplitPane1, "card2");
@@ -145,11 +170,29 @@ public class MainJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        StartScreen screen = new StartScreen();
+        screen.setVisible(true);
+        try{
+        for (int row = 0; row <=100; row++) {
+                Thread.sleep(10);
+                screen.loadingNumber.setText(Integer.toString(row)+"%");
+                screen.loadingprogressBar.setValue(row);
+                if (row == 100) {
+                screen.setVisible(false);
+                java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame().setVisible(true);
             }
         });
+                }
+        }
+        }catch (Exception e){};
+        
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new MainJFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -158,8 +201,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnlogout;
     private javax.swing.JPanel container;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JLabel lblpassword;
-    private javax.swing.JLabel lblusername;
+    private javax.swing.JLabel lblDogImg;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblSysAdminImg;
+    private javax.swing.JLabel lblUserName1;
     private javax.swing.JTextField txtpassword;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables

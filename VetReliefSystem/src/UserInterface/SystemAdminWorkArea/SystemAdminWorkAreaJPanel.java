@@ -41,8 +41,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblHospNetwork = new javax.swing.JLabel();
         txtHospitalNetwork = new javax.swing.JTextField();
         manageSponsors = new javax.swing.JPanel();
-        lblSponsors = new javax.swing.JLabel();
         txtManageSponsors = new javax.swing.JTextField();
+        lblSponsor = new javax.swing.JLabel();
         manageVet = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtManagePetVolunteer = new javax.swing.JTextField();
@@ -57,6 +57,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageHospital.setBackground(new java.awt.Color(0, 204, 204));
+        manageHospital.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageHospitalMousePressed(evt);
+            }
+        });
 
         lblHospNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital-icon.jpg"))); // NOI18N
 
@@ -67,6 +72,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         txtHospitalNetwork.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtHospitalNetworkMousePressed(evt);
+            }
+        });
+        txtHospitalNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHospitalNetworkActionPerformed(evt);
             }
         });
 
@@ -93,7 +103,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
 
         manageSponsors.setBackground(new java.awt.Color(0, 204, 204));
-
+        manageSponsors.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageSponsorsMousePressed(evt);
+            }
+        });
 
         txtManageSponsors.setBackground(new java.awt.Color(0, 204, 204));
         txtManageSponsors.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -106,30 +120,36 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblSponsor.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\sponsor.PNG")); // NOI18N
+
         javax.swing.GroupLayout manageSponsorsLayout = new javax.swing.GroupLayout(manageSponsors);
         manageSponsors.setLayout(manageSponsorsLayout);
         manageSponsorsLayout.setHorizontalGroup(
             manageSponsorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageSponsorsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSponsors, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
+                .addComponent(lblSponsor, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtManageSponsors, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         manageSponsorsLayout.setVerticalGroup(
             manageSponsorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblSponsors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageSponsorsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtManageSponsors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addComponent(lblSponsor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         sidePane.add(manageSponsors, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, -1));
 
         manageVet.setBackground(new java.awt.Color(0, 204, 204));
-        
+        manageVet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageVetMousePressed(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet_owner.png"))); // NOI18N
 
@@ -142,7 +162,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 txtManagePetVolunteerMousePressed(evt);
             }
         });
-        
+        txtManagePetVolunteer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtManagePetVolunteerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout manageVetLayout = new javax.swing.GroupLayout(manageVet);
         manageVet.setLayout(manageVetLayout);
@@ -167,6 +191,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
         manageHealthCamp.setBackground(new java.awt.Color(0, 204, 204));
+        manageHealthCamp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageHealthCampMousePressed(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/health-camp.png"))); // NOI18N
 
@@ -203,7 +232,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageHealthCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
         manageFundRaisongAgency.setBackground(new java.awt.Color(0, 204, 204));
-        
+        manageFundRaisongAgency.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageFundRaisongAgencyMousePressed(evt);
+            }
+        });
 
         lblFundRaiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundraising.png"))); // NOI18N
 
@@ -311,7 +344,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblFundRaiser;
     private javax.swing.JLabel lblHospNetwork;
-    private javax.swing.JLabel lblSponsors;
+    private javax.swing.JLabel lblSponsor;
     private javax.swing.JPanel manageFundRaisongAgency;
     private javax.swing.JPanel manageHealthCamp;
     private javax.swing.JPanel manageHospital;

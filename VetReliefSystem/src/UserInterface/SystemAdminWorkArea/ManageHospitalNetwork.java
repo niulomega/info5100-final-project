@@ -6,10 +6,13 @@
 package UserInterface.SystemAdminWorkArea;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.Hospital.Hospital;
+import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -47,7 +50,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         lblPassword = new javax.swing.JLabel();
         lblName1 = new javax.swing.JLabel();
         lblName2 = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         lblUserName1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
@@ -55,6 +58,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnAddHospital = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -115,9 +119,9 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         lblName2.setText("Name");
         add(lblName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, 24));
 
-        txtUserName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtUserName.setForeground(new java.awt.Color(0, 153, 153));
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 180, 20));
+        txtName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(0, 153, 153));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 180, 20));
 
         lblUserName1.setBackground(new java.awt.Color(0, 153, 153));
         lblUserName1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -159,6 +163,14 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, -1, -1));
+
+        btnAddHospital.setText("Add");
+        btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddHospitalActionPerformed(evt);
+            }
+        });
+        add(btnAddHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 520, 70, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -168,8 +180,23 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
+        // TODO add your handling code here:
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())) {
+//                UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUsername.getText(), txtPassword.getText(), null, new AdminRole());
+//                Hospital hospital = system.getRestaurantDirectory().createUserAccount(txtUsernameManageRestaurants.getText());
+//                populateRestaurantTable();
+                txtName.setText("");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Username is not unique");
+            }
+    }//GEN-LAST:event_btnAddHospitalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnView;
     private javax.swing.JButton jButton1;
@@ -182,8 +209,8 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUserName1;
     private javax.swing.JTable tblUsername;
+    private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

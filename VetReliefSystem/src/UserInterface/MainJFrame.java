@@ -52,15 +52,16 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.CardLayout());
 
         ControlPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ControlPanel.setMinimumSize(new java.awt.Dimension(200, 213));
         ControlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblusername.setText("Username");
-        ControlPanel.add(lblusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 50, -1));
+        ControlPanel.add(lblusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 50, -1));
 
         lblpassword.setText("Password");
-        ControlPanel.add(lblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 60, -1));
-        ControlPanel.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, -1));
-        ControlPanel.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 70, -1));
+        ControlPanel.add(lblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 60, -1));
+        ControlPanel.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 70, -1));
+        ControlPanel.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 70, -1));
 
         btnlogin.setText("Login");
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +69,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 btnloginActionPerformed(evt);
             }
         });
-        ControlPanel.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        ControlPanel.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtn.png"))); // NOI18N
         btnlogout.addActionListener(new java.awt.event.ActionListener() {

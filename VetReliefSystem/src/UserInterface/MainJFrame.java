@@ -5,6 +5,12 @@
  */
 package UserInterface;
 
+import ReliefSystem.DB4oUtil.DB4OUtil;
+import ReliefSystem.Ecosystem;
+import ReliefSystem.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +20,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    private Ecosystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+
     public MainJFrame() {
         initComponents();
+        system = dB4OUtil.retrieveSystem();
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -35,7 +46,7 @@ public class MainJFrame extends javax.swing.JFrame {
         txtpassword = new javax.swing.JTextField();
         btnlogin = new javax.swing.JButton();
         btnlogout = new javax.swing.JButton();
-        DisplayPanel = new javax.swing.JPanel();
+        container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -52,32 +63,59 @@ public class MainJFrame extends javax.swing.JFrame {
         ControlPanel.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 70, -1));
 
         btnlogin.setText("Login");
+        btnlogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnloginActionPerformed(evt);
+            }
+        });
         ControlPanel.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtn.png"))); // NOI18N
+        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlogoutActionPerformed(evt);
+            }
+        });
         ControlPanel.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 30));
 
         jSplitPane1.setLeftComponent(ControlPanel);
 
-        DisplayPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout DisplayPanelLayout = new javax.swing.GroupLayout(DisplayPanel);
-        DisplayPanel.setLayout(DisplayPanelLayout);
-        DisplayPanelLayout.setHorizontalGroup(
-            DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 293, Short.MAX_VALUE)
-        );
-        DisplayPanelLayout.setVerticalGroup(
-            DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(DisplayPanel);
+        container.setBackground(new java.awt.Color(255, 255, 255));
+        container.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(container);
 
         getContentPane().add(jSplitPane1, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
+        // TODO add your handling code here:
+        UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(txtusername.getText(), txtpassword.getText());
+        
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
+        crdLyt.next(container);
+        btnlogout.setEnabled(true);
+    }//GEN-LAST:event_btnloginActionPerformed
+
+    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+        // TODO add your handling code here:
+        btnlogout.setEnabled(false);
+        txtusername.setEnabled(true);
+        txtpassword.setEnabled(true);
+        btnlogin.setEnabled(true);
+
+        txtusername.setText("");
+        txtpassword.setText("");
+
+        container.removeAll();
+        JPanel blankJP = new JPanel();
+        container.add("blank", blankJP);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(system);
+    }//GEN-LAST:event_btnlogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,9 +154,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ControlPanel;
-    private javax.swing.JPanel DisplayPanel;
     private javax.swing.JButton btnlogin;
     private javax.swing.JButton btnlogout;
+    private javax.swing.JPanel container;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblusername;

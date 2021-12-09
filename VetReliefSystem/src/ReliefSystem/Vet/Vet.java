@@ -3,25 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ReliefSystem.Hospital;
+package ReliefSystem.Vet;
 
 /**
  *
  * @author niulp
  */
-public class Hospital {
+public class Vet {
+
     private String name;
     private String username;
-    private String address;
     private String number;
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
 
     public String getName() {
         return name;
@@ -39,15 +31,15 @@ public class Hospital {
         this.username = username;
     }
 
-    public String getAddress() {
-        return address;
+    public String getNumber() {
+        return number;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setNumber(String number) {
+        this.number = number;
     }
     
-    public Hospital(String name) {
+    public Vet(String name) {
         this.name = name;
     }
     

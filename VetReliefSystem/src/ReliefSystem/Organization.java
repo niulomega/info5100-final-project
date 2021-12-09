@@ -5,6 +5,7 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.Hospital.HospitalDirectory;
 import ReliefSystem.Person.PersonDirectory;
 import ReliefSystem.Role.Role;
 import ReliefSystem.UserAccount.UserAccountDirectory;
@@ -19,6 +20,7 @@ public abstract class Organization {
     private String name;
     private PersonDirectory personDirectory;
     private UserAccountDirectory userAccountDirectory;
+    private HospitalDirectory hospitalDirectory;
     private int organizationID;
     private static int counter = 0;
 
@@ -51,13 +53,14 @@ public abstract class Organization {
         this.name = name;
         personDirectory = new PersonDirectory();
         userAccountDirectory = new UserAccountDirectory();
+        hospitalDirectory = new HospitalDirectory();
         organizationID = counter;
         ++counter;
     }
 
-//    public Organization() {
-//
-//    }
+    public Organization() {
+
+    }
 
     public abstract ArrayList<Role> getSupportedRole();
 

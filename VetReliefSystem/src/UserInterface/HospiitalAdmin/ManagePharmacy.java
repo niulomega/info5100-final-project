@@ -5,6 +5,10 @@
  */
 package UserInterface.HospiitalAdmin;
 
+import ReliefSystem.Ecosystem;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +18,13 @@ public class ManagePharmacy extends javax.swing.JPanel {
     /**
      * Creates new form ManagePharmacy
      */
-    public ManagePharmacy() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+
+    public ManagePharmacy(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
     }
 
     /**
@@ -185,9 +194,9 @@ public class ManagePharmacy extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        //        userProcessContainer.remove(this);
-        //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        //        layout.previous(userProcessContainer);
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

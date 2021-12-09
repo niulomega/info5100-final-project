@@ -5,6 +5,14 @@
  */
 package UserInterface.HospiitalAdmin;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.Role.VetRole;
+import ReliefSystem.UserAccount.UserAccount;
+import ReliefSystem.Vet.Vet;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +22,13 @@ public class ManageVet extends javax.swing.JPanel {
     /**
      * Creates new form ManageVet
      */
-    public ManageVet() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    public ManageVet(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+//        populateVetTable();
     }
 
     /**
@@ -104,6 +117,11 @@ public class ManageVet extends javax.swing.JPanel {
         });
 
         btnadd.setText("Add");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -191,12 +209,29 @@ public class ManageVet extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-//        userProcessContainer.remove(this);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.previous(userProcessContainer);
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        // TODO add your handling code here:
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
+            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(), txtusername.getText(), txtpass.getText(), null, new VetRole());
+            Vet vet = system.getVetDirectory().createUserAccount(txtusername.getText());
+            populateVetTable();
+            txtname.setText("");
+            txtusername.setText("");
+            txtpass.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
+    }//GEN-LAST:event_btnaddActionPerformed
 
+
+    public void populateVetTable() {
+//        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnadd;

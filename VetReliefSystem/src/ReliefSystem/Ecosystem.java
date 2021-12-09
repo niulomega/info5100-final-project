@@ -5,8 +5,10 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.Hospital.HospitalDirectory;
 import ReliefSystem.Role.Role;
 import ReliefSystem.Role.SystemAdminRole;
+import ReliefSystem.Vet.VetDirectory;
 import java.util.ArrayList;
 
 /**
@@ -15,11 +17,12 @@ import java.util.ArrayList;
  */
 public class Ecosystem extends Organization{
     private static Ecosystem ReliefSystem;
+    private HospitalDirectory hospitalDirectory;
+    private VetDirectory vetDirectory;
     
-    
-//    public Ecosystem() {
-//        
-//    }
+    public Ecosystem(HospitalDirectory hospitalDirectory, VetDirectory vetDirectory) {
+        this.hospitalDirectory = hospitalDirectory; 
+    }
     public static Ecosystem getInstance() {
         if (ReliefSystem == null) {
             ReliefSystem = new Ecosystem();
@@ -48,5 +51,17 @@ public class Ecosystem extends Organization{
         //
         return false;
     }
+    public HospitalDirectory getHospitalDirectory() {
+        if (hospitalDirectory == null) {
+            hospitalDirectory = new HospitalDirectory();
+        }
+        return hospitalDirectory;
+    }
     
+    public VetDirectory getVetDirectory() {
+        if (vetDirectory == null) {
+            vetDirectory = new VetDirectory();
+        }
+        return vetDirectory;
+    }
 }

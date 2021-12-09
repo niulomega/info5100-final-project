@@ -7,6 +7,7 @@ package UserInterface.SystemAdminWorkArea;
 
 import ReliefSystem.Ecosystem;
 import ReliefSystem.Hospital.Hospital;
+import ReliefSystem.Role.HospitalAdminRole;
 import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -15,6 +16,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,11 +29,13 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
+    private UserAccount user;
 
     public ManageHospitalNetwork(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        populateHospitalTable();
     }
 
     /**
@@ -46,7 +50,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         lblHospitalNetwork = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblUsername = new javax.swing.JTable();
+        tblHospital = new javax.swing.JTable();
         lblPassword = new javax.swing.JLabel();
         lblName1 = new javax.swing.JLabel();
         lblName2 = new javax.swing.JLabel();
@@ -54,11 +58,11 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         lblUserName1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        btnView = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnUpdateHospital = new javax.swing.JButton();
+        btnDeleteHospital = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnAddHospital = new javax.swing.JButton();
+        btnSaveUpdatedHospital = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,9 +77,9 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         jLabel1.setText("MANAGE HOSPITAL NETWORK");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 370, 87));
 
-        tblUsername.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        tblUsername.setForeground(new java.awt.Color(0, 153, 153));
-        tblUsername.setModel(new javax.swing.table.DefaultTableModel(
+        tblHospital.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        tblHospital.setForeground(new java.awt.Color(0, 153, 153));
+        tblHospital.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -94,7 +98,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblUsername);
+        jScrollPane1.setViewportView(tblHospital);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, 91));
 
@@ -138,23 +142,27 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         txtPassword.setForeground(new java.awt.Color(0, 153, 153));
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 180, 30));
 
-        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnView.setForeground(new java.awt.Color(0, 153, 153));
-        btnView.setText("VIEW");
-        btnView.setBorder(new javax.swing.border.MatteBorder(null));
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 70, -1));
+        btnUpdateHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnUpdateHospital.setForeground(new java.awt.Color(0, 153, 153));
+        btnUpdateHospital.setText("UPDATE");
+        btnUpdateHospital.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateHospitalActionPerformed(evt);
+            }
+        });
+        add(btnUpdateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("UPDATE");
-        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
-
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("DELETE");
-        jButton2.setBorder(new javax.swing.border.MatteBorder(null));
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, -1));
+        btnDeleteHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnDeleteHospital.setForeground(new java.awt.Color(0, 153, 153));
+        btnDeleteHospital.setText("DELETE");
+        btnDeleteHospital.setBorder(new javax.swing.border.MatteBorder(null));
+        btnDeleteHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteHospitalActionPerformed(evt);
+            }
+        });
+        add(btnDeleteHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, -1));
 
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +179,14 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
             }
         });
         add(btnAddHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 520, 70, -1));
+
+        btnSaveUpdatedHospital.setText("Save");
+        btnSaveUpdatedHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveUpdatedHospitalActionPerformed(evt);
+            }
+        });
+        add(btnSaveUpdatedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -183,24 +199,75 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
         // TODO add your handling code here:
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())) {
-//                UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUsername.getText(), txtPassword.getText(), null, new AdminRole());
-//                Hospital hospital = system.getRestaurantDirectory().createUserAccount(txtUsernameManageRestaurants.getText());
-//                populateRestaurantTable();
-                txtName.setText("");
-                txtUsername.setText("");
-                txtPassword.setText("");
-            } else {
-                JOptionPane.showMessageDialog(null, "Username is not unique");
-            }
+            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUsername.getText(), txtPassword.getText(), null, new HospitalAdminRole());
+            Hospital hospital = system.getHospitalDirectory().createUserAccount(txtUsername.getText());
+            populateHospitalTable();
+            txtName.setText("");
+            txtUsername.setText("");
+            txtPassword.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
     }//GEN-LAST:event_btnAddHospitalActionPerformed
+
+    private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
+        // TODO add your handling code here:
+        int selectRow = tblHospital.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblHospital.getValueAt(selectRow, 0);
+            String username = (String) tblHospital.getValueAt(selectRow, 1);
+            String password = (String) tblHospital.getValueAt(selectRow, 2);
+            user = system.getUserAccountDirectory().authenticateUser(username, password);
+
+            txtName.setText(name + "");
+            txtUsername.setText(username + "");
+            txtPassword.setText(password + "");
+
+            JOptionPane.showMessageDialog(null, "Please press save button to save the profile after updating the text field");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to update a profile");
+        }
+    }//GEN-LAST:event_btnUpdateHospitalActionPerformed
+
+    private void btnSaveUpdatedHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveUpdatedHospitalActionPerformed
+        // TODO add your handling code here:
+        system.getUserAccountDirectory().updateUserAccount(user, txtName.getText(), txtUsername.getText(), txtPassword.getText());
+        populateHospitalTable();
+
+        txtName.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
+    }//GEN-LAST:event_btnSaveUpdatedHospitalActionPerformed
+
+    private void btnDeleteHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteHospitalActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblHospital.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblHospital.getValueAt(selectedRow, 1);
+                String pwd = (String) tblHospital.getValueAt(selectedRow, 2);
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
+
+                system.getUserAccountDirectory().deleteUserAccount(user);
+                system.getHospitalDirectory().deleteHospital(user.getUsername());
+                populateHospitalTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+        }
+    }//GEN-LAST:event_btnDeleteHospitalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnView;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnDeleteHospital;
+    private javax.swing.JButton btnSaveUpdatedHospital;
+    private javax.swing.JButton btnUpdateHospital;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHospitalNetwork;
@@ -208,9 +275,25 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     private javax.swing.JLabel lblName2;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUserName1;
-    private javax.swing.JTable tblUsername;
+    private javax.swing.JTable tblHospital;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    private void populateHospitalTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblHospital.getModel();
+
+        tablemodel.setRowCount(0);
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+
+            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.HospitalAdminRole")) {
+                Object[] row = new Object[3];
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                tablemodel.addRow(row);
+            }
+        }
+    }
 }

@@ -3,25 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ReliefSystem.Hospital;
+package ReliefSystem.PetVolunteer;
 
 /**
  *
  * @author niulp
  */
-public class Hospital {
+public class PetVolunteer {
+
     private String name;
     private String username;
-    private String address;
-    private String number;
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
+    private String petType;
 
     public String getName() {
         return name;
@@ -39,18 +31,18 @@ public class Hospital {
         this.username = username;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPetType() {
+        return petType;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPetType(String petType) {
+        this.petType = petType;
     }
-    
-    public Hospital(String name) {
+
+    public PetVolunteer(String username) {
         this.name = name;
     }
-    
+
     @Override
     public String toString() {
         return name;

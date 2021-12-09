@@ -5,6 +5,9 @@
  */
 package UserInterface.SystemAdminWorkArea;
 
+import ReliefSystem.Ecosystem;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +17,12 @@ public class ManageFundAgency extends javax.swing.JPanel {
     /**
      * Creates new form ManageFundAgency
      */
-    public ManageFundAgency() {
+    JPanel userProcessContainter;
+    Ecosystem system;
+    public ManageFundAgency(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
+        this.userProcessContainter = userProcessContainer;
+        this.system = system;
     }
 
     /**

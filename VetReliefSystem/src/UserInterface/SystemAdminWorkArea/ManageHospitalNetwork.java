@@ -5,9 +5,11 @@
  */
 package UserInterface.SystemAdminWorkArea;
 
+import ReliefSystem.Ecosystem;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
@@ -19,8 +21,12 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     /**
      * Creates new form ManageHospitalNetwork
      */
-    public ManageHospitalNetwork() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    public ManageHospitalNetwork(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
     }
 
     /**

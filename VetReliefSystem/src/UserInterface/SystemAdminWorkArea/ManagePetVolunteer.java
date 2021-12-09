@@ -5,6 +5,9 @@
  */
 package UserInterface.SystemAdminWorkArea;
 
+import ReliefSystem.Ecosystem;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +17,12 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     /**
      * Creates new form ManagePetVolunteer
      */
-    public ManagePetVolunteer() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    public ManagePetVolunteer(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
     }
 
     /**

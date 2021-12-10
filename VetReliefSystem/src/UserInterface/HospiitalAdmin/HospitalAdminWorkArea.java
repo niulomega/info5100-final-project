@@ -38,7 +38,6 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
-        sidepane.setBackground(new java.awt.Color(0, 153, 153));
         sidepane.setForeground(new java.awt.Color(0, 153, 153));
         sidepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -91,7 +90,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
         ManageDriver.setBackground(new java.awt.Color(0, 255, 255));
 
-        jLabel3.setText("Manage Driver");
+        jLabel3.setText("ManageDriver");
 
         javax.swing.GroupLayout ManageDriverLayout = new javax.swing.GroupLayout(ManageDriver);
         ManageDriver.setLayout(ManageDriverLayout);

@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package UserInterface.PetVolunteer;
-
+import ReliefSystem.Ecosystem;
+import ReliefSystem.HealthCamp.HealthCampDirectory;
+import ReliefSystem.UserAccount.UserAccount;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author 18578
@@ -14,8 +18,31 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
     /**
      * Creates new form RegisterHealthCamp
      */
-    public RegisterHealthCamp() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    private HealthCampDirectory healthCampDirectory;
+    public RegisterHealthCamp(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.healthCampDirectory = healthCampDirectory;
+        populateHealthCampTable();
+    }
+    
+    public void populateHealthCampTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblHealthCamp.getModel();
+
+        tablemodel.setRowCount(0);
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+
+            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.HealthCampRole")) {
+                Object[] row = new Object[1];
+                row[0] = user.getName();
+//                row[1] = user.getUsername();
+//                row[2] = user.getPassword();
+                tablemodel.addRow(row);
+            }
+        }
     }
 
     /**
@@ -28,10 +55,10 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblHealthCamp = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblHealthCamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -50,7 +77,7 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblHealthCamp);
 
         jButton1.setText("Register");
 
@@ -83,6 +110,6 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblHealthCamp;
     // End of variables declaration//GEN-END:variables
 }

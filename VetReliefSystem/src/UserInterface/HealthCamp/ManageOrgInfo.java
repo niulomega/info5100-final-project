@@ -5,6 +5,11 @@
  */
 package UserInterface.HealthCamp;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.HealthCamp.HealthCamp;
+import ReliefSystem.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +19,14 @@ public class ManageOrgInfo extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrgInfo
      */
-    public ManageOrgInfo() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    private UserAccount account;
+    public ManageOrgInfo(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.account = account;
     }
 
     /**
@@ -50,6 +61,11 @@ public class ManageOrgInfo extends javax.swing.JPanel {
         jLabel2.setText("ORGANISATION INFO ");
 
         btnsave.setText("Save");
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveActionPerformed(evt);
+            }
+        });
 
         btnupdate.setText("Update");
 
@@ -111,6 +127,23 @@ public class ManageOrgInfo extends javax.swing.JPanel {
                 .addContainerGap(123, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        // TODO add your handling code here:
+        for(HealthCamp healthCamp: system.getHealthCampDirectory().getHealthCampDirectory()){
+            if(healthCamp.getUsername().equals(account.getUsername())){
+                System.out.println("Updating");
+                system.getHealthCampDirectory().updateHealthCampInfo(healthCamp, txtorgowner.getText(), txtorgadd.getText(), txtphonenumber.getText(), txtorgname.getText());
+                System.out.println("Updated");
+            }
+        }
+
+        btnupdate.setEnabled(true);
+        txtorgname.setEnabled(false);
+        txtorgowner.setEnabled(false);
+        txtorgadd.setEnabled(false);
+        txtphonenumber.setEnabled(false);
+    }//GEN-LAST:event_btnsaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

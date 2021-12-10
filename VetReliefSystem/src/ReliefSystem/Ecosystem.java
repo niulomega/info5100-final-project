@@ -5,6 +5,7 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.HealthCamp.HealthCampDirectory;
 import ReliefSystem.Hospital.HospitalDirectory;
 import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
 import ReliefSystem.Role.Role;
@@ -21,11 +22,13 @@ public class Ecosystem extends Organization{
     private HospitalDirectory hospitalDirectory;
     private VetDirectory vetDirectory;
     private PetVolunteerDirectory petVolunteerDirectory;
+    private HealthCampDirectory healthCampDirectory;
     
-    public Ecosystem(HospitalDirectory hospitalDirectory, VetDirectory vetDirectory, PetVolunteerDirectory petVolunteerDirectory) {
+    public Ecosystem(HospitalDirectory hospitalDirectory, VetDirectory vetDirectory, PetVolunteerDirectory petVolunteerDirectory, HealthCampDirectory healthCampDirectory) {
         this.hospitalDirectory = hospitalDirectory;
         this.vetDirectory = vetDirectory;
         this.petVolunteerDirectory = petVolunteerDirectory;
+        this.healthCampDirectory = healthCampDirectory;
     }
     public static Ecosystem getInstance() {
         if (ReliefSystem == null) {
@@ -74,5 +77,12 @@ public class Ecosystem extends Organization{
             petVolunteerDirectory = new PetVolunteerDirectory();
         }
         return petVolunteerDirectory;
+    }
+    
+    public HealthCampDirectory getHealthCampDirectory() {
+        if (healthCampDirectory == null) {
+            healthCampDirectory = new HealthCampDirectory();
+        }
+        return healthCampDirectory;
     }
 }

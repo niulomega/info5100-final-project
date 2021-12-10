@@ -5,6 +5,12 @@
  */
 package UserInterface.HealthCamp;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.UserAccount.UserAccount;
+import UserInterface.HospiitalAdmin.ManageLabAssistant;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +20,15 @@ public class MainPageOrganiser extends javax.swing.JPanel {
     /**
      * Creates new form MainPageOrganiser
      */
-    public MainPageOrganiser() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    private UserAccount account;
+
+    public MainPageOrganiser(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.account = account;
     }
 
     /**
@@ -37,6 +50,11 @@ public class MainPageOrganiser extends javax.swing.JPanel {
         manageorginfo.setBackground(new java.awt.Color(0, 153, 153));
 
         lblmanageorginfo.setText("MANAGE ORGANISATION INFO");
+        lblmanageorginfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblmanageorginfoMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout manageorginfoLayout = new javax.swing.GroupLayout(manageorginfo);
         manageorginfo.setLayout(manageorginfoLayout);
@@ -117,6 +135,14 @@ public class MainPageOrganiser extends javax.swing.JPanel {
             .addComponent(backgroundpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblmanageorginfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageorginfoMousePressed
+        // TODO add your handling code here:
+        ManageOrgInfo manageOrgInfoJPanel = new ManageOrgInfo(userProcessContainer,account, system);
+        userProcessContainer.add("ManageOrgInfo", manageOrgInfoJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_lblmanageorginfoMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

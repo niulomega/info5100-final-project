@@ -6,18 +6,17 @@
 package ReliefSystem.Role;
 
 import ReliefSystem.Ecosystem;
-import UserInterface.PetVolunteer.PetVolunteer;
 import ReliefSystem.UserAccount.UserAccount;
-import UserInterface.HospiitalAdmin.HospitalAdminWorkArea;
+import UserInterface.HealthCamp.MainPageOrganiser;
 import javax.swing.JPanel;
 
 /**
  *
  * @author niulp
  */
-public class PetVolunteerRole extends Role{
-    @Override
+public class HealthCampRole extends Role {
+ @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
-        return new PetVolunteer(userProcessContainer, system);
-    }
+        return new MainPageOrganiser(userProcessContainer,account,  system);
+    }   
 }

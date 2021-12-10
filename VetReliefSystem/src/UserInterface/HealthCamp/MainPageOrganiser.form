@@ -98,6 +98,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="MANAGE ORGANISATION INFO"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblmanageorginfoMousePressed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

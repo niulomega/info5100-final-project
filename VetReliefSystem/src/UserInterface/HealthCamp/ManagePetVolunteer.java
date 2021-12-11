@@ -89,6 +89,10 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         comboxhealth = new javax.swing.JComboBox<>();
         lblhealthstatus = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        lblhospitalname = new javax.swing.JLabel();
+        txthospitalname = new javax.swing.JTextField();
+        lbldriver = new javax.swing.JLabel();
+        txtdriver = new javax.swing.JTextField();
 
         tblPetVolunteerHealthCamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,6 +119,10 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
 
         jButton1.setText("Register For Hospital ");
 
+        lblhospitalname.setText("Hospital Name");
+
+        lbldriver.setText("Driver");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,15 +140,19 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblpetowner)
-                                    .addComponent(lblhealthstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblhealthstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblhospitalname)
+                                    .addComponent(lbldriver, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(100, 100, 100)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(comboxhealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtpettype, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtpetowner, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtorgname, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtpettype, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(txtpetowner, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(txtorgname, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(txthospitalname)
+                                    .addComponent(txtdriver)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(264, 264, 264)
+                        .addGap(227, 227, 227)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
@@ -169,8 +181,16 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                     .addComponent(lblhealthstatus)
                     .addComponent(comboxhealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblhospitalname)
+                    .addComponent(txthospitalname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbldriver)
+                    .addComponent(txtdriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -179,11 +199,15 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboxhealth;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbldriver;
     private javax.swing.JLabel lblhealthstatus;
+    private javax.swing.JLabel lblhospitalname;
     private javax.swing.JLabel lblorgname;
     private javax.swing.JLabel lblpetowner;
     private javax.swing.JLabel lblpettype;
     private javax.swing.JTable tblPetVolunteerHealthCamp;
+    private javax.swing.JTextField txtdriver;
+    private javax.swing.JTextField txthospitalname;
     private javax.swing.JTextField txtorgname;
     private javax.swing.JTextField txtpetowner;
     private javax.swing.JTextField txtpettype;

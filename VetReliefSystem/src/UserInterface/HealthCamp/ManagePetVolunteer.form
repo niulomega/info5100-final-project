@@ -31,19 +31,23 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblpetowner" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblhealthstatus" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Component id="lblhospitalname" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbldriver" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="comboxhealth" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtpettype" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="txtpetowner" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="txtorgname" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="txtpettype" pref="85" max="32767" attributes="0"/>
+                                  <Component id="txtpetowner" pref="85" max="32767" attributes="0"/>
+                                  <Component id="txtorgname" alignment="0" pref="85" max="32767" attributes="0"/>
+                                  <Component id="txthospitalname" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtdriver" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="264" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -82,8 +86,18 @@
                   <Component id="comboxhealth" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblhospitalname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txthospitalname" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbldriver" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtdriver" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -174,6 +188,20 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Register For Hospital "/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblhospitalname">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hospital Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txthospitalname">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbldriver">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Driver"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtdriver">
     </Component>
   </SubComponents>
 </Form>

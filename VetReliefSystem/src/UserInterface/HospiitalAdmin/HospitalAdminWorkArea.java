@@ -46,6 +46,10 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         lblManageDriver = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblManagePharmacy = new javax.swing.JLabel();
+        ManageHospitalInfo = new javax.swing.JPanel();
+        lblmanagehospitalinfo = new javax.swing.JLabel();
+        ManagePet = new javax.swing.JPanel();
+        lblmanagepet = new javax.swing.JLabel();
 
         sidepane.setBackground(new java.awt.Color(0, 153, 153));
         sidepane.setForeground(new java.awt.Color(0, 153, 153));
@@ -164,6 +168,53 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
         sidepane.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 290, 50));
 
+        ManageHospitalInfo.setBackground(new java.awt.Color(0, 255, 255));
+
+        lblmanagehospitalinfo.setBackground(new java.awt.Color(0, 255, 255));
+        lblmanagehospitalinfo.setText("Manage Hospital Info");
+
+        javax.swing.GroupLayout ManageHospitalInfoLayout = new javax.swing.GroupLayout(ManageHospitalInfo);
+        ManageHospitalInfo.setLayout(ManageHospitalInfoLayout);
+        ManageHospitalInfoLayout.setHorizontalGroup(
+            ManageHospitalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageHospitalInfoLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(lblmanagehospitalinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+        ManageHospitalInfoLayout.setVerticalGroup(
+            ManageHospitalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageHospitalInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblmanagehospitalinfo, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        sidepane.add(ManageHospitalInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 290, 50));
+
+        ManagePet.setBackground(new java.awt.Color(0, 255, 255));
+
+        lblmanagepet.setText("Manage Pet ");
+
+        javax.swing.GroupLayout ManagePetLayout = new javax.swing.GroupLayout(ManagePet);
+        ManagePet.setLayout(ManagePetLayout);
+        ManagePetLayout.setHorizontalGroup(
+            ManagePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManagePetLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(lblmanagepet, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+        ManagePetLayout.setVerticalGroup(
+            ManagePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManagePetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblmanagepet, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        sidepane.add(ManagePet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 290, 50));
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -224,7 +275,9 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageDriver;
+    private javax.swing.JPanel ManageHospitalInfo;
     private javax.swing.JPanel ManageLabAssitant;
+    private javax.swing.JPanel ManagePet;
     private javax.swing.JPanel ManageVet;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JPanel jPanel1;
@@ -232,6 +285,8 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel lblManageLabAssistant;
     private javax.swing.JLabel lblManagePharmacy;
     private javax.swing.JLabel lblManageVet;
+    private javax.swing.JLabel lblmanagehospitalinfo;
+    private javax.swing.JLabel lblmanagepet;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
 }

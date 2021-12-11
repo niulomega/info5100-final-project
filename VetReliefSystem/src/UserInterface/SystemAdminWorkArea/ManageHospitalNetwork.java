@@ -200,7 +200,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())) {
             UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUsername.getText(), txtPassword.getText(), null, new HospitalAdminRole());
-            Hospital hospital = system.getHospitalDirectory().createUserAccount(txtUsername.getText());
+            Hospital hospital = system.getHospitalDirectory().createUserAccount(txtUsername.getText(), txtName.getText());
             populateHospitalTable();
             txtName.setText("");
             txtUsername.setText("");

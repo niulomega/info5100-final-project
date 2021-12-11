@@ -239,7 +239,7 @@ public class ManageVet extends javax.swing.JPanel {
             Vet vet = system.getVetDirectory().createUserAccount(txtusername.getText());
             populateVetTable();
             txtname.setText("");
-            txtusername.setText("");
+            txtusername.setText(""); 
             txtpass.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Username is not unique");

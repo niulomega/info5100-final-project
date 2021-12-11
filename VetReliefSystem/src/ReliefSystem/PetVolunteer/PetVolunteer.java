@@ -15,6 +15,42 @@ public class PetVolunteer {
     private String username;
     private String petType;
     private String healthCamp;
+    private String hospitalName;
+    private String driver;
+    private String vetName;
+    private String petStatus;
+
+    public String getPetStatus() {
+        return petStatus;
+    }
+
+    public void setPetStatus(String petStatus) {
+        this.petStatus = petStatus;
+    }
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public String getVetName() {
+        return vetName;
+    }
+
+    public void setVetName(String vetName) {
+        this.vetName = vetName;
+    }
 
     public String getHealthCamp() {
         return healthCamp;
@@ -51,7 +87,6 @@ public class PetVolunteer {
     public PetVolunteer(String username) {
         this.username = username;
     }
-    
 
     @Override
     public String toString() {

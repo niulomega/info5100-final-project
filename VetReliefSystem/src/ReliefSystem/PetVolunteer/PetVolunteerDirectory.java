@@ -49,6 +49,11 @@ public class PetVolunteerDirectory {
         petVolunteer.setPetType(petType);
         petVolunteer.setHealthCamp(healthCamp);
     }
+    
+    public void updatePetVolunteerHospitalInfo(PetVolunteer petVolunteer, String hospitalName, String driverName) {
+        petVolunteer.setDriver(driverName);
+        petVolunteer.setHospitalName(hospitalName);
+    }
 
     public void deletePetVolunteer(String username) {
         for (int i = 0; i < petVolunteerDirectory.size(); i++) {

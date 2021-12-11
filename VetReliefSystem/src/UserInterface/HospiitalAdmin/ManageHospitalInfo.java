@@ -5,6 +5,12 @@
  */
 package UserInterface.HospiitalAdmin;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.Hospital.Hospital;
+import ReliefSystem.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 18578
@@ -14,8 +20,31 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
     /**
      * Creates new form ManageHospitalInfo
      */
-    public ManageHospitalInfo() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    private UserAccount account;
+
+    public ManageHospitalInfo(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.account = account;
+        populateTextFields();
+    }
+
+    private void populateTextFields() {
+        for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
+            System.out.println("account username :" + account.getUsername());
+            if (hospital.getUsername().equals(account.getUsername())) {
+                txthospitaladmin.setText(hospital.getUsername());
+                System.out.println("Hospital name : " + hospital.getName());
+                txthospitalname.setText(hospital.getName());
+                txthospitaladdress.setText(hospital.getAddress());
+                txthospitalphone.setText(hospital.getNumber());
+                txtHospitalDriver.setText(hospital.getDriverName());
+                break;
+            }
+        }
     }
 
     /**
@@ -37,6 +66,8 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
         txthospitalphone = new javax.swing.JTextField();
         btnsave = new javax.swing.JButton();
         btnupdate = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtHospitalDriver = new javax.swing.JTextField();
 
         lblhospitaladmin.setText("Hospital Admin ");
 
@@ -47,33 +78,45 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
         lblhospitalphone.setText("Hospital Phone");
 
         btnsave.setText("Save");
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveActionPerformed(evt);
+            }
+        });
 
         btnupdate.setText("Update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Hospital driver");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnsave)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblhospitalphone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblhospitaladdress, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(lblhospitaladmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblhospitalname))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txthospitaladmin)
-                            .addComponent(txthospitalname)
-                            .addComponent(txthospitaladdress)
-                            .addComponent(txthospitalphone, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(btnsave)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnupdate)))
+                            .addComponent(lblhospitalname))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txthospitaladmin)
+                        .addComponent(txthospitalname)
+                        .addComponent(txthospitaladdress)
+                        .addComponent(txthospitalphone, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                        .addComponent(txtHospitalDriver, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
+                    .addComponent(btnupdate))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,20 +140,53 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
                     .addComponent(txthospitalphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHospitalDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnsave)
                     .addComponent(btnupdate))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        // TODO add your handling code here:
+
+        for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
+            if (hospital.getUsername().equals(account.getUsername())) {
+                system.getHospitalDirectory().updateHospitalInfo(hospital, txthospitalname.getText(), txthospitalphone.getText(), txthospitaladdress.getText(), txtHospitalDriver.getText());
+            }
+        }
+        btnupdate.setEnabled(true);
+        txthospitaladdress.setEnabled(false);
+        txthospitaladmin.setEnabled(false);
+        txthospitalname.setEnabled(false);
+        txthospitalphone.setEnabled(false);
+        txtHospitalDriver.setEnabled(false);
+        JOptionPane.showMessageDialog(this, "Hospital info saved sucessfully");
+    }//GEN-LAST:event_btnsaveActionPerformed
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        txthospitaladdress.setEnabled(true);
+        txthospitaladmin.setEnabled(true);
+        txthospitalname.setEnabled(true);
+        txthospitalphone.setEnabled(true);
+        txtHospitalDriver.setEnabled(true);
+        btnupdate.setEnabled(false);
+    }//GEN-LAST:event_btnupdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsave;
     private javax.swing.JButton btnupdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblhospitaladdress;
     private javax.swing.JLabel lblhospitaladmin;
     private javax.swing.JLabel lblhospitalname;
     private javax.swing.JLabel lblhospitalphone;
+    private javax.swing.JTextField txtHospitalDriver;
     private javax.swing.JTextField txthospitaladdress;
     private javax.swing.JTextField txthospitaladmin;
     private javax.swing.JTextField txthospitalname;

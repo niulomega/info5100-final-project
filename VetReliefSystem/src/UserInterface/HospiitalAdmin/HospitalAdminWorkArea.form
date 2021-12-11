@@ -273,6 +273,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Manage Hospital Info"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblmanagehospitalinfoMousePressed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -313,6 +316,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Manage Pet "/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblmanagepetMousePressed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -6,7 +6,11 @@
 package UserInterface.HospiitalAdmin;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.LabAssistant.LabAssistant;
+import ReliefSystem.Role.LabAssistantRole;
+import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -38,10 +42,10 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblfundagency = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        tblLabAssistant = new javax.swing.JTable();
+        btnView = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         lblname = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
         lblusername = new javax.swing.JLabel();
@@ -61,7 +65,7 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("MANAGE LAB ASSITANT ");
 
-        tblfundagency.setModel(new javax.swing.table.DefaultTableModel(
+        tblLabAssistant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -80,22 +84,22 @@ public class ManageLabAssistant extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblfundagency);
+        jScrollPane1.setViewportView(tblLabAssistant);
 
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("VIEW");
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 153, 153));
+        btnView.setText("VIEW");
 
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("UPDATE");
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setText("UPDATE");
 
-        jButton3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("DELETE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 153, 153));
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -112,6 +116,11 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         lblpassword.setText("Password");
 
         btnadd.setText("Add");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -140,14 +149,14 @@ public class ManageLabAssistant extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton1)
+                                                .addComponent(btnView)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(lblpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(132, 132, 132)))
                                         .addGap(36, 36, 36)
-                                        .addComponent(jButton3))))
+                                        .addComponent(btnDelete))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -170,9 +179,9 @@ public class ManageLabAssistant extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnView)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblname)
@@ -198,23 +207,58 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+         int selectedRow = tblLabAssistant.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblLabAssistant.getValueAt(selectedRow, 1);
+                String pwd = (String) tblLabAssistant.getValueAt(selectedRow, 2);
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
 
+                system.getUserAccountDirectory().deleteUserAccount(user);
+                system.getLabAssistantDirectory().deleteLabAssistant(user.getUsername());
+                populateLabAssistantTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        // TODO add your handling code here:
+                if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
+            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(), txtusername.getText(), txtpass.getText(), null, new LabAssistantRole());
+            LabAssistant labAssistant = system.getLabAssistantDirectory().createUserAccount(txtusername.getText());
+            populateLabAssistantTable();
+            txtname.setText("");
+            txtusername.setText("");
+            txtpass.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
+        
+    }//GEN-LAST:event_btnaddActionPerformed
+
+    
+    private void populateLabAssistantTable() {
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnView;
     private javax.swing.JButton btnadd;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblusername;
-    private javax.swing.JTable tblfundagency;
+    private javax.swing.JTable tblLabAssistant;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtpass;
     private javax.swing.JTextField txtusername;

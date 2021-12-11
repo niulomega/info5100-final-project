@@ -13,7 +13,43 @@ public class Vet {
 
     private String name;
     private String username;
+    private String petOwner;
+    private String petType;
+    private String healthCamp;
+    private String hospitalName;
 //    private String number;
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+    public String getPetOwner() {
+        return petOwner;
+    }
+
+    public void setPetOwner(String petOwner) {
+        this.petOwner = petOwner;
+    }
+
+    public String getPetType() {
+        return petType;
+    }
+
+    public void setPetType(String petType) {
+        this.petType = petType;
+    }
+
+    public String getHealthCamp() {
+        return healthCamp;
+    }
+
+    public void setHealthCamp(String healthCamp) {
+        this.healthCamp = healthCamp;
+    }
 
     public String getName() {
         return name;
@@ -39,8 +75,8 @@ public class Vet {
 //        this.number = number;
 //    }
     
-    public Vet(String name) {
-        this.name = name;
+    public Vet(String username) {
+        this.username = username;
     }
     
     @Override

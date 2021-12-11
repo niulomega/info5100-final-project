@@ -6,6 +6,7 @@
 package UserInterface.HospiitalAdmin;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.UserAccount.UserAccount;
 import UserInterface.SystemAdminWorkArea.ManagePetVolunteer;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -21,10 +22,12 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
-    public HospitalAdminWorkArea(JPanel userProcessContainer, Ecosystem system) {
+    private UserAccount account;
+    public HospitalAdminWorkArea(JPanel userProcessContainer,UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
     }
 
     /**
@@ -172,6 +175,11 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
         lblmanagehospitalinfo.setBackground(new java.awt.Color(0, 255, 255));
         lblmanagehospitalinfo.setText("Manage Hospital Info");
+        lblmanagehospitalinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblmanagehospitalinfoMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ManageHospitalInfoLayout = new javax.swing.GroupLayout(ManageHospitalInfo);
         ManageHospitalInfo.setLayout(ManageHospitalInfoLayout);
@@ -195,6 +203,11 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         ManagePet.setBackground(new java.awt.Color(0, 255, 255));
 
         lblmanagepet.setText("Manage Pet ");
+        lblmanagepet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblmanagepetMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ManagePetLayout = new javax.swing.GroupLayout(ManagePet);
         ManagePet.setLayout(ManagePetLayout);
@@ -271,6 +284,23 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_lblManagePharmacyMousePressed
+
+    private void lblmanagehospitalinfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanagehospitalinfoMousePressed
+        // TODO add your handling code here:
+        ManageHospitalInfo manageHospitalInfoJPanel = new ManageHospitalInfo(userProcessContainer,account, system);
+        userProcessContainer.add("ManageHospitalInfo", manageHospitalInfoJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_lblmanagehospitalinfoMousePressed
+
+    private void lblmanagepetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanagepetMousePressed
+        // TODO add your handling code here:
+        
+        ManagePetInfo managePetInfoJPanel = new ManagePetInfo(userProcessContainer,account, system);
+        userProcessContainer.add("ManagePetInfo", managePetInfoJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_lblmanagepetMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -42,9 +42,12 @@ public class VetDirectory {
         return vet;
     }
 
-    public void updateVetlInfo(Vet vet, String name) {
-        vet.setName(name);
-//        vet.setNumber(phoneNumber);
+    public void updateVetInfo(Vet vet, String petOwner, String petType, String healthCamp, String hospitalName) {
+//        vet.setName(name);
+        vet.setPetOwner(petOwner);
+        vet.setHealthCamp(healthCamp);
+        vet.setPetType(petType);
+        vet.setHospitalName(hospitalName);
     }
 
     public void deleteVet(String username) {
@@ -53,6 +56,5 @@ public class VetDirectory {
                 vetDirectory.remove(i);
             }
         }
-
     }
 }

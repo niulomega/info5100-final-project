@@ -43,11 +43,11 @@ public class LabAssistantDirectory {
         return labAssistant;
     }
 
-    public void updateHospitalInfo(LabAssistant labAssistant, String name) {
+    public void updateLabAssistantInfo(LabAssistant labAssistant, String name) {
         labAssistant.setName(name);
     }
 
-    public void deleteHospital(String username) {
+    public void deleteLabAssistant(String username) {
         for (int i = 0; i < labAssistantDirectory.size(); i++) {
             if (labAssistantDirectory.get(i).getUsername() == username) {
                 labAssistantDirectory.remove(i);

@@ -5,6 +5,11 @@
  */
 package UserInterface.HealthCamp;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.Hospital.Hospital;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 18578
@@ -14,10 +19,30 @@ public class ManageHealthCampHospital extends javax.swing.JPanel {
     /**
      * Creates new form ManageHealthCampHospital
      */
-    public ManageHealthCampHospital() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    public ManageHealthCampHospital(JPanel userProcessContainer,Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;  
+//        populateHospital();
     }
+        
+    public void populateHospital() {
+        
+        DefaultTableModel tablemodel = (DefaultTableModel) tblHospital.getModel();
+        tablemodel.setRowCount(0);
+       
+        for(Hospital hospital: system.getHospitalDirectory().getHospitalDirectory()) {
+            Object[] row = new Object[2];
+            row[0] = hospital;
+            row[1] = hospital.getName();
+//            row[2] = hospital.();
 
+            tablemodel.addRow(row);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,10 +53,10 @@ public class ManageHealthCampHospital extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblHospital = new javax.swing.JTable();
         btnselect = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblHospital.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -42,7 +67,7 @@ public class ManageHealthCampHospital extends javax.swing.JPanel {
                 "Hospital Name", "Driver"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblHospital);
 
         btnselect.setText("Select Hospital");
 
@@ -75,6 +100,6 @@ public class ManageHealthCampHospital extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnselect;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblHospital;
     // End of variables declaration//GEN-END:variables
 }

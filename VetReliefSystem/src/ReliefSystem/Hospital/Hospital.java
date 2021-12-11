@@ -10,10 +10,20 @@ package ReliefSystem.Hospital;
  * @author niulp
  */
 public class Hospital {
+
     private String name;
     private String username;
     private String address;
     private String number;
+    private String driverName;
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
 
     public String getNumber() {
         return number;
@@ -46,11 +56,12 @@ public class Hospital {
     public void setAddress(String address) {
         this.address = address;
     }
-    
-    public Hospital(String name) {
+
+    public Hospital(String username, String name) {
+        this.username = username;
         this.name = name;
     }
-    
+
     @Override
     public String toString() {
         return name;

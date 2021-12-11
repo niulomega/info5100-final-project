@@ -5,6 +5,14 @@
  */
 package UserInterface.HospiitalAdmin;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.PetVolunteer.PetVolunteer;
+import ReliefSystem.UserAccount.UserAccount;
+import ReliefSystem.Vet.Vet;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 18578
@@ -14,10 +22,35 @@ public class ManagePetInfo extends javax.swing.JPanel {
     /**
      * Creates new form ManagePetInfo
      */
-    public ManagePetInfo() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    private UserAccount account;
+    public ManagePetInfo(JPanel userProcessContainer,UserAccount account, Ecosystem system) {
         initComponents();
+        this.userProcessContainer= userProcessContainer;
+        this.system = system;
+        this.account = account;
+        populatePetInfo();
     }
 
+    public void populatePetInfo() {
+        
+        DefaultTableModel tablemodel = (DefaultTableModel) tblpetinfo.getModel();
+        tablemodel.setRowCount(0);
+        for (PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
+            if (petVolunteer.getHospitalName().equals(account.getName())) {
+                Object[] row = new Object[4];
+                row[0] = petVolunteer;
+                row[1] = petVolunteer.getName();
+//                row[2] = petVolunteer.getUsername();
+                row[2] = petVolunteer.getPetType();
+                row[3] = petVolunteer.getHealthCamp();
+                
+                tablemodel.addRow(row);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,25 +62,30 @@ public class ManagePetInfo extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblpetinfo = new javax.swing.JTable();
-        btnaddvet = new javax.swing.JButton();
+        btnAssignPetOwnerToVet = new javax.swing.JButton();
         btnaddfundraiser = new javax.swing.JButton();
         lblVet = new javax.swing.JLabel();
         txtvet = new javax.swing.JTextField();
 
         tblpetinfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "pet owner", "pet type", "Health Camp"
+                "pet username", "pet owner", "pet type", "Health Camp"
             }
         ));
         jScrollPane1.setViewportView(tblpetinfo);
 
-        btnaddvet.setText("Add vet");
+        btnAssignPetOwnerToVet.setText("Add vet");
+        btnAssignPetOwnerToVet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignPetOwnerToVetActionPerformed(evt);
+            }
+        });
 
         btnaddfundraiser.setText("Add Fundraiser");
 
@@ -66,7 +104,7 @@ public class ManagePetInfo extends javax.swing.JPanel {
                         .addGap(152, 152, 152)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnaddfundraiser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnaddvet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnAssignPetOwnerToVet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -86,17 +124,33 @@ public class ManagePetInfo extends javax.swing.JPanel {
                     .addComponent(lblVet)
                     .addComponent(txtvet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnaddvet)
+                .addComponent(btnAssignPetOwnerToVet)
                 .addGap(18, 18, 18)
                 .addComponent(btnaddfundraiser)
                 .addContainerGap(72, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAssignPetOwnerToVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignPetOwnerToVetActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblpetinfo.getSelectedRow();
+        PetVolunteer vetSelected = (PetVolunteer) tblpetinfo.getValueAt(selectedRow, 0);
+        String vetPetOwner = vetSelected.getName();
+        String vetPetType = vetSelected.getPetType();
+        String vetHealthCamp = vetSelected.getHealthCamp();
+        String vetHospitalName = vetSelected.getHospitalName();
+        for(Vet vet: system.getVetDirectory().getVetDirectory()) {
+            if(vet.getUsername().equals(txtvet.getText())){
+                system.getVetDirectory().updateVetInfo(vet, vetPetOwner, vetPetType, vetHealthCamp, vetHospitalName);
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Successfuly assigned vet");
+    }//GEN-LAST:event_btnAssignPetOwnerToVetActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssignPetOwnerToVet;
     private javax.swing.JButton btnaddfundraiser;
-    private javax.swing.JButton btnaddvet;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblVet;
     private javax.swing.JTable tblpetinfo;

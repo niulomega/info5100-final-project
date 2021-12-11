@@ -5,6 +5,16 @@
  */
 package UserInterface.HealthCamp;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.HealthCamp.HealthCamp;
+import ReliefSystem.HealthCamp.HealthCampDirectory;
+import ReliefSystem.PetVolunteer.PetVolunteer;
+import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
+import ReliefSystem.UserAccount.UserAccount;
+import java.util.List;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 18578
@@ -14,8 +24,49 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     /**
      * Creates new form ManagePetVolunteer
      */
-    public ManagePetVolunteer() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    UserAccount account;
+//    private ReliefSystem.PetVolunteer.PetVolunteerDirectory petVolunteerDirectory;
+
+    public ManagePetVolunteer(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.account = account;
+//        this.petVolunteerDirectory = petVolunteerDirectory;
+        populatePetVolunteerTable();
+    }
+
+    public void populatePetVolunteerTable() {
+        String healthCampName = null;
+        for (HealthCamp healthCamp : system.getHealthCampDirectory().getHealthCampDirectory()) {
+            if (healthCamp.getUsername().equals(account.getUsername())) {
+                healthCampName = healthCamp.getHealthCampName();
+//                for(PetVolunteer petVolunteer : healthCamp.getPetVolunteerList()) {
+//                    Object[] row = new Object[2];
+//                    row[0] = petVolunteer;
+//                    row[1] = petVolunteer.getPetType();
+//                }
+            }
+        }
+//        System.out.println("health camp name: " + healthCampName);
+
+        DefaultTableModel tablemodel = (DefaultTableModel) tblPetVolunteerHealthCamp.getModel();
+        tablemodel.setRowCount(0);
+
+        for (PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
+            System.out.println("Pet volunteer : " + petVolunteer.getUsername());
+            if (petVolunteer.getHealthCamp().equals(healthCampName)) {
+                System.out.println("Matched pet volunteers");
+                Object[] row = new Object[3];
+                row[0] = petVolunteer;
+                row[1] = petVolunteer.getPetType();
+                row[2] = petVolunteer.getHealthCamp();
+                
+                tablemodel.addRow(row);
+            }
+        }
     }
 
     /**
@@ -28,7 +79,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPetVolunteerHealthCamp = new javax.swing.JTable();
         lblpetowner = new javax.swing.JLabel();
         txtpetowner = new javax.swing.JTextField();
         lblpettype = new javax.swing.JLabel();
@@ -39,7 +90,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         lblhealthstatus = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPetVolunteerHealthCamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -50,7 +101,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                 "Pet Owner", "Pet Type", "org name"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblPetVolunteerHealthCamp);
 
         lblpetowner.setText("Pet Owner");
 
@@ -128,11 +179,11 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboxhealth;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblhealthstatus;
     private javax.swing.JLabel lblorgname;
     private javax.swing.JLabel lblpetowner;
     private javax.swing.JLabel lblpettype;
+    private javax.swing.JTable tblPetVolunteerHealthCamp;
     private javax.swing.JTextField txtorgname;
     private javax.swing.JTextField txtpetowner;
     private javax.swing.JTextField txtpettype;

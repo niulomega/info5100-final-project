@@ -75,6 +75,7 @@ public class Ecosystem extends Organization{
     public PetVolunteerDirectory getPetVolunteerDirectory() {
         if (petVolunteerDirectory == null) {
             petVolunteerDirectory = new PetVolunteerDirectory();
+            System.out.println("This should not show up");
         }
         return petVolunteerDirectory;
     }

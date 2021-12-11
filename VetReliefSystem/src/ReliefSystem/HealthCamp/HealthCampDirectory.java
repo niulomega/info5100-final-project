@@ -23,7 +23,7 @@ public class HealthCampDirectory {
         return healthCampDirectory;
     }
 
-    public void setHospitalDirectory(ArrayList<HealthCamp> hospitalDirectory) {
+    public void setHealthCampDirectory(ArrayList<HealthCamp> healthCampDirectory) {
         this.healthCampDirectory = healthCampDirectory;
     }
 
@@ -32,7 +32,7 @@ public class HealthCampDirectory {
         return healthCamp;
     }
 
-    public void setHospital(HealthCamp healthCamp) {
+    public void setHealthCamp(HealthCamp healthCamp) {
         this.healthCamp = healthCamp;
     }
 
@@ -55,6 +55,7 @@ public class HealthCampDirectory {
                 healthCampDirectory.remove(i);
             }
         }
-
     }
+    
+    
 }

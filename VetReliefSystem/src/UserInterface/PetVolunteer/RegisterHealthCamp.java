@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package UserInterface.PetVolunteer;
+
 import ReliefSystem.Ecosystem;
+import ReliefSystem.HealthCamp.HealthCamp;
 import ReliefSystem.HealthCamp.HealthCampDirectory;
+//import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
+import ReliefSystem.PetVolunteer.PetVolunteer;
 import ReliefSystem.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 18578
@@ -21,27 +27,33 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Ecosystem system;
     private HealthCampDirectory healthCampDirectory;
-    public RegisterHealthCamp(JPanel userProcessContainer, Ecosystem system) {
+    private UserAccount account;
+    private PetVolunteer petVolunteer;
+
+    public RegisterHealthCamp(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
         this.healthCampDirectory = healthCampDirectory;
+        this.petVolunteer = petVolunteer;
         populateHealthCampTable();
     }
-    
+
     public void populateHealthCampTable() {
         DefaultTableModel tablemodel = (DefaultTableModel) tblHealthCamp.getModel();
 
         tablemodel.setRowCount(0);
-        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+        for (HealthCamp healthCamp : system.getHealthCampDirectory().getHealthCampDirectory()) {
 
-            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.HealthCampRole")) {
-                Object[] row = new Object[1];
-                row[0] = user.getName();
+//            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.HealthCampRole")) {
+            Object[] row = new Object[1];
+//                row[0] = user.getUsername();
+            row[0] = healthCamp.getHealthCampName();
 //                row[1] = user.getUsername();
 //                row[2] = user.getPassword();
-                tablemodel.addRow(row);
-            }
+            tablemodel.addRow(row);
+//            }
         }
     }
 
@@ -56,7 +68,7 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHealthCamp = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnRegisterForHealthCamp = new javax.swing.JButton();
 
         tblHealthCamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,7 +91,12 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHealthCamp);
 
-        jButton1.setText("Register");
+        btnRegisterForHealthCamp.setText("Register");
+        btnRegisterForHealthCamp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterForHealthCampActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -92,7 +109,7 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnRegisterForHealthCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,14 +118,42 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnRegisterForHealthCamp)
                 .addGap(71, 71, 71))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegisterForHealthCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterForHealthCampActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblHealthCamp.getSelectedRow();
+        String healthCampSelected = (String) tblHealthCamp.getValueAt(selectedRow, 0);
+//        String healthCampChosen = (HealthCamp) tblHealthCamp.getValueAt(selectedRow,0);
+//        System.out.println("Health camp selected " + healthCampSelected);
+        for (ReliefSystem.PetVolunteer.PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
+            if (petVolunteer.getUsername().equals(account.getUsername())) {
+                System.out.println("pet type : " + petVolunteer.getPetType());
+                petVolunteer.setHealthCamp(healthCampSelected);
+//                healthCamp.getPetVolunteerList().add(petVolunteer);
+//            int selectedRow = tblHealthCamp.getSelectedRow();
+//        if(selectedRow<0){
+//            JOptionPane.showMessageDialog(null,"Please select a row from the table to assign the order","Warning",JOptionPane.WARNING_MESSAGE);
+//        }
+            }
+        }
+//        else
+//        {
+//
+//            HealthCamp deliveryMan  = (HealthCamp)tblHealthCamp.getValueAt(selectedRow, 0);
+//            HealthCamp
+//            order.setStatus("Assigned to Deliveryman");
+//            JOptionPane.showMessageDialog(null, "Assigned to Delivery Man");    
+//        }
+
+    }//GEN-LAST:event_btnRegisterForHealthCampActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegisterForHealthCamp;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblHealthCamp;
     // End of variables declaration//GEN-END:variables

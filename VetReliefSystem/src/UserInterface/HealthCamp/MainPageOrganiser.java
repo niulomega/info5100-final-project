@@ -6,6 +6,7 @@
 package UserInterface.HealthCamp;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
 import ReliefSystem.UserAccount.UserAccount;
 import UserInterface.HospiitalAdmin.ManageLabAssistant;
 import java.awt.CardLayout;
@@ -23,12 +24,14 @@ public class MainPageOrganiser extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Ecosystem system;
     private UserAccount account;
+    private PetVolunteerDirectory petVolunteerDirectory;
 
     public MainPageOrganiser(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.account = account;
+        this.petVolunteerDirectory = petVolunteerDirectory;
     }
 
     /**
@@ -45,7 +48,7 @@ public class MainPageOrganiser extends javax.swing.JPanel {
         manageorginfo = new javax.swing.JPanel();
         lblmanageorginfo = new javax.swing.JLabel();
         managepetvol = new javax.swing.JPanel();
-        lblmanagepetvol = new javax.swing.JLabel();
+        lblManagePetVolunteer = new javax.swing.JLabel();
 
         manageorginfo.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -75,7 +78,12 @@ public class MainPageOrganiser extends javax.swing.JPanel {
 
         managepetvol.setBackground(new java.awt.Color(0, 153, 153));
 
-        lblmanagepetvol.setText("MANAGE PET VOLUNTEERS");
+        lblManagePetVolunteer.setText("MANAGE PET VOLUNTEERS");
+        lblManagePetVolunteer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManagePetVolunteerMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout managepetvolLayout = new javax.swing.GroupLayout(managepetvol);
         managepetvol.setLayout(managepetvolLayout);
@@ -83,14 +91,14 @@ public class MainPageOrganiser extends javax.swing.JPanel {
             managepetvolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managepetvolLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblmanagepetvol, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblManagePetVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         managepetvolLayout.setVerticalGroup(
             managepetvolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(managepetvolLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblmanagepetvol, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(lblManagePetVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -138,17 +146,26 @@ public class MainPageOrganiser extends javax.swing.JPanel {
 
     private void lblmanageorginfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageorginfoMousePressed
         // TODO add your handling code here:
-        ManageOrgInfo manageOrgInfoJPanel = new ManageOrgInfo(userProcessContainer,account, system);
+        ManageOrgInfo manageOrgInfoJPanel = new ManageOrgInfo(userProcessContainer, account, system);
         userProcessContainer.add("ManageOrgInfo", manageOrgInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_lblmanageorginfoMousePressed
 
+    private void lblManagePetVolunteerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManagePetVolunteerMousePressed
+        // TODO add your handling code here:
+        ManagePetVolunteer managePetVolunteerJPanel = new ManagePetVolunteer(userProcessContainer, account, system);
+        userProcessContainer.add("ManageOrgInfo", managePetVolunteerJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_lblManagePetVolunteerMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundpanel;
+    private javax.swing.JLabel lblManagePetVolunteer;
     private javax.swing.JLabel lblmanageorginfo;
-    private javax.swing.JLabel lblmanagepetvol;
     private javax.swing.JPanel manageorginfo;
     private javax.swing.JPanel managepetvol;
     private javax.swing.JPanel sidepane;

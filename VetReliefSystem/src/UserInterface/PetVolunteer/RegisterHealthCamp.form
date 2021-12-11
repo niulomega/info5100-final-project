@@ -24,7 +24,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="btnRegisterForHealthCamp" min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="157" max="32767" attributes="0"/>
@@ -37,7 +37,7 @@
               <EmptySpace pref="37" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="151" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnRegisterForHealthCamp" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -74,10 +74,13 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnRegisterForHealthCamp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Register"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterForHealthCampActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

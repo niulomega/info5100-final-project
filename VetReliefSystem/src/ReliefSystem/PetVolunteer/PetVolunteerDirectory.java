@@ -6,6 +6,8 @@
 package ReliefSystem.PetVolunteer;
 
 import java.util.ArrayList;
+import java.util.List;
+import static java.util.stream.Collectors.toList;
 
 /**
  *
@@ -42,9 +44,10 @@ public class PetVolunteerDirectory {
         return petVolunteer;
     }
 
-    public void updatePetVolunteerInfo(PetVolunteer petVolunteer, String name, String petType) {
+    public void updatePetVolunteerInfo(PetVolunteer petVolunteer, String name, String petType, String healthCamp) {
         petVolunteer.setName(name);
         petVolunteer.setPetType(petType);
+        petVolunteer.setHealthCamp(healthCamp);
     }
 
     public void deletePetVolunteer(String username) {
@@ -53,6 +56,20 @@ public class PetVolunteerDirectory {
                 petVolunteerDirectory.remove(i);
             }
         }
-
+    }
+    
+    public void updatePetType(String username, String petType) {
+        for (int i = 0; i < petVolunteerDirectory.size(); i++) {
+            if (petVolunteerDirectory.get(i).getUsername() == username) {
+                  petVolunteerDirectory.get(i).setPetType(petType);
+            }
+        }
+    }
+    
+    
+    public List<PetVolunteer> findPetVolunteerByHealthCampName(String healthCampName) {
+//        public List<Car> findCarByModel(String model) {
+        return petVolunteerDirectory.stream().filter(p -> p.getHealthCamp().equals(healthCampName)).collect(toList());
+//    }
     }
 }

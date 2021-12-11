@@ -5,6 +5,9 @@
  */
 package ReliefSystem.HealthCamp;
 
+import ReliefSystem.PetVolunteer.PetVolunteer;
+import java.util.ArrayList;
+
 /**
  *
  * @author niulp
@@ -15,6 +18,15 @@ public class HealthCamp {
     private String address;
     private String number;
     private String healthCampName;
+    private ArrayList<PetVolunteer> petVolunteerList;
+
+    public ArrayList<PetVolunteer> getPetVolunteerList() {
+        return petVolunteerList;
+    }
+
+    public void setPetVolunteerList(ArrayList<PetVolunteer> petVolunteerList) {
+        this.petVolunteerList = petVolunteerList;
+    }
 
     public String getHealthCampName() {
         return healthCampName;
@@ -58,7 +70,15 @@ public class HealthCamp {
     
     public HealthCamp(String username) {
         this.username = username;
+        System.out.println("Health camp username : Health camp constructor : " + this.username);
     }
+    
+    public void addPetVolunteer(String petVolName) {
+        PetVolunteer petVolunteer = new PetVolunteer(petVolName);
+        petVolunteer.setHealthCamp(healthCampName);
+    }
+    
+    
     
     @Override
     public String toString() {

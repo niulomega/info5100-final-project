@@ -5,6 +5,7 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.HealthCamp.HealthCampDirectory;
 import ReliefSystem.Hospital.HospitalDirectory;
 import ReliefSystem.Person.PersonDirectory;
 import ReliefSystem.Role.Role;
@@ -21,6 +22,7 @@ public abstract class Organization {
     private PersonDirectory personDirectory;
     private UserAccountDirectory userAccountDirectory;
     private HospitalDirectory hospitalDirectory;
+    private HealthCampDirectory healthCampDirectory;
     private int organizationID;
     private static int counter = 0;
 
@@ -54,6 +56,7 @@ public abstract class Organization {
         personDirectory = new PersonDirectory();
         userAccountDirectory = new UserAccountDirectory();
         hospitalDirectory = new HospitalDirectory();
+        healthCampDirectory = new HealthCampDirectory();
         organizationID = counter;
         ++counter;
     }
@@ -74,6 +77,11 @@ public abstract class Organization {
 
     public PersonDirectory getPersonDirectory() {
         return personDirectory;
+    }
+    
+    
+    public HealthCampDirectory getHealthCampDirectory() {
+        return healthCampDirectory;
     }
 
     public String getName() {

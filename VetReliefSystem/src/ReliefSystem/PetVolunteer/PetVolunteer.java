@@ -14,6 +14,15 @@ public class PetVolunteer {
     private String name;
     private String username;
     private String petType;
+    private String healthCamp;
+
+    public String getHealthCamp() {
+        return healthCamp;
+    }
+
+    public void setHealthCamp(String healthCamp) {
+        this.healthCamp = healthCamp;
+    }
 
     public String getName() {
         return name;
@@ -40,8 +49,9 @@ public class PetVolunteer {
     }
 
     public PetVolunteer(String username) {
-        this.name = name;
+        this.username = username;
     }
+    
 
     @Override
     public String toString() {

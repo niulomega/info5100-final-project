@@ -221,6 +221,7 @@ public class ManageHealthCamp extends javax.swing.JPanel {
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
             UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(), txtusername.getText(), txtpass.getText(), null, new HealthCampRole());
             HealthCamp healthCamp = system.getHealthCampDirectory().createUserAccount(txtusername.getText());
+            System.out.println("health camp username while adding : "+ txtusername.getText());
             populateHealthCampTable();
             txtname.setText("");
             txtusername.setText("");

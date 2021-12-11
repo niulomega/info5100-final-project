@@ -22,6 +22,7 @@ public class ManageOrgInfo extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Ecosystem system;
     private UserAccount account;
+
     public ManageOrgInfo(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -130,11 +131,13 @@ public class ManageOrgInfo extends javax.swing.JPanel {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-        for(HealthCamp healthCamp: system.getHealthCampDirectory().getHealthCampDirectory()){
-            if(healthCamp.getUsername().equals(account.getUsername())){
-                System.out.println("Updating");
+        for (HealthCamp healthCamp : system.getHealthCampDirectory().getHealthCampDirectory()) {
+            System.out.println("account username : " + account.getUsername());
+            System.out.println("health camp username : " + healthCamp.getUsername());
+            if (healthCamp.getUsername().equals(account.getUsername())) {
+
                 system.getHealthCampDirectory().updateHealthCampInfo(healthCamp, txtorgowner.getText(), txtorgadd.getText(), txtphonenumber.getText(), txtorgname.getText());
-                System.out.println("Updated");
+
             }
         }
 

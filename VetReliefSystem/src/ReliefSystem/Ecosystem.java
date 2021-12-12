@@ -12,6 +12,7 @@ import ReliefSystem.LabAssistant.LabAssistantDirectory;
 import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
 import ReliefSystem.Role.Role;
 import ReliefSystem.Role.SystemAdminRole;
+import ReliefSystem.Sponsor.SponsorDirectory;
 import ReliefSystem.Vet.VetDirectory;
 import java.util.ArrayList;
 
@@ -28,14 +29,16 @@ public class Ecosystem extends Organization {
     private HealthCampDirectory healthCampDirectory;
     private FundRaisingDirectory fundRaisingDirectory;
     private LabAssistantDirectory labAssistantDirectory;
+    private SponsorDirectory sponsorDirectory;
 
-    public Ecosystem(HospitalDirectory hospitalDirectory, VetDirectory vetDirectory, PetVolunteerDirectory petVolunteerDirectory, HealthCampDirectory healthCampDirectory, FundRaisingDirectory fundRaisingDirectory, LabAssistantDirectory labAssistantDirectory) {
+    public Ecosystem(HospitalDirectory hospitalDirectory, VetDirectory vetDirectory, PetVolunteerDirectory petVolunteerDirectory, HealthCampDirectory healthCampDirectory, FundRaisingDirectory fundRaisingDirectory, LabAssistantDirectory labAssistantDirectory,SponsorDirectory sponsorDirectory) {
         this.hospitalDirectory = hospitalDirectory;
         this.vetDirectory = vetDirectory;
         this.petVolunteerDirectory = petVolunteerDirectory;
         this.healthCampDirectory = healthCampDirectory;
         this.fundRaisingDirectory = fundRaisingDirectory;
         this.labAssistantDirectory = labAssistantDirectory;
+        this.sponsorDirectory = sponsorDirectory;
     }
 
     public static Ecosystem getInstance() {
@@ -100,5 +103,20 @@ public class Ecosystem extends Organization {
             labAssistantDirectory = new LabAssistantDirectory();
         }
         return labAssistantDirectory;
+    }
+    
+    
+    public FundRaisingDirectory getFundRaisingDirectory() {
+        if (fundRaisingDirectory == null) {
+            fundRaisingDirectory = new FundRaisingDirectory();
+        }
+        return fundRaisingDirectory;
+    }
+    
+    public SponsorDirectory getSponsorDirectory() {
+        if (sponsorDirectory == null) {
+            sponsorDirectory = new SponsorDirectory();
+        }
+        return sponsorDirectory;
     }
 }

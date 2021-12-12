@@ -19,6 +19,15 @@ public class PetVolunteer {
     private String driver;
     private String vetName;
     private String petStatus;
+    private String labResultStatus;
+
+    public String getLabResultStatus() {
+        return labResultStatus;
+    }
+
+    public void setLabResultStatus(String labResultStatus) {
+        this.labResultStatus = labResultStatus;
+    }
 
     public String getPetStatus() {
         return petStatus;

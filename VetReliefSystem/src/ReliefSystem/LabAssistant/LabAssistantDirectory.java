@@ -20,7 +20,7 @@ public class LabAssistantDirectory {
         labAssistantDirectory = new ArrayList<LabAssistant>();
     }
     
-    public ArrayList<LabAssistant> getHospitalDirectory() {
+    public ArrayList<LabAssistant> getLabAssistantDirectory() {
         return labAssistantDirectory;
     }
 
@@ -43,8 +43,16 @@ public class LabAssistantDirectory {
         return labAssistant;
     }
 
-    public void updateLabAssistantInfo(LabAssistant labAssistant, String name) {
-        labAssistant.setName(name);
+    public void updateLabAssistantInfo(LabAssistant labAssistant, String vetName, String petOwner, String petType, String healthCamp) {
+//        labAssistant.setName(name);
+        labAssistant.setPetOwner(petOwner);
+        labAssistant.setVetName(vetName);
+        labAssistant.setPetType(petType);
+        labAssistant.setHealthCamp(healthCamp);
+    }
+    
+    public void updateLabAssistantHospitalInfo(LabAssistant labAssistant, String hospitalName) {
+        labAssistant.setHospitalName(hospitalName);
     }
 
     public void deleteLabAssistant(String username) {
@@ -53,6 +61,9 @@ public class LabAssistantDirectory {
                 labAssistantDirectory.remove(i);
             }
         }
-
+    }
+    
+    public void updateLabAssistantTestResult(LabAssistant labAssistant, String status) {
+        labAssistant.setLabResultStatus(status);
     }
 }

@@ -12,6 +12,51 @@ package ReliefSystem.FundRaising;
 public class FundRaising {
     private String username;
     private String name;
+    private String petOwner;
+    private String petType;
+    private String healthCamp;
+    private String sponsor;
+    private String hospitalName;
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+    public String getPetOwner() {
+        return petOwner;
+    }
+
+    public void setPetOwner(String petOwner) {
+        this.petOwner = petOwner;
+    }
+
+    public String getPetType() {
+        return petType;
+    }
+
+    public void setPetType(String petType) {
+        this.petType = petType;
+    }
+
+    public String getHealthCamp() {
+        return healthCamp;
+    }
+
+    public void setHealthCamp(String healthCamp) {
+        this.healthCamp = healthCamp;
+    }
+
+    public String getSponsor() {
+        return sponsor;
+    }
+
+    public void setSponsor(String sponsor) {
+        this.sponsor = sponsor;
+    }
 
     public String getUsername() {
         return username;
@@ -35,7 +80,7 @@ public class FundRaising {
     
     @Override
     public String toString() {
-        return name;
+        return username;
     }
     
 }

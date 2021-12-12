@@ -6,6 +6,7 @@
 package UserInterface.HospiitalAdmin;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.FundRaising.FundRaising;
 import ReliefSystem.PetVolunteer.PetVolunteer;
 import ReliefSystem.UserAccount.UserAccount;
 import ReliefSystem.Vet.Vet;
@@ -39,13 +40,13 @@ public class ManagePetInfo extends javax.swing.JPanel {
         tablemodel.setRowCount(0);
         for (PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
             if (petVolunteer.getHospitalName().equals(account.getName())) {
-                Object[] row = new Object[4];
+                Object[] row = new Object[5];
                 row[0] = petVolunteer;
                 row[1] = petVolunteer.getName();
 //                row[2] = petVolunteer.getUsername();
                 row[2] = petVolunteer.getPetType();
                 row[3] = petVolunteer.getHealthCamp();
-                
+                row[4] = petVolunteer.getLabResultStatus() == null ? "N/A" : petVolunteer.getLabResultStatus();
                 tablemodel.addRow(row);
             }
         }
@@ -69,13 +70,13 @@ public class ManagePetInfo extends javax.swing.JPanel {
 
         tblpetinfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "pet username", "pet owner", "pet type", "Health Camp"
+                "pet username", "pet owner", "pet type", "Health Camp", "Lab result status"
             }
         ));
         jScrollPane1.setViewportView(tblpetinfo);
@@ -88,6 +89,11 @@ public class ManagePetInfo extends javax.swing.JPanel {
         });
 
         btnaddfundraiser.setText("Add Fundraiser");
+        btnaddfundraiser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddfundraiserActionPerformed(evt);
+            }
+        });
 
         lblVet.setText("Vet ");
 
@@ -146,6 +152,20 @@ public class ManagePetInfo extends javax.swing.JPanel {
         }
         JOptionPane.showMessageDialog(this, "Successfuly assigned vet");
     }//GEN-LAST:event_btnAssignPetOwnerToVetActionPerformed
+
+    private void btnaddfundraiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddfundraiserActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblpetinfo.getSelectedRow();
+        PetVolunteer vetSelected = (PetVolunteer) tblpetinfo.getValueAt(selectedRow, 0);
+        String vetPetOwner = vetSelected.getName();
+        String vetPetType = vetSelected.getPetType();
+        String vetHealthCamp = vetSelected.getHealthCamp();
+        String vetHospitalName = vetSelected.getHospitalName();
+        for(FundRaising fundRaising: system.getFundRaisingDirectory().getFundRaisingDirectory()) {
+            system.getFundRaisingDirectory().updateFundRaisingInfo(fundRaising, vetPetOwner, vetPetType, vetHealthCamp, vetHospitalName);
+            System.out.println("Fund raising agency updated sucessfully");
+        }
+    }//GEN-LAST:event_btnaddfundraiserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

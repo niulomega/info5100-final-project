@@ -6,8 +6,13 @@
 package UserInterface.SystemAdminWorkArea;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.FundRaising.FundRaising;
+import ReliefSystem.Role.FundRaisingRole;
+import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -215,6 +220,23 @@ public class ManageFundAgency extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        
+        int selectedRow = tblfundagency.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblfundagency.getValueAt(selectedRow, 1);
+                String pwd = (String) tblfundagency.getValueAt(selectedRow, 2);
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
+
+                system.getUserAccountDirectory().deleteUserAccount(user);
+                system.getFundRaisingDirectory().deleteFundRaiser(user.getUsername());
+//                populateVetTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -226,16 +248,44 @@ public class ManageFundAgency extends javax.swing.JPanel {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
+            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(), txtusername.getText(), txtpass.getText(), null, new FundRaisingRole());
+            FundRaising fundRaising = system.getFundRaisingDirectory().createUserAccount(txtusername.getText());
+            populateFundRaisingTable();
+            txtname.setText("");
+            txtusername.setText("");
+            txtpass.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
+        
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblfundagency.getSelectedRow();
+        
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    public void populateFundRaisingTable(){
+         DefaultTableModel tablemodel = (DefaultTableModel) tblfundagency.getModel();
+
+        tablemodel.setRowCount(0);
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+
+            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.FundRaisingRole")) {
+                Object[] row = new Object[3];
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                tablemodel.addRow(row);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

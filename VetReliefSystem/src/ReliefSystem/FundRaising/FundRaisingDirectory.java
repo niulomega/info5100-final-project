@@ -23,10 +23,30 @@ public class FundRaisingDirectory {
         this.fundRaisingDirectory = fundRaisingDirectory;
     }
     
+    public FundRaisingDirectory() {
+        fundRaisingDirectory = new ArrayList<FundRaising>();
+    }
     
     public FundRaising createUserAccount(String username) {
         fundRaising = new FundRaising(username);
         fundRaisingDirectory.add(fundRaising);
         return fundRaising;
+    }
+    
+    public void updateFundRaisingInfo(FundRaising fundRaising, String petOwner, String petType, String healthCamp, String hospitalName) {
+//        fundRaising.setHealthCamp(healthCamp);
+        fundRaising.setPetOwner(petOwner);
+        fundRaising.setPetType(petType);
+        fundRaising.setHealthCamp(healthCamp);
+//        fundRaising.setSponsor(sponsor);
+        fundRaising.setHospitalName(hospitalName);
+    }
+    
+    public void deleteFundRaiser(String username) {
+        for (int i = 0; i < fundRaisingDirectory.size(); i++) {
+            if (fundRaisingDirectory.get(i).getUsername() == username) {
+                fundRaisingDirectory.remove(i);
+            }
+        }
     }
 }

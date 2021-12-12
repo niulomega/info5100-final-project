@@ -217,7 +217,7 @@ public class ManageVet extends javax.swing.JPanel {
                 UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
 
                 system.getUserAccountDirectory().deleteUserAccount(user);
-                system.getHospitalDirectory().deleteHospital(user.getUsername());
+                system.getVetDirectory().deleteVet(user.getUsername());
                 populateVetTable();
             }
         } else {

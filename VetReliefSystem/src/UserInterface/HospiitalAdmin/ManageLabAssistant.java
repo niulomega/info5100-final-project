@@ -6,12 +6,14 @@
 package UserInterface.HospiitalAdmin;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.Hospital.Hospital;
 import ReliefSystem.LabAssistant.LabAssistant;
 import ReliefSystem.Role.LabAssistantRole;
 import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,10 +26,13 @@ public class ManageLabAssistant extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
-    public ManageLabAssistant(JPanel userProcessContainer, Ecosystem system) {
+    private UserAccount account;
+
+    public ManageLabAssistant(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
     }
 
     /**
@@ -49,9 +54,9 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         lblname = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
         lblusername = new javax.swing.JLabel();
-        txtusername = new javax.swing.JTextField();
-        lblpassword = new javax.swing.JLabel();
         txtpass = new javax.swing.JTextField();
+        lblpassword = new javax.swing.JLabel();
+        txtusername = new javax.swing.JTextField();
         btnadd = new javax.swing.JButton();
 
         btnBack.setText("<< Back");
@@ -158,11 +163,11 @@ public class ManageLabAssistant extends javax.swing.JPanel {
                                         .addGap(36, 36, 36)
                                         .addComponent(btnDelete))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblusername, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 485, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -189,11 +194,11 @@ public class ManageLabAssistant extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblusername)
-                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpassword)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
                 .addComponent(btnadd)
                 .addContainerGap(164, Short.MAX_VALUE))
@@ -209,7 +214,7 @@ public class ManageLabAssistant extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-         int selectedRow = tblLabAssistant.getSelectedRow();
+        int selectedRow = tblLabAssistant.getSelectedRow();
         if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
             int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
@@ -229,22 +234,36 @@ public class ManageLabAssistant extends javax.swing.JPanel {
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // TODO add your handling code here:
-                if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
-            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(), txtusername.getText(), txtpass.getText(), null, new LabAssistantRole());
+//        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
+            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(),txtusername.getText(), txtpass.getText(), null, new LabAssistantRole());
             LabAssistant labAssistant = system.getLabAssistantDirectory().createUserAccount(txtusername.getText());
             populateLabAssistantTable();
+            for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
+                if (hospital.getUsername().equals(account.getUsername())) {
+                    system.getLabAssistantDirectory().updateLabAssistantHospitalInfo(labAssistant, hospital.getName());
+                }
+            }
             txtname.setText("");
-            txtusername.setText("");
             txtpass.setText("");
-        } else {
-            JOptionPane.showMessageDialog(null, "Username is not unique");
-        }
-        
+            txtusername.setText("");
+//        } 
+
     }//GEN-LAST:event_btnaddActionPerformed
 
-    
     private void populateLabAssistantTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblLabAssistant.getModel();
+        tablemodel.setRowCount(0);
         
+         for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+
+            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.LabAssistantRole")) {
+                Object[] row = new Object[3];
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                tablemodel.addRow(row);
+            }
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

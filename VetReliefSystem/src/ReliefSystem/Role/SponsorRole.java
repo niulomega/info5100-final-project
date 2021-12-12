@@ -7,19 +7,16 @@ package ReliefSystem.Role;
 
 import ReliefSystem.Ecosystem;
 import ReliefSystem.UserAccount.UserAccount;
-import UserInterface.HospiitalAdmin.ManageLabAssistant;
-import UserInterface.Hospital.LabAssitantWorkArea;
+import UserInterface.Sponsor.SponsorWorkArea;
 import javax.swing.JPanel;
 
 /**
  *
  * @author niulp
  */
-public class LabAssistantRole extends Role{
-   @Override
+public class SponsorRole extends Role {
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
-        return new LabAssitantWorkArea(userProcessContainer,account, system);
+        return new SponsorWorkArea(userProcessContainer, account, system);
     }
-    
 }
- 

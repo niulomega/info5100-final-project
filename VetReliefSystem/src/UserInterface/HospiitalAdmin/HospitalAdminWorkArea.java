@@ -53,6 +53,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         lblmanagehospitalinfo = new javax.swing.JLabel();
         ManagePet = new javax.swing.JPanel();
         lblmanagepet = new javax.swing.JLabel();
+        lblAddSponsor = new javax.swing.JLabel();
 
         sidepane.setBackground(new java.awt.Color(0, 153, 153));
         sidepane.setForeground(new java.awt.Color(0, 153, 153));
@@ -228,6 +229,14 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
         sidepane.add(ManagePet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 290, 50));
 
+        lblAddSponsor.setText("Manage Sponsor");
+        lblAddSponsor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAddSponsorMousePressed(evt);
+            }
+        });
+        sidepane.add(lblAddSponsor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -263,7 +272,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
     private void lblManageLabAssistantMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageLabAssistantMousePressed
         // TODO add your handling code here:
-        ManageLabAssistant manageLabAssistantJPanel = new ManageLabAssistant(userProcessContainer, system);
+        ManageLabAssistant manageLabAssistantJPanel = new ManageLabAssistant(userProcessContainer,account, system);
         userProcessContainer.add("ManageLabAssistant", manageLabAssistantJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -302,6 +311,14 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_lblmanagepetMousePressed
 
+    private void lblAddSponsorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddSponsorMousePressed
+        // TODO add your handling code here:
+        ManageSponsor manageSponsorJPanel = new ManageSponsor(userProcessContainer,account, system);
+        userProcessContainer.add("ManageSponsorInfo", manageSponsorJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_lblAddSponsorMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageDriver;
@@ -311,6 +328,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JPanel ManageVet;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAddSponsor;
     private javax.swing.JLabel lblManageDriver;
     private javax.swing.JLabel lblManageLabAssistant;
     private javax.swing.JLabel lblManagePharmacy;

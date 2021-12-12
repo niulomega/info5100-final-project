@@ -6,7 +6,12 @@
 package UserInterface.Hospital;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.LabAssistant.LabAssistant;
+import ReliefSystem.PetVolunteer.PetVolunteer;
+import ReliefSystem.Vet.Vet;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +24,7 @@ public class VetWorkarea extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
+
     public VetWorkarea(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -36,31 +42,31 @@ public class VetWorkarea extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblVetPetOwners = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        btnAssignLabAssistant = new javax.swing.JButton();
+        btnFurtherExaminationLab = new javax.swing.JButton();
         btnAssignPharmacy = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVetPetOwners.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Pet Owner", "Pet Type", "Health Camp"
+                "Vet Name", "Pet Owner", "Pet Type", "Health Camp"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblVetPetOwners);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome Vet");
 
-        btnAssignLabAssistant.setText("Assign Lab Assistant");
-        btnAssignLabAssistant.addActionListener(new java.awt.event.ActionListener() {
+        btnFurtherExaminationLab.setText("Assign Lab");
+        btnFurtherExaminationLab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignLabAssistantActionPerformed(evt);
+                btnFurtherExaminationLabActionPerformed(evt);
             }
         });
 
@@ -77,7 +83,7 @@ public class VetWorkarea extends javax.swing.JPanel {
                 .addGap(102, 102, 102))
             .addGroup(layout.createSequentialGroup()
                 .addGap(155, 155, 155)
-                .addComponent(btnAssignLabAssistant)
+                .addComponent(btnFurtherExaminationLab)
                 .addGap(54, 54, 54)
                 .addComponent(btnAssignPharmacy)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -91,28 +97,53 @@ public class VetWorkarea extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAssignLabAssistant)
+                    .addComponent(btnFurtherExaminationLab)
                     .addComponent(btnAssignPharmacy))
                 .addContainerGap(200, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAssignLabAssistantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignLabAssistantActionPerformed
+    private void btnFurtherExaminationLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFurtherExaminationLabActionPerformed
         // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_btnAssignLabAssistantActionPerformed
+        int selectedRow = tblVetPetOwners.getSelectedRow();
+        Vet vetSelected = (Vet) tblVetPetOwners.getValueAt(selectedRow, 0);
+        for(LabAssistant labAssistant: system.getLabAssistantDirectory().getLabAssistantDirectory()) {
+            for(Vet vet: system.getVetDirectory().getVetDirectory()) {
+                if(vet.getHospitalName().equals(labAssistant.getHospitalName())) {
+                    System.out.println("selected vet : " + vetSelected.getUsername() + " " + vetSelected.getHealthCamp());
+                    system.getLabAssistantDirectory().updateLabAssistantInfo(labAssistant, vetSelected.getUsername(), vetSelected.getPetOwner(),vetSelected.getPetType(),vetSelected.getHealthCamp());
+                    System.out.println("lab assistant assigned here");
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Lab assistant assigned successfully");
+
+    }//GEN-LAST:event_btnFurtherExaminationLabActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAssignLabAssistant;
     private javax.swing.JButton btnAssignPharmacy;
+    private javax.swing.JButton btnFurtherExaminationLab;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblVetPetOwners;
     // End of variables declaration//GEN-END:variables
 
     private void populateVetTable() {
-//        for()
+        DefaultTableModel tablemodel = (DefaultTableModel) tblVetPetOwners.getModel();
+        for(PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
+            for(Vet vet: system.getVetDirectory().getVetDirectory()) {
+                System.out.println("pet volunteer hosp name : " + petVolunteer.getHospitalName() );
+                System.out.println("vet hosp name : " + vet.getHospitalName() );
+                if(vet.getHospitalName().equals(petVolunteer.getHospitalName())){
+                    Object[] row = new Object[4];
+                    row[0] = vet;
+                    row[1] = vet.getPetOwner();
+                    row[2] = vet.getPetType();
+                    row[3] = vet.getHealthCamp();
+                    tablemodel.addRow(row);
+                }
+            }
+        }
     }
 }

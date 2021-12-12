@@ -81,6 +81,6 @@ public class Vet {
     
     @Override
     public String toString() {
-        return name;
+        return username;
     }
 }

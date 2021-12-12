@@ -27,7 +27,7 @@ public class PetVolunteer extends javax.swing.JPanel {
     Ecosystem system;
     private UserAccount account;
     private PetVolunteer petVolunteer;
-
+ 
     public PetVolunteer(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;

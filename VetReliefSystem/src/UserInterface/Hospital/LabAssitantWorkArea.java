@@ -5,6 +5,14 @@
  */
 package UserInterface.Hospital;
 
+import ReliefSystem.Ecosystem;
+import ReliefSystem.LabAssistant.LabAssistant;
+import ReliefSystem.PetVolunteer.PetVolunteer;
+import ReliefSystem.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 18578
@@ -14,8 +22,35 @@ public class LabAssitantWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form LabAssitantWorkArea
      */
-    public LabAssitantWorkArea() {
+    JPanel userProcessContainer;
+    Ecosystem system;
+    private UserAccount account;
+
+    public LabAssitantWorkArea(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.account = account;
+        populateTable();
+    }
+
+    public void populateTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tbllabassitant.getModel();
+        tablemodel.setRowCount(0);
+        for (LabAssistant labAssistant : system.getLabAssistantDirectory().getLabAssistantDirectory()) {
+            if (labAssistant.getUsername().equals(account.getUsername())) {
+                System.out.println("Lab assistant : " + labAssistant.getUsername());
+                System.out.println("Lab assistant : " + labAssistant.getPetOwner());
+                System.out.println("Lab assistant : " + labAssistant.getPetType());
+                Object[] row = new Object[4];
+                row[0] = labAssistant.getPetOwner();
+                row[1] = labAssistant.getPetType();
+                row[2] = labAssistant.getHealthCamp();
+                row[3] = labAssistant.getLabResultStatus() == null ? "N/A" : labAssistant.getLabResultStatus();
+                tablemodel.addRow(row);
+            }
+
+        }
     }
 
     /**
@@ -49,6 +84,11 @@ public class LabAssitantWorkArea extends javax.swing.JPanel {
         lbllabresult.setText("lab result ");
 
         btnchangestatus.setText("ChangeStatus");
+        btnchangestatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnchangestatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -83,6 +123,25 @@ public class LabAssitantWorkArea extends javax.swing.JPanel {
                 .addContainerGap(115, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnchangestatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchangestatusActionPerformed
+        // TODO add your handling code here:
+        String status = txtlabresult.getText();
+        for(LabAssistant labAssistant: system.getLabAssistantDirectory().getLabAssistantDirectory()) {
+            system.getLabAssistantDirectory().updateLabAssistantTestResult(labAssistant, status);
+            System.out.println("Lab result updated successfully");
+        }
+        for(LabAssistant labAssistant: system.getLabAssistantDirectory().getLabAssistantDirectory()) {
+            for(PetVolunteer petVolunteer: system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
+                if(petVolunteer.getName().equals(labAssistant.getPetOwner())){
+                    system.getPetVolunteerDirectory().updatePetVolunteerLabStatus(petVolunteer, status);
+                    System.out.println("Lab status updated successfully");
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Successfully updated lab results");
+        populateTable();
+    }//GEN-LAST:event_btnchangestatusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

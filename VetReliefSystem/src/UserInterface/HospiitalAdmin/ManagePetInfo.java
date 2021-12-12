@@ -10,6 +10,7 @@ import ReliefSystem.FundRaising.FundRaising;
 import ReliefSystem.PetVolunteer.PetVolunteer;
 import ReliefSystem.UserAccount.UserAccount;
 import ReliefSystem.Vet.Vet;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -67,6 +68,13 @@ public class ManagePetInfo extends javax.swing.JPanel {
         btnaddfundraiser = new javax.swing.JButton();
         lblVet = new javax.swing.JLabel();
         txtvet = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1024, 575));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblpetinfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,60 +89,58 @@ public class ManagePetInfo extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblpetinfo);
 
-        btnAssignPetOwnerToVet.setText("Add vet");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 480, 105));
+
+        btnAssignPetOwnerToVet.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnAssignPetOwnerToVet.setForeground(new java.awt.Color(0, 102, 102));
+        btnAssignPetOwnerToVet.setText("ADD VET");
+        btnAssignPetOwnerToVet.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnAssignPetOwnerToVet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignPetOwnerToVetActionPerformed(evt);
             }
         });
+        add(btnAssignPetOwnerToVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 333, 150, 30));
 
-        btnaddfundraiser.setText("Add Fundraiser");
+        btnaddfundraiser.setBackground(new java.awt.Color(255, 255, 255));
+        btnaddfundraiser.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnaddfundraiser.setForeground(new java.awt.Color(0, 102, 102));
+        btnaddfundraiser.setText("ADD FUNDRAISER");
+        btnaddfundraiser.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnaddfundraiser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddfundraiserActionPerformed(evt);
             }
         });
+        add(btnaddfundraiser, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 403, 150, 30));
 
-        lblVet.setText("Vet ");
+        lblVet.setBackground(new java.awt.Color(255, 255, 255));
+        lblVet.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblVet.setForeground(new java.awt.Color(0, 102, 102));
+        lblVet.setText("VET NAME");
+        add(lblVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 100, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(15, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnaddfundraiser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAssignPetOwnerToVet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(lblVet, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(txtvet, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVet)
-                    .addComponent(txtvet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnAssignPetOwnerToVet)
-                .addGap(18, 18, 18)
-                .addComponent(btnaddfundraiser)
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
+        txtvet.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtvet, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 120, 30));
+
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ASSIGN PET TO VET");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 360, 60));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\manage_pet_info_page.png")); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 750, 410));
+
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbutton.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignPetOwnerToVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignPetOwnerToVetActionPerformed
@@ -167,10 +173,20 @@ public class ManagePetInfo extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnaddfundraiserActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignPetOwnerToVet;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnaddfundraiser;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblVet;
     private javax.swing.JTable tblpetinfo;

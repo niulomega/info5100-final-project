@@ -17,6 +17,15 @@ public class FundRaising {
     private String healthCamp;
     private String sponsor;
     private String hospitalName;
+    private String sponsorStatus;
+
+    public String getSponsorStatus() {
+        return sponsorStatus;
+    }
+
+    public void setSponsorStatus(String sponsorStatus) {
+        this.sponsorStatus = sponsorStatus;
+    }
 
     public String getHospitalName() {
         return hospitalName;

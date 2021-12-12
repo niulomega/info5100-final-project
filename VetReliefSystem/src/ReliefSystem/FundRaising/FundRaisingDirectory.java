@@ -49,4 +49,8 @@ public class FundRaisingDirectory {
             }
         }
     }
+    
+    public void updateFundRaisingSponsorStatus(FundRaising fundRaising, String status) {
+        fundRaising.setSponsorStatus(status);
+    }
 }

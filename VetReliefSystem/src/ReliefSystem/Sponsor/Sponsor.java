@@ -15,6 +15,15 @@ public class Sponsor {
     private String petOwner;
     private String petType;
     private String hospitalName;
+    private String healthCamp;
+
+    public String getHealthCamp() {
+        return healthCamp;
+    }
+
+    public void setHealthCamp(String healthCamp) {
+        this.healthCamp = healthCamp;
+    }
 
     public String getName() {
         return name;

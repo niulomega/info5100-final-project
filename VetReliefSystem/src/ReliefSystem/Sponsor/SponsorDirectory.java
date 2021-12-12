@@ -14,6 +14,22 @@ import java.util.ArrayList;
 public class SponsorDirectory {
     private ArrayList<Sponsor> sponsorDirectory;
     private Sponsor sponsor;
+
+    public ArrayList<Sponsor> getSponsorDirectory() {
+        return sponsorDirectory;
+    }
+
+    public void setSponsorDirectory(ArrayList<Sponsor> sponsorDirectory) {
+        this.sponsorDirectory = sponsorDirectory;
+    }
+
+    public Sponsor getSponsor() {
+        return sponsor;
+    }
+
+    public void setSponsor(Sponsor sponsor) {
+        this.sponsor = sponsor;
+    }
     
     
     public SponsorDirectory() {
@@ -32,5 +48,13 @@ public class SponsorDirectory {
                 sponsorDirectory.remove(i);
             }
         }
+    }
+    
+    public void updateSponsorPetOwnerInfo(Sponsor sponsor, String petOwner, String petType, String healthCamp, String hospitalName) {
+        sponsor.setPetOwner(petOwner);
+        sponsor.setPetOwner(petOwner);
+        sponsor.setPetType(petType);
+        sponsor.setHealthCamp(healthCamp);
+        sponsor.setHospitalName(hospitalName);
     }
 }

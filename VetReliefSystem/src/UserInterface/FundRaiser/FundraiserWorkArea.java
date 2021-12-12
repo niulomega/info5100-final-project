@@ -7,6 +7,7 @@ package UserInterface.FundRaiser;
 
 import ReliefSystem.Ecosystem;
 import ReliefSystem.FundRaising.FundRaising;
+import ReliefSystem.Sponsor.Sponsor;
 import ReliefSystem.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -43,11 +44,12 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
             
         }
         for(FundRaising fundRaising: system.getFundRaisingDirectory().getFundRaisingDirectory()){
-             Object[] row = new Object[4];
-                row[0] = fundRaising.getPetOwner();
-                row[1] = fundRaising.getPetType();
-                row[2] = fundRaising.getHealthCamp();
-                row[3] = fundRaising.getSponsor() == null ? "N/A" : fundRaising.getSponsor();
+             Object[] row = new Object[5];
+                row[0] = fundRaising;
+                row[1] = fundRaising.getPetOwner();
+                row[2] = fundRaising.getPetType();
+                row[3] = fundRaising.getHealthCamp();
+                row[4] = fundRaising.getSponsorStatus() == null ? "N/A" : fundRaising.getSponsorStatus();
                 tablemodel.addRow(row);
         }
     }
@@ -63,16 +65,17 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblfundraiser = new javax.swing.JTable();
         btnAddSponsor = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         tblfundraiser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "pet owner", "pet type", "HealthCamp", "Sponsor"
+                "Fundraiser name", "pet owner", "pet type", "HealthCamp", "Sponsor status"
             }
         ));
         jScrollPane1.setViewportView(tblfundraiser);
@@ -81,6 +84,13 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
         btnAddSponsor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddSponsorActionPerformed(evt);
+            }
+        });
+
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
             }
         });
 
@@ -95,7 +105,9 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
-                        .addComponent(btnAddSponsor)))
+                        .addComponent(btnAddSponsor)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnRefresh)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,18 +116,34 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(btnAddSponsor)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddSponsor)
+                    .addComponent(btnRefresh))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddSponsorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSponsorActionPerformed
         // TODO add your handling code here:
+
+        int selectedRow = tblfundraiser.getSelectedRow();
+        FundRaising fundRaiserSelected = (FundRaising) tblfundraiser.getValueAt(selectedRow, 0);
+        for(Sponsor sponsor: system.getSponsorDirectory().getSponsorDirectory()) {
+            system.getSponsorDirectory().updateSponsorPetOwnerInfo(sponsor, fundRaiserSelected.getPetOwner(), fundRaiserSelected.getPetType(), fundRaiserSelected.getHealthCamp(), fundRaiserSelected.getHospitalName());
+            System.out.println("Sponsor successfully added");
+        }
+
     }//GEN-LAST:event_btnAddSponsorActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateFundRaisingTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddSponsor;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblfundraiser;
     // End of variables declaration//GEN-END:variables

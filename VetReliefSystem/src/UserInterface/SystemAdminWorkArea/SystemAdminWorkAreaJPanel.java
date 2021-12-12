@@ -53,11 +53,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblFundRaiser = new javax.swing.JLabel();
         txtFundRaisingAgency = new javax.swing.JTextField();
 
+        backgroundPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         sidePane.setBackground(new java.awt.Color(0, 153, 153));
         sidePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageHospital.setBackground(new java.awt.Color(0, 204, 204));
-
+        
 
         lblHospNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital-icon.jpg"))); // NOI18N
 
@@ -95,11 +97,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
 
         manageSponsors.setBackground(new java.awt.Color(0, 204, 204));
-        
+       
+
+        lblSponsors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sponsor.PNG"))); // NOI18N
 
         txtManageSponsors.setBackground(new java.awt.Color(0, 204, 204));
         txtManageSponsors.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtManageSponsors.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtManageSponsors.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtManageSponsors.setText("Manage Sponsors");
         txtManageSponsors.setBorder(null);
         txtManageSponsors.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,13 +126,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageSponsorsLayout.setVerticalGroup(
             manageSponsorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblSponsors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageSponsorsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(manageSponsorsLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(txtManageSponsors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        sidePane.add(manageSponsors, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, -1));
+        sidePane.add(manageSponsors, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 40));
 
         manageVet.setBackground(new java.awt.Color(0, 204, 204));
         
@@ -169,7 +173,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
         manageHealthCamp.setBackground(new java.awt.Color(0, 204, 204));
-       
+        
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/health-camp.png"))); // NOI18N
 
@@ -206,7 +210,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageHealthCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
         manageFundRaisongAgency.setBackground(new java.awt.Color(0, 204, 204));
-
+        
 
         lblFundRaiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundraising.png"))); // NOI18N
 

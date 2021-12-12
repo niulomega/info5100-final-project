@@ -48,7 +48,6 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPetVolunteer = new javax.swing.JTable();
         lblPetVolunteer = new javax.swing.JLabel();
-        lblPetVolunteerImg = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
@@ -60,8 +59,10 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(770, 772));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblPetVolunteer.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -86,96 +87,98 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPetVolunteer);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 409, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 409, 100));
 
         lblPetVolunteer.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        lblPetVolunteer.setForeground(new java.awt.Color(0, 153, 153));
+        lblPetVolunteer.setForeground(new java.awt.Color(0, 102, 102));
         lblPetVolunteer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPetVolunteer.setText("MANAGE PET VOLUNTEER");
-        add(lblPetVolunteer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 420, 50));
+        add(lblPetVolunteer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 420, 50));
 
-        lblPetVolunteerImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petVolunteer.jpg"))); // NOI18N
-        add(lblPetVolunteerImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 331, 280));
-
-        lblPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(0, 153, 153));
+        lblPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 102, 102));
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 230, 30));
+        lblPassword.setText("PASSWORD");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 180, 30));
 
-        lblName.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblName.setForeground(new java.awt.Color(0, 153, 153));
+        lblName.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 102, 102));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblName.setText("Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 220, 30));
+        lblName.setText("NAME");
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 170, 30));
 
         lblUserName.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblUserName.setForeground(new java.awt.Color(0, 153, 153));
+        lblUserName.setForeground(new java.awt.Color(0, 102, 102));
         lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserName.setText("User Name");
-        add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 230, 30));
+        lblUserName.setText("USERNAME");
+        add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 180, 30));
 
         txtUserName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         txtUserName.setForeground(new java.awt.Color(0, 153, 153));
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 190, 30));
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 190, 30));
 
         txtName.setForeground(new java.awt.Color(0, 153, 153));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 190, 30));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 190, 30));
 
         txtPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(0, 153, 153));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 190, 30));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 190, 30));
 
-        btnSubmit.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnSubmit.setForeground(new java.awt.Color(0, 153, 153));
+        btnSubmit.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(0, 102, 102));
         btnSubmit.setText("SUBMIT");
+        btnSubmit.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 470, 90, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 110, 30));
 
-        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdate.setText("UPDATE");
-        btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 80, 30));
 
-        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnView.setForeground(new java.awt.Color(0, 153, 153));
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 102, 102));
         btnView.setText("VIEW");
-        btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 50, -1));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 70, 30));
 
-        btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(0, 153, 153));
+        btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 102, 102));
         btnDelete.setText("DELETE");
-        btnDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, 80, 30));
 
-        btnBack.setText("<< Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtn.png"))); // NOI18N
+        btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 470, -1, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petVolunteer (3).jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 850, 570));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -272,11 +275,11 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPetVolunteer;
-    private javax.swing.JLabel lblPetVolunteerImg;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JTable tblPetVolunteer;
     private javax.swing.JTextField txtName;

@@ -96,6 +96,12 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtPetUsername = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblPetVolunteerHealthCamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,116 +116,119 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblPetVolunteerHealthCamp);
 
-        lblpetowner.setText("Pet Owner");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 570, 113));
 
-        lblpettype.setText("Pet Type");
+        lblpetowner.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblpetowner.setForeground(new java.awt.Color(0, 102, 102));
+        lblpetowner.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblpetowner.setText("PET OWNER");
+        add(lblpetowner, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 120, 20));
 
-        lblorgname.setText("Org Name");
+        txtpetowner.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtpetowner, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 130, 20));
 
+        lblpettype.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblpettype.setForeground(new java.awt.Color(0, 102, 102));
+        lblpettype.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblpettype.setText("PET TYPE");
+        add(lblpettype, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 150, 20));
+
+        txtpettype.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtpettype, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 130, 20));
+
+        lblorgname.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblorgname.setForeground(new java.awt.Color(0, 102, 102));
+        lblorgname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblorgname.setText("ORG NAME");
+        add(lblorgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 140, 20));
+
+        txtorgname.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtorgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 130, 20));
+
+        comboxhealth.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         comboxhealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Good", "Bad" }));
+        comboxhealth.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(comboxhealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 130, 20));
 
-        lblhealthstatus.setText("Health Status");
+        lblhealthstatus.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblhealthstatus.setForeground(new java.awt.Color(0, 102, 102));
+        lblhealthstatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblhealthstatus.setText("HEALTH STATUS");
+        add(lblhealthstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 150, 20));
 
+        btnRegisterForHospital.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegisterForHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnRegisterForHospital.setForeground(new java.awt.Color(0, 102, 102));
         btnRegisterForHospital.setText("Register For Hospital ");
+        btnRegisterForHospital.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnRegisterForHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterForHospitalActionPerformed(evt);
             }
         });
+        add(btnRegisterForHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 180, 30));
 
-        lblhospitalname.setText("Hospital Name");
+        lblhospitalname.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblhospitalname.setForeground(new java.awt.Color(0, 102, 102));
+        lblhospitalname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblhospitalname.setText("HOSPITAL NAME");
+        add(lblhospitalname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 150, 20));
 
-        lbldriver.setText("Driver");
+        txthospitalname.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txthospitalname, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 130, 20));
 
-        btnView.setText("View");
+        lbldriver.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lbldriver.setForeground(new java.awt.Color(0, 102, 102));
+        lbldriver.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbldriver.setText("DRIVER");
+        add(lbldriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 130, 20));
+
+        txtdriver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        txtdriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdriverActionPerformed(evt);
+            }
+        });
+        add(txtdriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 130, 20));
+
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 102, 102));
+        btnView.setText("VIEW");
+        btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 90, 30));
 
-        jLabel1.setText("Pet username");
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("PET USERNAME");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 130, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnView)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblpettype)
-                                    .addComponent(lblorgname)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblpetowner)
-                                            .addComponent(lblhealthstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblhospitalname)
-                                            .addComponent(lbldriver, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel1))
-                                        .addGap(100, 100, 100)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(comboxhealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtpettype, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                            .addComponent(txtpetowner, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                            .addComponent(txtorgname, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                            .addComponent(txthospitalname)
-                                            .addComponent(txtdriver)
-                                            .addComponent(txtPetUsername)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(btnRegisterForHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(171, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnView)
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblpetowner)
-                    .addComponent(txtpetowner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblpettype))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtpettype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblorgname)
-                    .addComponent(txtorgname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhealthstatus)
-                    .addComponent(comboxhealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhospitalname)
-                    .addComponent(txthospitalname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbldriver)
-                    .addComponent(txtdriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPetUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(50, 50, 50)
-                .addComponent(btnRegisterForHospital)
-                .addContainerGap(104, Short.MAX_VALUE))
-        );
+        txtPetUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtPetUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, 130, 20));
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("MANAGE PET VOLUNTEER");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 430, 50));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\voluneteer_needed (3).jpg")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 1070, 740));
+
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbutton.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterForHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterForHospitalActionPerformed
@@ -246,12 +255,26 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         txtPetUsername.setText(petVolunterSelected.getUsername());
     }//GEN-LAST:event_btnViewActionPerformed
 
+    private void txtdriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdriverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdriverActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRegisterForHospital;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox<String> comboxhealth;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbldriver;
     private javax.swing.JLabel lblhealthstatus;

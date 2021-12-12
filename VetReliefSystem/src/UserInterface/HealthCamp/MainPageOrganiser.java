@@ -47,77 +47,49 @@ public class MainPageOrganiser extends javax.swing.JPanel {
         sidepane = new javax.swing.JPanel();
         manageorginfo = new javax.swing.JPanel();
         lblmanageorginfo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         managepetvol = new javax.swing.JPanel();
         lblManagePetVolunteer = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        manageorginfo.setBackground(new java.awt.Color(0, 153, 153));
+        backgroundpanel.setBackground(new java.awt.Color(255, 255, 255));
 
+        sidepane.setBackground(new java.awt.Color(0, 153, 153));
+        sidepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        manageorginfo.setBackground(new java.awt.Color(0, 204, 204));
+        manageorginfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblmanageorginfo.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         lblmanageorginfo.setText("MANAGE ORGANISATION INFO");
         lblmanageorginfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblmanageorginfoMousePressed(evt);
             }
         });
+        manageorginfo.add(lblmanageorginfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 163, 22));
 
-        javax.swing.GroupLayout manageorginfoLayout = new javax.swing.GroupLayout(manageorginfo);
-        manageorginfo.setLayout(manageorginfoLayout);
-        manageorginfoLayout.setHorizontalGroup(
-            manageorginfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageorginfoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lblmanageorginfo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        manageorginfoLayout.setVerticalGroup(
-            manageorginfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageorginfoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblmanageorginfo, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/health_camp_org.png"))); // NOI18N
+        manageorginfo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 40));
 
-        managepetvol.setBackground(new java.awt.Color(0, 153, 153));
+        sidepane.add(manageorginfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 220, 40));
 
+        managepetvol.setBackground(new java.awt.Color(0, 204, 204));
+        managepetvol.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblManagePetVolunteer.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         lblManagePetVolunteer.setText("MANAGE PET VOLUNTEERS");
         lblManagePetVolunteer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblManagePetVolunteerMousePressed(evt);
             }
         });
+        managepetvol.add(lblManagePetVolunteer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 142, 24));
 
-        javax.swing.GroupLayout managepetvolLayout = new javax.swing.GroupLayout(managepetvol);
-        managepetvol.setLayout(managepetvolLayout);
-        managepetvolLayout.setHorizontalGroup(
-            managepetvolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managepetvolLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblManagePetVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
-        managepetvolLayout.setVerticalGroup(
-            managepetvolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(managepetvolLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblManagePetVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manage_pet_volunteers.png"))); // NOI18N
+        managepetvol.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        javax.swing.GroupLayout sidepaneLayout = new javax.swing.GroupLayout(sidepane);
-        sidepane.setLayout(sidepaneLayout);
-        sidepaneLayout.setHorizontalGroup(
-            sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(manageorginfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(managepetvol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        sidepaneLayout.setVerticalGroup(
-            sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidepaneLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(manageorginfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(managepetvol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
+        sidepane.add(managepetvol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 220, 40));
 
         javax.swing.GroupLayout backgroundpanelLayout = new javax.swing.GroupLayout(backgroundpanel);
         backgroundpanel.setLayout(backgroundpanelLayout);
@@ -125,11 +97,11 @@ public class MainPageOrganiser extends javax.swing.JPanel {
             backgroundpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundpanelLayout.createSequentialGroup()
                 .addComponent(sidepane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 594, Short.MAX_VALUE))
+                .addGap(0, 622, Short.MAX_VALUE))
         );
         backgroundpanelLayout.setVerticalGroup(
             backgroundpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidepane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(sidepane, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -164,6 +136,8 @@ public class MainPageOrganiser extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundpanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblManagePetVolunteer;
     private javax.swing.JLabel lblmanageorginfo;
     private javax.swing.JPanel manageorginfo;

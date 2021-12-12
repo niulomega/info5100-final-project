@@ -52,6 +52,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageFundRaisongAgency = new javax.swing.JPanel();
         lblFundRaiser = new javax.swing.JLabel();
         txtFundRaisingAgency = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         backgroundPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -60,7 +61,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         manageHospital.setBackground(new java.awt.Color(0, 204, 204));
         
-
         lblHospNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital-icon.jpg"))); // NOI18N
 
         txtHospitalNetwork.setBackground(new java.awt.Color(0, 204, 204));
@@ -97,7 +97,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         sidePane.add(manageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
 
         manageSponsors.setBackground(new java.awt.Color(0, 204, 204));
-       
+        
 
         lblSponsors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sponsor.PNG"))); // NOI18N
 
@@ -174,7 +174,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         manageHealthCamp.setBackground(new java.awt.Color(0, 204, 204));
         
-
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/health-camp.png"))); // NOI18N
 
         txtManageHealthCamp.setBackground(new java.awt.Color(0, 204, 204));
@@ -246,17 +245,21 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         sidePane.add(manageFundRaisongAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\manage_pharmacy.png")); // NOI18N
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addComponent(sidePane, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 635, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sidePane, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -314,6 +317,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblFundRaiser;

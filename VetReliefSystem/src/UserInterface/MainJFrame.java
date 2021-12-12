@@ -48,7 +48,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtpassword = new javax.swing.JPasswordField();
         container = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        lblDogimg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -94,8 +94,8 @@ public class MainJFrame extends javax.swing.JFrame {
         container.setBackground(new java.awt.Color(255, 255, 255));
         container.setLayout(new java.awt.CardLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sysadmin.png"))); // NOI18N
-        container.add(jLabel4, "card2");
+        lblDogimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sysadmin.png"))); // NOI18N
+        container.add(lblDogimg, "card2");
 
         jSplitPane1.setRightComponent(container);
 
@@ -130,6 +130,7 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(system);
+        container.setVisible(true);
     }//GEN-LAST:event_btnlogoutActionPerformed
 
     /**
@@ -190,8 +191,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblDogimg;
     private javax.swing.JPasswordField txtpassword;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables

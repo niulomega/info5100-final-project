@@ -14,6 +14,60 @@ public class PetVolunteer {
     private String name;
     private String username;
     private String petType;
+    private String healthCamp;
+    private String hospitalName;
+    private String driver;
+    private String vetName;
+    private String petStatus;
+    private String labResultStatus;
+
+    public String getLabResultStatus() {
+        return labResultStatus;
+    }
+
+    public void setLabResultStatus(String labResultStatus) {
+        this.labResultStatus = labResultStatus;
+    }
+
+    public String getPetStatus() {
+        return petStatus;
+    }
+
+    public void setPetStatus(String petStatus) {
+        this.petStatus = petStatus;
+    }
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public String getVetName() {
+        return vetName;
+    }
+
+    public void setVetName(String vetName) {
+        this.vetName = vetName;
+    }
+
+    public String getHealthCamp() {
+        return healthCamp;
+    }
+
+    public void setHealthCamp(String healthCamp) {
+        this.healthCamp = healthCamp;
+    }
 
     public String getName() {
         return name;
@@ -40,7 +94,7 @@ public class PetVolunteer {
     }
 
     public PetVolunteer(String username) {
-        this.name = name;
+        this.username = username;
     }
 
     @Override

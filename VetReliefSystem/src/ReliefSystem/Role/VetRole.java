@@ -9,6 +9,7 @@ import ReliefSystem.Ecosystem;
 import ReliefSystem.UserAccount.UserAccount;
 import UserInterface.HospiitalAdmin.HospitalAdminWorkArea;
 import UserInterface.HospiitalAdmin.ManageVet;
+import UserInterface.Hospital.VetWorkarea;
 import javax.swing.JPanel;
 
 /**
@@ -18,6 +19,6 @@ import javax.swing.JPanel;
 public class VetRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
-        return new ManageVet(userProcessContainer, system);
+        return new VetWorkarea(userProcessContainer, system);
     }
 }

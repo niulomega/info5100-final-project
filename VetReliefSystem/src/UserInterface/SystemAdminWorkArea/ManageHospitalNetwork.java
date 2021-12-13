@@ -47,12 +47,10 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblHospitalNetwork = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblManageHospNetwork = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHospital = new javax.swing.JTable();
         lblPassword = new javax.swing.JLabel();
-        lblName1 = new javax.swing.JLabel();
         lblName2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblUserName1 = new javax.swing.JLabel();
@@ -62,23 +60,20 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         btnDeleteHospital = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnAddHospital = new javax.swing.JButton();
-        btnSaveUpdatedHospital = new javax.swing.JButton();
+        lblHospNetworkimg = new javax.swing.JLabel();
+        btnView = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHospitalNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital_network (4).png"))); // NOI18N
-        add(lblHospitalNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 260, 280));
-        lblHospitalNetwork.setOpaque(true);
-
-        jLabel1.setBackground(new java.awt.Color(0, 153, 153));
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setText("MANAGE HOSPITAL NETWORK");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 370, 87));
+        lblManageHospNetwork.setBackground(new java.awt.Color(0, 153, 153));
+        lblManageHospNetwork.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        lblManageHospNetwork.setForeground(new java.awt.Color(0, 102, 102));
+        lblManageHospNetwork.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblManageHospNetwork.setText("MANAGE HOSPITAL NETWORK");
+        add(lblManageHospNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 370, 87));
 
         tblHospital.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        tblHospital.setForeground(new java.awt.Color(0, 153, 153));
         tblHospital.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -103,90 +98,90 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, 91));
 
         lblPassword.setBackground(new java.awt.Color(0, 153, 153));
-        lblPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(0, 153, 153));
-        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 210, 24));
-
-        lblName1.setBackground(new java.awt.Color(0, 153, 153));
-        lblName1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        lblName1.setForeground(new java.awt.Color(0, 153, 153));
-        lblName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblName1.setText("Name");
-        add(lblName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, 24));
+        lblPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 102, 102));
+        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblPassword.setText("PASSWORD");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 210, 30));
 
         lblName2.setBackground(new java.awt.Color(0, 153, 153));
-        lblName2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        lblName2.setForeground(new java.awt.Color(0, 153, 153));
-        lblName2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblName2.setText("Name");
-        add(lblName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, 24));
+        lblName2.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblName2.setForeground(new java.awt.Color(0, 102, 102));
+        lblName2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblName2.setText("NAME");
+        add(lblName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 210, 40));
 
         txtName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(0, 153, 153));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 180, 20));
+        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 180, 30));
 
         lblUserName1.setBackground(new java.awt.Color(0, 153, 153));
-        lblUserName1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        lblUserName1.setForeground(new java.awt.Color(0, 153, 153));
-        lblUserName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserName1.setText("UserName");
+        lblUserName1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblUserName1.setForeground(new java.awt.Color(0, 102, 102));
+        lblUserName1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblUserName1.setText("USERNAME");
         add(lblUserName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 210, 24));
 
         txtUsername.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(0, 153, 153));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 180, 20));
+        txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 180, 30));
 
         txtPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(0, 153, 153));
+        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 180, 30));
 
-        btnUpdateHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnUpdateHospital.setForeground(new java.awt.Color(0, 153, 153));
+        btnUpdateHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnUpdateHospital.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdateHospital.setText("UPDATE");
-        btnUpdateHospital.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        btnUpdateHospital.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateHospitalActionPerformed(evt);
             }
         });
-        add(btnUpdateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
+        add(btnUpdateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 231, 100, 30));
 
-        btnDeleteHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnDeleteHospital.setForeground(new java.awt.Color(0, 153, 153));
+        btnDeleteHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnDeleteHospital.setForeground(new java.awt.Color(0, 102, 102));
         btnDeleteHospital.setText("DELETE");
-        btnDeleteHospital.setBorder(new javax.swing.border.MatteBorder(null));
+        btnDeleteHospital.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnDeleteHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteHospitalActionPerformed(evt);
             }
         });
-        add(btnDeleteHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, -1));
+        add(btnDeleteHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 231, 90, 30));
 
-        btnBack.setText("<< Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/SystemAdminWorkArea/backbutton.png"))); // NOI18N
+        btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 40));
 
-        btnAddHospital.setText("Add");
+        btnAddHospital.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnAddHospital.setForeground(new java.awt.Color(0, 102, 102));
+        btnAddHospital.setText("ADD HOSPITAL NETWORK");
+        btnAddHospital.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddHospitalActionPerformed(evt);
             }
         });
-        add(btnAddHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 520, 70, -1));
+        add(btnAddHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 230, 40));
 
-        btnSaveUpdatedHospital.setText("Save");
-        btnSaveUpdatedHospital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveUpdatedHospitalActionPerformed(evt);
-            }
-        });
-        add(btnSaveUpdatedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, -1, -1));
+        lblHospNetworkimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital_network (4).png"))); // NOI18N
+        add(lblHospNetworkimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 1000, 660));
+
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 102, 102));
+        btnView.setText("VIEW");
+        btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 231, 90, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -200,7 +195,7 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())) {
             UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUsername.getText(), txtPassword.getText(), null, new HospitalAdminRole());
-            Hospital hospital = system.getHospitalDirectory().createUserAccount(txtUsername.getText());
+            Hospital hospital = system.getHospitalDirectory().createUserAccount(txtUsername.getText(), txtName.getText());
             populateHospitalTable();
             txtName.setText("");
             txtUsername.setText("");
@@ -231,16 +226,6 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnUpdateHospitalActionPerformed
 
-    private void btnSaveUpdatedHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveUpdatedHospitalActionPerformed
-        // TODO add your handling code here:
-        system.getUserAccountDirectory().updateUserAccount(user, txtName.getText(), txtUsername.getText(), txtPassword.getText());
-        populateHospitalTable();
-
-        txtName.setText("");
-        txtUsername.setText("");
-        txtPassword.setText("");
-    }//GEN-LAST:event_btnSaveUpdatedHospitalActionPerformed
-
     private void btnDeleteHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteHospitalActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblHospital.getSelectedRow();
@@ -266,12 +251,11 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDeleteHospital;
-    private javax.swing.JButton btnSaveUpdatedHospital;
     private javax.swing.JButton btnUpdateHospital;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblHospitalNetwork;
-    private javax.swing.JLabel lblName1;
+    private javax.swing.JLabel lblHospNetworkimg;
+    private javax.swing.JLabel lblManageHospNetwork;
     private javax.swing.JLabel lblName2;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUserName1;

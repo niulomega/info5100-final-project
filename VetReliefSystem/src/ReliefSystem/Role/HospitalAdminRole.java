@@ -17,6 +17,6 @@ import javax.swing.JPanel;
 public class HospitalAdminRole extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
-        return new HospitalAdminWorkArea(userProcessContainer, system);
+        return new HospitalAdminWorkArea(userProcessContainer,account, system);
     }
 }

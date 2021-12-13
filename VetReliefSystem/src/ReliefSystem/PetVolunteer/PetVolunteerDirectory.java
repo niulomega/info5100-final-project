@@ -6,33 +6,35 @@
 package ReliefSystem.PetVolunteer;
 
 import java.util.ArrayList;
+import java.util.List;
+import static java.util.stream.Collectors.toList;
 
 /**
  *
  * @author niulp
  */
 public class PetVolunteerDirectory {
+
     private ArrayList<PetVolunteer> petVolunteerDirectory;
     private PetVolunteer petVolunteer;
 
     public PetVolunteerDirectory() {
         petVolunteerDirectory = new ArrayList<PetVolunteer>();
     }
-    
-    public ArrayList<PetVolunteer> getHospitalDirectory() {
+
+    public ArrayList<PetVolunteer> getPetVolunteerDirectory() {
         return petVolunteerDirectory;
     }
 
-    public void setHospitalDirectory(ArrayList<PetVolunteer> petVolunteerDirectory) {
+    public void setPetVolunteerDirectory(ArrayList<PetVolunteer> petVolunteerDirectory) {
         this.petVolunteerDirectory = petVolunteerDirectory;
     }
 
-
-    public PetVolunteer getHospital() {
+    public PetVolunteer getPetVolunteer() {
         return petVolunteer;
     }
 
-    public void setHospital(PetVolunteer petVolunteer) {
+    public void setPetVolunteer(PetVolunteer petVolunteer) {
         this.petVolunteer = petVolunteer;
     }
 
@@ -42,17 +44,40 @@ public class PetVolunteerDirectory {
         return petVolunteer;
     }
 
-    public void updatePetVolunteerInfo(PetVolunteer petVolunteer, String name, String phoneNumber, String address) {
+    public void updatePetVolunteerInfo(PetVolunteer petVolunteer, String name, String petType, String healthCamp) {
         petVolunteer.setName(name);
-        petVolunteer.setPetType(address);
+        petVolunteer.setPetType(petType);
+        petVolunteer.setHealthCamp(healthCamp);
     }
 
-    public void deleteHospital(String username) {
+    public void updatePetVolunteerHospitalInfo(PetVolunteer petVolunteer, String hospitalName, String driverName) {
+        petVolunteer.setDriver(driverName);
+        petVolunteer.setHospitalName(hospitalName);
+    }
+
+    public void deletePetVolunteer(String username) {
         for (int i = 0; i < petVolunteerDirectory.size(); i++) {
             if (petVolunteerDirectory.get(i).getUsername() == username) {
                 petVolunteerDirectory.remove(i);
             }
         }
+    }
+
+    public void updatePetType(String username, String petType) {
+        for (int i = 0; i < petVolunteerDirectory.size(); i++) {
+            if (petVolunteerDirectory.get(i).getUsername() == username) {
+                petVolunteerDirectory.get(i).setPetType(petType);
+            }
+        }
+    }
+
+    public void updatePetVolunteerLabStatus(PetVolunteer petVolunteer, String status) {
+        petVolunteer.setLabResultStatus(status);
+    }
+
+    public List<PetVolunteer> findPetVolunteerByHealthCampName(String healthCampName) {
+
+        return petVolunteerDirectory.stream().filter(p -> p.getHealthCamp().equals(healthCampName)).collect(toList());
 
     }
 }

@@ -37,16 +37,17 @@ public class HospitalDirectory {
         this.hospital = hospital;
     }
 
-    public Hospital createUserAccount(String username) {
-        hospital = new Hospital(username);
+    public Hospital createUserAccount(String username, String name) {
+        hospital = new Hospital(username, name);
         hospitalDirectory.add(hospital);
         return hospital;
     }
 
-    public void updateHospitalInfo(Hospital hospital, String name, String phoneNumber, String address) {
+    public void updateHospitalInfo(Hospital hospital, String name,String phoneNumber, String address, String driverName) {
         hospital.setName(name);
         hospital.setAddress(address);
         hospital.setNumber(phoneNumber);
+        hospital.setDriverName(driverName);
     }
 
     public void deleteHospital(String username) {

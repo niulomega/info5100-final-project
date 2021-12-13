@@ -6,6 +6,7 @@
 package UserInterface.HospiitalAdmin;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.UserAccount.UserAccount;
 import UserInterface.SystemAdminWorkArea.ManagePetVolunteer;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -21,10 +22,12 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
-    public HospitalAdminWorkArea(JPanel userProcessContainer, Ecosystem system) {
+    private UserAccount account;
+    public HospitalAdminWorkArea(JPanel userProcessContainer,UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
     }
 
     /**
@@ -38,22 +41,174 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
         backgroundPanel = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
-        ManageVet = new javax.swing.JPanel();
-        lblManageVet = new javax.swing.JLabel();
         ManageLabAssitant = new javax.swing.JPanel();
         lblManageLabAssistant = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         ManageDriver = new javax.swing.JPanel();
         lblManageDriver = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        lblManagePharmacy = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        ManageHospitalInfo = new javax.swing.JPanel();
+        lblmanagehospitalinfo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        ManagePet = new javax.swing.JPanel();
+        lblmanagepet = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        ManageVet = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        lblManageVet = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lblAddSponsor = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+
+        backgroundPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         sidepane.setBackground(new java.awt.Color(0, 153, 153));
-        sidepane.setForeground(new java.awt.Color(0, 153, 153));
         sidepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ManageVet.setBackground(new java.awt.Color(0, 255, 255));
+        ManageLabAssitant.setBackground(new java.awt.Color(0, 204, 204));
+
+        lblManageLabAssistant.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        lblManageLabAssistant.setText("Manage LabAssistant");
+        lblManageLabAssistant.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageLabAssistantMousePressed(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lab_assistant.png"))); // NOI18N
+
+        javax.swing.GroupLayout ManageLabAssitantLayout = new javax.swing.GroupLayout(ManageLabAssitant);
+        ManageLabAssitant.setLayout(ManageLabAssitantLayout);
+        ManageLabAssitantLayout.setHorizontalGroup(
+            ManageLabAssitantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageLabAssitantLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(14, 14, 14)
+                .addComponent(lblManageLabAssistant, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        ManageLabAssitantLayout.setVerticalGroup(
+            ManageLabAssitantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageLabAssitantLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ManageLabAssitantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblManageLabAssistant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        sidepane.add(ManageLabAssitant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 290, 40));
+
+        ManageDriver.setBackground(new java.awt.Color(0, 204, 204));
+
+        lblManageDriver.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        lblManageDriver.setText("Manage Pet Info");
+        
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet_owner.png"))); // NOI18N
+
+        javax.swing.GroupLayout ManageDriverLayout = new javax.swing.GroupLayout(ManageDriver);
+        ManageDriver.setLayout(ManageDriverLayout);
+        ManageDriverLayout.setHorizontalGroup(
+            ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageDriverLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(lblManageDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
+        ManageDriverLayout.setVerticalGroup(
+            ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageDriverLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblManageDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        sidepane.add(ManageDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 290, 40));
+
+        ManageHospitalInfo.setBackground(new java.awt.Color(0, 204, 204));
+
+        lblmanagehospitalinfo.setBackground(new java.awt.Color(0, 255, 255));
+        lblmanagehospitalinfo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        lblmanagehospitalinfo.setText("Manage Hospital Info");
+        lblmanagehospitalinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblmanagehospitalinfoMousePressed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hosptial-logo.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout ManageHospitalInfoLayout = new javax.swing.GroupLayout(ManageHospitalInfo);
+        ManageHospitalInfo.setLayout(ManageHospitalInfoLayout);
+        ManageHospitalInfoLayout.setHorizontalGroup(
+            ManageHospitalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageHospitalInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblmanagehospitalinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        ManageHospitalInfoLayout.setVerticalGroup(
+            ManageHospitalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageHospitalInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ManageHospitalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ManageHospitalInfoLayout.createSequentialGroup()
+                        .addComponent(lblmanagehospitalinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        sidepane.add(ManageHospitalInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
+
+        ManagePet.setBackground(new java.awt.Color(0, 204, 204));
+
+        lblmanagepet.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        lblmanagepet.setText("Manage Pet Info");
+        lblmanagepet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblmanagepetMousePressed(evt);
+            }
+        });
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manage_pet_info.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout ManagePetLayout = new javax.swing.GroupLayout(ManagePet);
+        ManagePet.setLayout(ManagePetLayout);
+        ManagePetLayout.setHorizontalGroup(
+            ManagePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManagePetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblmanagepet, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
+        );
+        ManagePetLayout.setVerticalGroup(
+            ManagePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManagePetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblmanagepet, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        sidepane.add(ManagePet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 290, 50));
+
+        ManageVet.setBackground(new java.awt.Color(0, 204, 204));
         ManageVet.setForeground(new java.awt.Color(0, 153, 153));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/vet.png"))); // NOI18N
+
+        lblManageVet.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         lblManageVet.setText("Manage Vet");
         lblManageVet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -66,111 +221,65 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         ManageVetLayout.setHorizontalGroup(
             ManageVetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ManageVetLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(lblManageVet, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(lblManageVet, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
         ManageVetLayout.setVerticalGroup(
             ManageVetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageVetLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblManageVet, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(ManageVetLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblManageVet, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        sidepane.add(ManageVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 290, 50));
+        sidepane.add(ManageVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 260, 40));
 
-        ManageLabAssitant.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
 
-        lblManageLabAssistant.setText("Manage LabAssitant");
-        lblManageLabAssistant.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAddSponsor.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        lblAddSponsor.setText("Manage Sponsor");
+        lblAddSponsor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblManageLabAssistantMousePressed(evt);
+                lblAddSponsorMousePressed(evt);
             }
         });
 
-        javax.swing.GroupLayout ManageLabAssitantLayout = new javax.swing.GroupLayout(ManageLabAssitant);
-        ManageLabAssitant.setLayout(ManageLabAssitantLayout);
-        ManageLabAssitantLayout.setHorizontalGroup(
-            ManageLabAssitantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ManageLabAssitantLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(lblManageLabAssistant, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sponsor.PNG"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblAddSponsor, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
-        ManageLabAssitantLayout.setVerticalGroup(
-            ManageLabAssitantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageLabAssitantLayout.createSequentialGroup()
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblManageLabAssistant, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addComponent(lblAddSponsor)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        sidepane.add(ManageLabAssitant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 290, 50));
-
-        ManageDriver.setBackground(new java.awt.Color(0, 255, 255));
-
-        lblManageDriver.setText("Manage Driver");
-        lblManageDriver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblManageDriverMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ManageDriverLayout = new javax.swing.GroupLayout(ManageDriver);
-        ManageDriver.setLayout(ManageDriverLayout);
-        ManageDriverLayout.setHorizontalGroup(
-            ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ManageDriverLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(lblManageDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
-        ManageDriverLayout.setVerticalGroup(
-            ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ManageDriverLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblManageDriver, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        sidepane.add(ManageDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 290, 50));
-
-        jPanel1.setBackground(new java.awt.Color(0, 255, 255));
-
-        lblManagePharmacy.setText("Manage Pharmacy");
-        lblManagePharmacy.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblManagePharmacyMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(lblManagePharmacy)
-                .addContainerGap(109, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblManagePharmacy, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        sidepane.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 290, 50));
+        sidepane.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 40));
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addComponent(sidepane, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 540, Short.MAX_VALUE))
+                .addComponent(sidepane, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 590, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +300,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
     private void lblManageVetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageVetMousePressed
         // TODO add your handling code here:
-        ManageVet manageVetJPanel = new ManageVet(userProcessContainer, system);
+        ManageVet manageVetJPanel = new ManageVet(userProcessContainer, account, system);
         userProcessContainer.add("ManageVet", manageVetJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -199,39 +308,58 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
     private void lblManageLabAssistantMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageLabAssistantMousePressed
         // TODO add your handling code here:
-        ManageLabAssistant manageLabAssistantJPanel = new ManageLabAssistant(userProcessContainer, system);
+        ManageLabAssistant manageLabAssistantJPanel = new ManageLabAssistant(userProcessContainer,account, system);
         userProcessContainer.add("ManageLabAssistant", manageLabAssistantJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_lblManageLabAssistantMousePressed
 
-    private void lblManageDriverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageDriverMousePressed
+    private void lblmanagehospitalinfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanagehospitalinfoMousePressed
         // TODO add your handling code here:
-        ManageDriver manageDriverJPanel = new ManageDriver(userProcessContainer, system);
-        userProcessContainer.add("ManageDriver", manageDriverJPanel);
+        ManageHospitalInfo manageHospitalInfoJPanel = new ManageHospitalInfo(userProcessContainer,account, system);
+        userProcessContainer.add("ManageHospitalInfo", manageHospitalInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_lblManageDriverMousePressed
+    }//GEN-LAST:event_lblmanagehospitalinfoMousePressed
 
-    private void lblManagePharmacyMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManagePharmacyMousePressed
+    private void lblmanagepetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanagepetMousePressed
         // TODO add your handling code here:
-        ManagePharmacy managePharmacyJPanel = new ManagePharmacy(userProcessContainer, system);
-        userProcessContainer.add("ManageDriver", managePharmacyJPanel);
+        
+        ManagePetInfo managePetInfoJPanel = new ManagePetInfo(userProcessContainer,account, system);
+        userProcessContainer.add("ManagePetInfo", managePetInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_lblManagePharmacyMousePressed
+    }//GEN-LAST:event_lblmanagepetMousePressed
+
+    private void lblAddSponsorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddSponsorMousePressed
+        // TODO add your handling code here:
+        ManageSponsor manageSponsorJPanel = new ManageSponsor(userProcessContainer,account, system);
+        userProcessContainer.add("ManageSponsorInfo", manageSponsorJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_lblAddSponsorMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageDriver;
+    private javax.swing.JPanel ManageHospitalInfo;
     private javax.swing.JPanel ManageLabAssitant;
+    private javax.swing.JPanel ManagePet;
     private javax.swing.JPanel ManageVet;
     private javax.swing.JPanel backgroundPanel;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblAddSponsor;
     private javax.swing.JLabel lblManageDriver;
     private javax.swing.JLabel lblManageLabAssistant;
-    private javax.swing.JLabel lblManagePharmacy;
     private javax.swing.JLabel lblManageVet;
+    private javax.swing.JLabel lblmanagehospitalinfo;
+    private javax.swing.JLabel lblmanagepet;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
 }

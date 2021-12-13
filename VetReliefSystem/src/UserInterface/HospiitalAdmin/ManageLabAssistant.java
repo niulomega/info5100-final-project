@@ -6,8 +6,14 @@
 package UserInterface.HospiitalAdmin;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.Hospital.Hospital;
+import ReliefSystem.LabAssistant.LabAssistant;
+import ReliefSystem.Role.LabAssistantRole;
+import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,10 +26,13 @@ public class ManageLabAssistant extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
-    public ManageLabAssistant(JPanel userProcessContainer, Ecosystem system) {
+    private UserAccount account;
+
+    public ManageLabAssistant(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
     }
 
     /**
@@ -38,30 +47,39 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblfundagency = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        tblLabAssistant = new javax.swing.JTable();
+        btnView = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         lblname = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
         lblusername = new javax.swing.JLabel();
-        txtusername = new javax.swing.JTextField();
-        lblpassword = new javax.swing.JLabel();
         txtpass = new javax.swing.JTextField();
+        lblpassword = new javax.swing.JLabel();
+        txtusername = new javax.swing.JTextField();
         btnadd = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        btnBack.setText("<< Back");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbutton.png"))); // NOI18N
+        btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 11, 75, -1));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE LAB ASSITANT ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 19, 350, 50));
 
-        tblfundagency.setModel(new javax.swing.table.DefaultTableModel(
+        tblLabAssistant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -80,115 +98,81 @@ public class ManageLabAssistant extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblfundagency);
+        jScrollPane1.setViewportView(tblLabAssistant);
 
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("VIEW");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 98, 470, 91));
 
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("UPDATE");
-
-        jButton3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("DELETE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 102, 102));
+        btnView.setText("VIEW");
+        btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnViewActionPerformed(evt);
             }
         });
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 210, 70, 30));
 
-        lblname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblname.setForeground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setText("UPDATE");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 100, 30));
+
+        btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 102, 102));
+        btnDelete.setText("DELETE");
+        btnDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 100, 30));
+
+        lblname.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblname.setForeground(new java.awt.Color(0, 102, 102));
+        lblname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblname.setText("Name");
+        add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 100, 30));
 
-        lblusername.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblusername.setForeground(new java.awt.Color(0, 153, 153));
+        txtname.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
+
+        lblusername.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblusername.setForeground(new java.awt.Color(0, 102, 102));
+        lblusername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblusername.setText("Username");
+        add(lblusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 110, 30));
 
-        lblpassword.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblpassword.setForeground(new java.awt.Color(0, 153, 153));
+        txtpass.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 170, 30));
+
+        lblpassword.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblpassword.setForeground(new java.awt.Color(0, 102, 102));
+        lblpassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblpassword.setText("Password");
+        add(lblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 120, 30));
 
-        btnadd.setText("Add");
+        txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 170, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(272, 272, 272)
-                .addComponent(btnadd)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(132, 132, 132)))
-                                        .addGap(36, 36, 36)
-                                        .addComponent(jButton3))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblusername, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 485, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblname)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblusername)
-                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpassword)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addComponent(btnadd)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
+        btnadd.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnadd.setForeground(new java.awt.Color(0, 102, 102));
+        btnadd.setText("ADD LAB ASSISTANT");
+        btnadd.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
+        add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 200, 40));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 1290, 650));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -198,23 +182,109 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        int selectedRow = tblLabAssistant.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblLabAssistant.getValueAt(selectedRow, 1);
+                String pwd = (String) tblLabAssistant.getValueAt(selectedRow, 2);
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
 
+                system.getUserAccountDirectory().deleteUserAccount(user);
+                system.getLabAssistantDirectory().deleteLabAssistant(user.getUsername());
+                populateLabAssistantTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        // TODO add your handling code here:
+//        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
+            UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(),txtusername.getText(), txtpass.getText(), null, new LabAssistantRole());
+            LabAssistant labAssistant = system.getLabAssistantDirectory().createUserAccount(txtusername.getText());
+            populateLabAssistantTable();
+            for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
+                if (hospital.getUsername().equals(account.getUsername())) {
+                    system.getLabAssistantDirectory().updateLabAssistantHospitalInfo(labAssistant, hospital.getName());
+                }
+            }
+            txtname.setText("");
+            txtpass.setText("");
+            txtusername.setText("");
+//        } 
+
+    }//GEN-LAST:event_btnaddActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        
+        int selectRow = tblLabAssistant.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblLabAssistant.getValueAt(selectRow, 0);
+            String username = (String) tblLabAssistant.getValueAt(selectRow, 1);
+            String password = (String) tblLabAssistant.getValueAt(selectRow, 2);
+
+            txtname.setText(name + "");
+            txtusername.setText(username + "");
+            txtpass.setText(password + "");
+            btnadd.setEnabled(false);
+        }
+        
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        int selectRow = tblLabAssistant.getSelectedRow();
+        String name = (String) tblLabAssistant.getValueAt(selectRow, 0);
+        String username = (String) tblLabAssistant.getValueAt(selectRow, 1);
+        String password = (String) tblLabAssistant.getValueAt(selectRow, 2);
+        account = system.getUserAccountDirectory().authenticateUser(username, password);
+        system.getUserAccountDirectory().updateUserAccount(account, txtname.getText(), txtusername.getText(), txtpass.getText());
+        populateLabAssistantTable();
+
+        txtname.setText("");
+        txtusername.setText("");
+        txtpass.setText("");
+        
+        btnadd.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void populateLabAssistantTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblLabAssistant.getModel();
+        tablemodel.setRowCount(0);
+        
+         for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+
+            if (user.getRole().getClass().getName().equals("ReliefSystem.Role.LabAssistantRole")) {
+                Object[] row = new Object[3];
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                tablemodel.addRow(row);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnView;
     private javax.swing.JButton btnadd;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblusername;
-    private javax.swing.JTable tblfundagency;
+    private javax.swing.JTable tblLabAssistant;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtpass;
     private javax.swing.JTextField txtusername;

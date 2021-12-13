@@ -47,15 +47,6 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         populatePetVolunteerTable();
         populateHospitalTable();
         populateDriverTable();
-
-//        String driverNames[] = {};
-//        List driverList = new ArrayList(Arrays.asList(driverNames));
-//        for(Driver driver:system.getDriverDirectory().getDriverDirectory()) {
-//            driverList.add(driver.getUsername());
-//        }
-//        driverNames = (String[]) driverList.toArray(driverNames);
-//        System.out.println("Driver names: " + driverNames);
-//        JComboBox<String> jComboDrivers = new JComboBox<>(driverNames);
     }
 
     public void populatePetVolunteerTable() {

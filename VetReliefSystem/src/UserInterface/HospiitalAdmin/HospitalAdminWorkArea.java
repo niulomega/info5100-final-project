@@ -103,10 +103,10 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         ManageDriver.setBackground(new java.awt.Color(0, 204, 204));
 
         lblManageDriver.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        lblManageDriver.setText("Manage Driver");
+        lblManageDriver.setText("Manage Pet Info");
         
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/driver.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet_owner.png"))); // NOI18N
 
         javax.swing.GroupLayout ManageDriverLayout = new javax.swing.GroupLayout(ManageDriver);
         ManageDriver.setLayout(ManageDriverLayout);
@@ -117,7 +117,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(lblManageDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         ManageDriverLayout.setVerticalGroup(
             ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

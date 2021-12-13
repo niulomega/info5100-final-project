@@ -107,6 +107,11 @@ public class ManageSponsor extends javax.swing.JPanel {
         btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdate.setText("Update");
         btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 211, 110, 30));
 
         btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -119,6 +124,11 @@ public class ManageSponsor extends javax.swing.JPanel {
         btnView.setForeground(new java.awt.Color(0, 102, 102));
         btnView.setText("View");
         btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
         add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 211, 100, 30));
 
         btnSave.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -152,6 +162,40 @@ public class ManageSponsor extends javax.swing.JPanel {
         txtPassword.setText("");
         txtUsername.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        int selectRow = tblSponsor.getSelectedRow();
+        String name = (String) tblSponsor.getValueAt(selectRow, 0);
+        String username = (String) tblSponsor.getValueAt(selectRow, 1);
+        String password = (String) tblSponsor.getValueAt(selectRow, 2);
+        account = system.getUserAccountDirectory().authenticateUser(username, password);
+        system.getUserAccountDirectory().updateUserAccount(account, txtName.getText(), txtUsername.getText(), txtPassword.getText());
+        populateSponsorTable();
+
+        txtName.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
+        
+       btnSave.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        int selectRow = tblSponsor.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblSponsor.getValueAt(selectRow, 0);
+            String username = (String) tblSponsor.getValueAt(selectRow, 1);
+            String password = (String) tblSponsor.getValueAt(selectRow, 2);
+
+            txtName.setText(name + "");
+            txtUsername.setText(username + "");
+            txtPassword.setText(password + "");
+            btnSave.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
 
     public void populateSponsorTable() {
         DefaultTableModel tablemodel = (DefaultTableModel) tblSponsor.getModel();

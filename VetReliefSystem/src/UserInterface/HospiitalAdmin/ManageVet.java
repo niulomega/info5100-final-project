@@ -26,7 +26,8 @@ public class ManageVet extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Ecosystem system;
     private UserAccount account;
-    public ManageVet(JPanel userProcessContainer,UserAccount account, Ecosystem system) {
+
+    public ManageVet(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -47,7 +48,7 @@ public class ManageVet extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVet = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         lblname = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
@@ -94,13 +95,23 @@ public class ManageVet extends javax.swing.JPanel {
         jButton1.setForeground(new java.awt.Color(0, 102, 102));
         jButton1.setText("VIEW");
         jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 80, 30));
 
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 102, 102));
-        jButton2.setText("UPDATE");
-        jButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 90, 30));
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setText("UPDATE");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 90, 30));
 
         btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(0, 102, 102));
@@ -163,15 +174,12 @@ public class ManageVet extends javax.swing.JPanel {
         add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 150, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/doctor.png"))); // NOI18N
-        jLabel3.setMaximumSize(new java.awt.Dimension(820, 580));
-        jLabel3.setMinimumSize(new java.awt.Dimension(820, 580));
-        jLabel3.setPreferredSize(new java.awt.Dimension(820, 580));
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 840, 550));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        
+
         int selectedRow = tblVet.getSelectedRow();
         if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
@@ -204,13 +212,46 @@ public class ManageVet extends javax.swing.JPanel {
             Vet vet = system.getVetDirectory().createUserAccount(txtusername.getText(), account.getName());
             populateVetTable();
             txtname.setText("");
-            txtusername.setText(""); 
+            txtusername.setText("");
             txtpass.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Username is not unique");
         }
     }//GEN-LAST:event_btnaddActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectRow = tblVet.getSelectedRow();
+        String name = (String) tblVet.getValueAt(selectRow, 0);
+        String username = (String) tblVet.getValueAt(selectRow, 1);
+        String password = (String) tblVet.getValueAt(selectRow, 2);
+        account = system.getUserAccountDirectory().authenticateUser(username, password);
+        system.getUserAccountDirectory().updateUserAccount(account, txtname.getText(), txtusername.getText(), txtpass.getText());
+        populateVetTable();
+
+        txtname.setText("");
+        txtusername.setText("");
+        txtpass.setText("");
+
+        btnadd.setEnabled(true);
+
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int selectRow = tblVet.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblVet.getValueAt(selectRow, 0);
+            String username = (String) tblVet.getValueAt(selectRow, 1);
+            String password = (String) tblVet.getValueAt(selectRow, 2);
+
+            txtname.setText(name + "");
+            txtusername.setText(username + "");
+            txtpass.setText(password + "");
+            btnadd.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void populateVetTable() {
         DefaultTableModel tablemodel = (DefaultTableModel) tblVet.getModel();
@@ -230,9 +271,9 @@ public class ManageVet extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

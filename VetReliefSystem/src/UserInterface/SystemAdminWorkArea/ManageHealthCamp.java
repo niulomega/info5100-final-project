@@ -138,6 +138,11 @@ public class ManageHealthCamp extends javax.swing.JPanel {
         jButton1.setForeground(new java.awt.Color(0, 102, 102));
         jButton1.setText("VIEW");
         jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 80, 30));
 
         jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -222,11 +227,43 @@ public class ManageHealthCamp extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+          
+        int selectRow = tblHealthCamp.getSelectedRow();
+        String name = (String) tblHealthCamp.getValueAt(selectRow, 0);
+        String username = (String) tblHealthCamp.getValueAt(selectRow, 1);
+        String password = (String) tblHealthCamp.getValueAt(selectRow, 2);
+        user = system.getUserAccountDirectory().authenticateUser(username, password);
+        system.getUserAccountDirectory().updateUserAccount(user, txtname.getText(), txtusername.getText(), txtpass.getText());
+        populateHealthCampTable();
+
+        txtname.setText("");
+        txtusername.setText("");
+        txtpass.setText("");
+        
+        btnAdd.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+         int selectRow = tblHealthCamp.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblHealthCamp.getValueAt(selectRow, 0);
+            String username = (String) tblHealthCamp.getValueAt(selectRow, 1);
+            String password = (String) tblHealthCamp.getValueAt(selectRow, 2);
+
+            txtname.setText(name + "");
+            txtusername.setText(username + "");
+            txtpass.setText(password + "");
+            btnAdd.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     public void populateHealthCampTable() {

@@ -25,10 +25,12 @@ public class ManageFundAgency extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
+    private UserAccount account;
     public ManageFundAgency(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
     }
 
     /**
@@ -186,7 +188,7 @@ public class ManageFundAgency extends javax.swing.JPanel {
 
                 system.getUserAccountDirectory().deleteUserAccount(user);
                 system.getFundRaisingDirectory().deleteFundRaiser(user.getUsername());
-//                populateVetTable();
+                populateFundRaisingTable();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
@@ -217,12 +219,37 @@ public class ManageFundAgency extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblfundagency.getSelectedRow();
+//        int selectedRow = tblfundagency.getSelectedRow();
+        int selectRow = tblfundagency.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblfundagency.getValueAt(selectRow, 0);
+            String username = (String) tblfundagency.getValueAt(selectRow, 1);
+            String password = (String) tblfundagency.getValueAt(selectRow, 2);
+
+            txtname.setText(name + "");
+            txtusername.setText(username + "");
+            txtpass.setText(password + "");
+            btnsave.setEnabled(false);
+        }
         
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int selectRow = tblfundagency.getSelectedRow();
+        String name = (String) tblfundagency.getValueAt(selectRow, 0);
+        String username = (String) tblfundagency.getValueAt(selectRow, 1);
+        String password = (String) tblfundagency.getValueAt(selectRow, 2);
+        account = system.getUserAccountDirectory().authenticateUser(username, password);
+        system.getUserAccountDirectory().updateUserAccount(account, txtname.getText(), txtusername.getText(), txtpass.getText());
+        populateFundRaisingTable();
+
+        txtname.setText("");
+        txtusername.setText("");
+        txtpass.setText("");
+        
+        btnsave.setEnabled(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     public void populateFundRaisingTable(){

@@ -106,12 +106,22 @@ public class ManageLabAssistant extends javax.swing.JPanel {
         btnView.setForeground(new java.awt.Color(0, 102, 102));
         btnView.setText("VIEW");
         btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
         add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 210, 70, 30));
 
         btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdate.setText("UPDATE");
         btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 100, 30));
 
         btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -162,8 +172,6 @@ public class ManageLabAssistant extends javax.swing.JPanel {
             }
         });
         add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 200, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\add_labAssistant.jpg")); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 1290, 650));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -211,6 +219,42 @@ public class ManageLabAssistant extends javax.swing.JPanel {
 //        } 
 
     }//GEN-LAST:event_btnaddActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        
+        int selectRow = tblLabAssistant.getSelectedRow();
+
+        if (selectRow >= 0) {
+            String name = (String) tblLabAssistant.getValueAt(selectRow, 0);
+            String username = (String) tblLabAssistant.getValueAt(selectRow, 1);
+            String password = (String) tblLabAssistant.getValueAt(selectRow, 2);
+
+            txtname.setText(name + "");
+            txtusername.setText(username + "");
+            txtpass.setText(password + "");
+            btnadd.setEnabled(false);
+        }
+        
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        int selectRow = tblLabAssistant.getSelectedRow();
+        String name = (String) tblLabAssistant.getValueAt(selectRow, 0);
+        String username = (String) tblLabAssistant.getValueAt(selectRow, 1);
+        String password = (String) tblLabAssistant.getValueAt(selectRow, 2);
+        account = system.getUserAccountDirectory().authenticateUser(username, password);
+        system.getUserAccountDirectory().updateUserAccount(account, txtname.getText(), txtusername.getText(), txtpass.getText());
+        populateLabAssistantTable();
+
+        txtname.setText("");
+        txtusername.setText("");
+        txtpass.setText("");
+        
+        btnadd.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void populateLabAssistantTable() {
         DefaultTableModel tablemodel = (DefaultTableModel) tblLabAssistant.getModel();

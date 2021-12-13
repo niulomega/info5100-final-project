@@ -87,7 +87,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Capture_resized.PNG"))); // NOI18N
         ControlPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 100, 120));
-        ControlPanel.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 120, 30));
+        ControlPanel.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 130, 30));
 
         jSplitPane1.setLeftComponent(ControlPanel);
 

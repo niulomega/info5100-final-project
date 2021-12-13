@@ -79,7 +79,7 @@ public class SponsorWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblSponsorPetOwnerInfo);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 147, -1, 119));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, 119));
 
         btnApproveFunds.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btnApproveFunds.setForeground(new java.awt.Color(0, 102, 102));
@@ -90,16 +90,16 @@ public class SponsorWorkArea extends javax.swing.JPanel {
                 btnApproveFundsActionPerformed(evt);
             }
         });
-        add(btnApproveFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 169, 34));
+        add(btnApproveFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 169, 34));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SPONSOR APPROVAL");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 399, 42));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 399, 42));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\sponsor_approval (3).jpg")); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 9, 830, 480));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sponsor_approval.PNG"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnApproveFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveFundsActionPerformed

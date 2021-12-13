@@ -262,7 +262,6 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 400, 110));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/voluneteer_needed (3).jpg"))); // NOI18N
-        jLabel3.setText("jLabel3");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 930, 600));
     }// </editor-fold>//GEN-END:initComponents
 

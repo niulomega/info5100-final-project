@@ -60,7 +60,6 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         btnDeleteHospital = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnAddHospital = new javax.swing.JButton();
-        btnSaveUpdatedHospital = new javax.swing.JButton();
         lblHospNetworkimg = new javax.swing.JLabel();
         btnView = new javax.swing.JButton();
 
@@ -175,14 +174,6 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         });
         add(btnAddHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 230, 40));
 
-        btnSaveUpdatedHospital.setText("Save");
-        btnSaveUpdatedHospital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveUpdatedHospitalActionPerformed(evt);
-            }
-        });
-        add(btnSaveUpdatedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 240, -1, -1));
-
         lblHospNetworkimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital_network (4).png"))); // NOI18N
         add(lblHospNetworkimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 1000, 660));
 
@@ -235,16 +226,6 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnUpdateHospitalActionPerformed
 
-    private void btnSaveUpdatedHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveUpdatedHospitalActionPerformed
-        // TODO add your handling code here:
-        system.getUserAccountDirectory().updateUserAccount(user, txtName.getText(), txtUsername.getText(), txtPassword.getText());
-        populateHospitalTable();
-
-        txtName.setText("");
-        txtUsername.setText("");
-        txtPassword.setText("");
-    }//GEN-LAST:event_btnSaveUpdatedHospitalActionPerformed
-
     private void btnDeleteHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteHospitalActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblHospital.getSelectedRow();
@@ -270,7 +251,6 @@ public class ManageHospitalNetwork extends javax.swing.JPanel {
     private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDeleteHospital;
-    private javax.swing.JButton btnSaveUpdatedHospital;
     private javax.swing.JButton btnUpdateHospital;
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;

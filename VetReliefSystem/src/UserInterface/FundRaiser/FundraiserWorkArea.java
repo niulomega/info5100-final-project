@@ -66,6 +66,11 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
         tblfundraiser = new javax.swing.JTable();
         btnAddSponsor = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblfundraiser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,52 +80,43 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Fundraiser name", "pet owner", "pet type", "HealthCamp", "Sponsor status"
+                "Fundraiser Name", "Pet Owner", "Pet Type", "Health Camp", "Sponsor Status"
             }
         ));
         jScrollPane1.setViewportView(tblfundraiser);
 
-        btnAddSponsor.setText("Add Sponsor");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 560, 90));
+
+        btnAddSponsor.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnAddSponsor.setForeground(new java.awt.Color(0, 102, 102));
+        btnAddSponsor.setText("ADD SPONSOR");
+        btnAddSponsor.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnAddSponsor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddSponsorActionPerformed(evt);
             }
         });
+        add(btnAddSponsor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 130, 30));
 
-        btnRefresh.setText("Refresh");
+        btnRefresh.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(0, 102, 102));
+        btnRefresh.setText("REFRESH");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 100, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(btnAddSponsor)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnRefresh)))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddSponsor)
-                    .addComponent(btnRefresh))
-                .addContainerGap(128, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MANAGE FUND REQUESTS");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 350, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manage_fund_requests.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 830, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddSponsorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSponsorActionPerformed
@@ -144,6 +140,8 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddSponsor;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblfundraiser;
     // End of variables declaration//GEN-END:variables

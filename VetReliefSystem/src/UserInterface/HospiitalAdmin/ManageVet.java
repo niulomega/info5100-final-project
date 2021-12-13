@@ -52,10 +52,10 @@ public class ManageVet extends javax.swing.JPanel {
         lblusername = new javax.swing.JLabel();
         txtusername = new javax.swing.JTextField();
         lblpassword = new javax.swing.JLabel();
-        txtpass = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         btnadd = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        txtpass = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,9 +135,6 @@ public class ManageVet extends javax.swing.JPanel {
         lblpassword.setText("PASSWORD");
         add(lblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 110, 30));
 
-        txtpass.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
-        add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 150, 30));
-
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbutton.png"))); // NOI18N
         btnBack.setBorder(null);
@@ -160,8 +157,14 @@ public class ManageVet extends javax.swing.JPanel {
         });
         add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 120, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/doctor.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 800, 540));
+        txtpass.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 150, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/doctor.png"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(820, 580));
+        jLabel3.setMinimumSize(new java.awt.Dimension(820, 580));
+        jLabel3.setPreferredSize(new java.awt.Dimension(820, 580));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 840, 550));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -229,14 +232,14 @@ public class ManageVet extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblusername;
     private javax.swing.JTable tblVet;
     private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtpass;
+    private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 }

@@ -51,6 +51,8 @@ public class MainPageOrganiser extends javax.swing.JPanel {
         managepetvol = new javax.swing.JPanel();
         lblManagePetVolunteer = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         backgroundpanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -90,6 +92,12 @@ public class MainPageOrganiser extends javax.swing.JPanel {
         managepetvol.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         sidepane.add(managepetvol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 220, 40));
+
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        sidepane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 220, 10));
+
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
+        sidepane.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 220, 10));
 
         javax.swing.GroupLayout backgroundpanelLayout = new javax.swing.GroupLayout(backgroundpanel);
         backgroundpanel.setLayout(backgroundpanelLayout);
@@ -138,6 +146,8 @@ public class MainPageOrganiser extends javax.swing.JPanel {
     private javax.swing.JPanel backgroundpanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblManagePetVolunteer;
     private javax.swing.JLabel lblmanageorginfo;
     private javax.swing.JPanel manageorginfo;

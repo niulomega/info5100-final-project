@@ -58,7 +58,7 @@ public class ManageHealthCamp extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
-        lblHealthCampimg = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -174,8 +174,8 @@ public class ManageHealthCamp extends javax.swing.JPanel {
         });
         add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, 190, 30));
 
-        lblHealthCampimg.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\health-camp.png")); // NOI18N
-        add(lblHealthCampimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 920, 530));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\health-camp.png")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 860, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -252,8 +252,8 @@ public class ManageHealthCamp extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblHealthCampimg;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblusername;

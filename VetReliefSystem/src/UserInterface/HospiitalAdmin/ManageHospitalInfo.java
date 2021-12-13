@@ -8,6 +8,7 @@ package UserInterface.HospiitalAdmin;
 import ReliefSystem.Ecosystem;
 import ReliefSystem.Hospital.Hospital;
 import ReliefSystem.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -68,88 +69,113 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
         btnupdate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtHospitalDriver = new javax.swing.JTextField();
+        lblManageInfo = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(770, 772));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblhospitaladmin.setText("Hospital Admin ");
+        lblhospitaladmin.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblhospitaladmin.setForeground(new java.awt.Color(0, 102, 102));
+        lblhospitaladmin.setText("HOSPITAL ADMIN");
+        add(lblhospitaladmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 140, 30));
 
-        lblhospitalname.setText("Hospital  Name");
+        txthospitaladmin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        txthospitaladmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txthospitaladminActionPerformed(evt);
+            }
+        });
+        add(txthospitaladmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 200, 30));
 
-        lblhospitaladdress.setText("Hospital Address");
+        lblhospitalname.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblhospitalname.setForeground(new java.awt.Color(0, 102, 102));
+        lblhospitalname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblhospitalname.setText("HOSPITAL NAME");
+        add(lblhospitalname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 130, 30));
 
-        lblhospitalphone.setText("Hospital Phone");
+        txthospitalname.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txthospitalname, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 200, 30));
 
-        btnsave.setText("Save");
+        lblhospitaladdress.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblhospitaladdress.setForeground(new java.awt.Color(0, 102, 102));
+        lblhospitaladdress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblhospitaladdress.setText("HOSPITAL ADDRESS");
+        add(lblhospitaladdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 30));
+
+        txthospitaladdress.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        txthospitaladdress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txthospitaladdressActionPerformed(evt);
+            }
+        });
+        add(txthospitaladdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 200, 30));
+
+        lblhospitalphone.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblhospitalphone.setForeground(new java.awt.Color(0, 102, 102));
+        lblhospitalphone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblhospitalphone.setText("HOSPITAL PHONE");
+        add(lblhospitalphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 130, 30));
+
+        txthospitalphone.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        txthospitalphone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txthospitalphoneActionPerformed(evt);
+            }
+        });
+        add(txthospitalphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 200, 30));
+
+        btnsave.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnsave.setForeground(new java.awt.Color(0, 102, 102));
+        btnsave.setText("SAVE");
+        btnsave.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsaveActionPerformed(evt);
             }
         });
+        add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 80, 30));
 
-        btnupdate.setText("Update");
+        btnupdate.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnupdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnupdate.setText("UPDATE");
+        btnupdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnupdateActionPerformed(evt);
             }
         });
+        add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 90, 30));
 
-        jLabel1.setText("Hospital driver");
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("HOSPITAL DRIVER");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 150, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnsave)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblhospitalphone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblhospitaladdress, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                            .addComponent(lblhospitaladmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblhospitalname))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txthospitaladmin)
-                        .addComponent(txthospitalname)
-                        .addComponent(txthospitaladdress)
-                        .addComponent(txthospitalphone, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                        .addComponent(txtHospitalDriver, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
-                    .addComponent(btnupdate))
-                .addContainerGap(466, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhospitaladmin)
-                    .addComponent(txthospitaladmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhospitalname)
-                    .addComponent(txthospitalname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhospitaladdress)
-                    .addComponent(txthospitaladdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhospitalphone)
-                    .addComponent(txthospitalphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtHospitalDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnsave)
-                    .addComponent(btnupdate))
-                .addGap(37, 37, 37))
-        );
+        txtHospitalDriver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtHospitalDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 200, 30));
+
+        lblManageInfo.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        lblManageInfo.setForeground(new java.awt.Color(0, 102, 102));
+        lblManageInfo.setText("MANAGE HOSPITAL INFORMATION");
+        add(lblManageInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 466, 72));
+
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbutton.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 70, 40));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospitalinfo.jpg"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 990, 560));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
@@ -179,11 +205,33 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
         btnupdate.setEnabled(false);
     }//GEN-LAST:event_btnupdateActionPerformed
 
+    private void txthospitalphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthospitalphoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txthospitalphoneActionPerformed
+
+    private void txthospitaladdressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthospitaladdressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txthospitaladdressActionPerformed
+
+    private void txthospitaladminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthospitaladminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txthospitaladminActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnsave;
     private javax.swing.JButton btnupdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblManageInfo;
     private javax.swing.JLabel lblhospitaladdress;
     private javax.swing.JLabel lblhospitaladmin;
     private javax.swing.JLabel lblhospitalname;

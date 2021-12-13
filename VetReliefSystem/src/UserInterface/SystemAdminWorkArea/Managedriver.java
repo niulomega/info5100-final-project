@@ -183,7 +183,7 @@ public class Managedriver extends javax.swing.JPanel {
                 UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
 
                 system.getUserAccountDirectory().deleteUserAccount(user);
-                system.getHealthCampDirectory().deleteHealthCamp(user.getUsername());
+                system.getDriverDirectory().deleteDriver(user.getUsername());
                 populateDriverTable();
             }
         } else {
@@ -215,12 +215,25 @@ public class Managedriver extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        
+          for(Driver driver: system.getDriverDirectory().getDriverDirectory()){
+            if(driver.getUsername().equals(account.getUsername())){
+                system.getDriverDirectory().updateDriverPersonalInfo(driver, txtname.getText(), txtusername.getText());
+            }
+        }
+        populateDriverTable();
+        btnadd.setEnabled(true);
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblManageDriver.getSelectedRow();
-        
+        UserAccount driverSelected = (UserAccount) tblManageDriver.getValueAt(selectedRow, 0);
+        txtname.setText(driverSelected.getName());
+        txtusername.setText(driverSelected.getUsername());
+        txtpass.setText(driverSelected.getPassword());
+//        btnadd.setEnabled(false);
     }//GEN-LAST:event_btnViewActionPerformed
 
     public void populateDriverTable() {
@@ -231,7 +244,7 @@ public class Managedriver extends javax.swing.JPanel {
 
             if (user.getRole().getClass().getName().equals("ReliefSystem.Role.DriverRole")) {
                 Object[] row = new Object[3];
-                row[0] = user.getName();
+                row[0] = user;
                 row[1] = user.getUsername();
                 row[2] = user.getPassword();
                 tablemodel.addRow(row);

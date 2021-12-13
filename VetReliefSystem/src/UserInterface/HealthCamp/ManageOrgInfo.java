@@ -8,6 +8,7 @@ package UserInterface.HealthCamp;
 import ReliefSystem.Ecosystem;
 import ReliefSystem.HealthCamp.HealthCamp;
 import ReliefSystem.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -50,83 +51,89 @@ public class ManageOrgInfo extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnsave = new javax.swing.JButton();
         btnupdate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
-        lblorgname.setText("Name ");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblorgowner.setText("Owner");
+        lblorgname.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblorgname.setForeground(new java.awt.Color(0, 102, 102));
+        lblorgname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblorgname.setText("NAME");
+        add(lblorgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 130, 31));
 
-        lblorgadd.setText("Address");
+        txtorgname.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtorgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 190, 30));
 
-        lblphonenumber.setText("Phone Number");
+        lblorgowner.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblorgowner.setForeground(new java.awt.Color(0, 102, 102));
+        lblorgowner.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblorgowner.setText("OWNER");
+        add(lblorgowner, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 90, 24));
 
-        jLabel2.setText("ORGANISATION INFO ");
+        txtorgowner.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtorgowner, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 190, 30));
 
-        btnsave.setText("Save");
+        lblorgadd.setBackground(new java.awt.Color(255, 255, 255));
+        lblorgadd.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblorgadd.setForeground(new java.awt.Color(0, 102, 102));
+        lblorgadd.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblorgadd.setText("ADDRESS");
+        add(lblorgadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 130, 30));
+
+        txtorgadd.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtorgadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 190, 30));
+
+        lblphonenumber.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lblphonenumber.setForeground(new java.awt.Color(0, 102, 102));
+        lblphonenumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblphonenumber.setText("PHONE NUMBER");
+        add(lblphonenumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 120, 22));
+
+        txtphonenumber.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtphonenumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 190, 30));
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("ORGANISATION INFORMATION ");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 350, 50));
+
+        btnsave.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnsave.setForeground(new java.awt.Color(0, 102, 102));
+        btnsave.setText("SAVE");
+        btnsave.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsaveActionPerformed(evt);
             }
         });
+        add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 120, 40));
 
-        btnupdate.setText("Update");
+        btnupdate.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnupdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnupdate.setText("UPDATE");
+        btnupdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+        add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 120, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblorgadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblorgname, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblorgowner))
-                            .addComponent(lblphonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtorgowner)
-                            .addComponent(txtorgname)
-                            .addComponent(txtorgadd)
-                            .addComponent(txtphonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(btnsave)
-                        .addGap(32, 32, 32)
-                        .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(225, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblorgowner, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtorgowner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtorgname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblorgname, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblorgadd)
-                    .addComponent(txtorgadd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblphonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtphonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnsave)
-                    .addComponent(btnupdate))
-                .addContainerGap(123, Short.MAX_VALUE))
-        );
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbutton.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 30, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\org_info.png")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 850, 620));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
@@ -148,11 +155,29 @@ public class ManageOrgInfo extends javax.swing.JPanel {
         txtphonenumber.setEnabled(false);
     }//GEN-LAST:event_btnsaveActionPerformed
 
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        txtorgname.setEnabled(true);
+        txtorgowner.setEnabled(true);
+        txtorgadd.setEnabled(true);
+        txtphonenumber.setEnabled(true);
+        btnupdate.setEnabled(false);
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnsave;
     private javax.swing.JButton btnupdate;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblorgadd;
     private javax.swing.JLabel lblorgname;
     private javax.swing.JLabel lblorgowner;

@@ -81,7 +81,7 @@ public class ManageHealthCampHospital extends javax.swing.JPanel {
                         .addGap(145, 145, 145)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
+                        .addGap(307, 307, 307)
                         .addComponent(btnselect)))
                 .addContainerGap(197, Short.MAX_VALUE))
         );
@@ -90,9 +90,9 @@ public class ManageHealthCampHospital extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(87, 87, 87)
                 .addComponent(btnselect)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

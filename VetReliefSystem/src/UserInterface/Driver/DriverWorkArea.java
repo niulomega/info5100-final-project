@@ -116,8 +116,6 @@ public class DriverWorkArea extends javax.swing.JPanel {
         DefaultTableModel tablemodel = (DefaultTableModel) tbldriver.getModel();
         tablemodel.setRowCount(0);
         for(Driver driver: system.getDriverDirectory().getDriverDirectory()) {
-            System.out.println("account username: "+ account.getUsername());
-            System.out.println("driver username: "+ driver.getUsername());
             if(account.getUsername().equals(driver.getUsername())) {
                 Object[] row = new Object[5];
                 row[0] = driver.getPetOwner();

@@ -80,6 +80,6 @@ public class Driver {
     
     @Override
     public String toString() {
-        return name;
+        return username;
     }
 }

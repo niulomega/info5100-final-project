@@ -168,8 +168,8 @@ public class ManageFundAgency extends javax.swing.JPanel {
         txtpass.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 140, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\manage_fundraising.PNG")); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-470, 0, 1520, 950));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manage_fundraising.PNG"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, -170, 1520, 950));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

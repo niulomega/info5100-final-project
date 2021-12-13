@@ -49,6 +49,11 @@ public class DriverDirectory {
         driver.setHospitalName(hospitalName);
     }
     
+    public void updateDriverPersonalInfo(Driver driver, String name, String username) {
+        driver.setName(name);
+        driver.setUsername(username);
+    }
+    
     public void updateDriverHealthCampInfo(Driver driver, String petOwner, String petType, String healthCamp, String hospitalName){
         driver.setPetType(petType);
         driver.setPetOwner(petOwner);

@@ -165,6 +165,8 @@ public class ManagePetInfo extends javax.swing.JPanel {
             system.getFundRaisingDirectory().updateFundRaisingInfo(fundRaising, vetPetOwner, vetPetType, vetHealthCamp, vetHospitalName);
             System.out.println("Fund raising agency updated sucessfully");
         }
+        
+        JOptionPane.showMessageDialog(this, "Successfully requested to the fundraising agency");
     }//GEN-LAST:event_btnaddfundraiserActionPerformed
 
 

@@ -5,6 +5,7 @@
  */
 package UserInterface.HealthCamp;
 
+import ReliefSystem.Driver.Driver;
 import ReliefSystem.Ecosystem;
 import ReliefSystem.HealthCamp.HealthCamp;
 import ReliefSystem.HealthCamp.HealthCampDirectory;
@@ -12,7 +13,11 @@ import ReliefSystem.PetVolunteer.PetVolunteer;
 import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
 import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,6 +42,15 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         this.account = account;
 //        this.petVolunteerDirectory = petVolunteerDirectory;
         populatePetVolunteerTable();
+          
+//        String driverNames[] = {};
+//        List driverList = new ArrayList(Arrays.asList(driverNames));
+//        for(Driver driver:system.getDriverDirectory().getDriverDirectory()) {
+//            driverList.add(driver.getUsername());
+//        }
+//        driverNames = (String[]) driverList.toArray(driverNames);
+//        System.out.println("Driver names: " + driverNames);
+//        JComboBox<String> jComboDrivers = new JComboBox<>(driverNames);
     }
 
     public void populatePetVolunteerTable() {
@@ -63,7 +77,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                 row[2] = petVolunteer.getUsername();
                 row[1] = petVolunteer.getPetType();
                 row[3] = petVolunteer.getHealthCamp();
-                
+
                 tablemodel.addRow(row);
             }
         }
@@ -86,7 +100,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         txtpettype = new javax.swing.JTextField();
         lblorgname = new javax.swing.JLabel();
         txtorgname = new javax.swing.JTextField();
-        comboxhealth = new javax.swing.JComboBox<>();
+        jComboBoxHealth = new javax.swing.JComboBox<>();
         lblhealthstatus = new javax.swing.JLabel();
         btnRegisterForHospital = new javax.swing.JButton();
         lblhospitalname = new javax.swing.JLabel();
@@ -116,7 +130,17 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
 
         lblorgname.setText("Org Name");
 
-        comboxhealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Good", "Bad" }));
+        jComboBoxHealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Good", "Bad" }));
+        jComboBoxHealth.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxHealthItemStateChanged(evt);
+            }
+        });
+        jComboBoxHealth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jComboBoxHealthMousePressed(evt);
+            }
+        });
 
         lblhealthstatus.setText("Health Status");
 
@@ -166,7 +190,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                                             .addComponent(jLabel1))
                                         .addGap(100, 100, 100)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(comboxhealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtpettype, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                                             .addComponent(txtpetowner, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                                             .addComponent(txtorgname, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
@@ -203,7 +227,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblhealthstatus)
-                    .addComponent(comboxhealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblhospitalname)
@@ -229,11 +253,19 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
 //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 //        layout.next(userProcessContainer);
 
-          for(PetVolunteer petVolunteer: system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
-              if(petVolunteer.getUsername().equals(txtPetUsername.getText())) {
-                  system.getPetVolunteerDirectory().updatePetVolunteerHospitalInfo(petVolunteer, txthospitalname.getText(), txtdriver.getText());
-              }
-          }
+        for (PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
+            if (petVolunteer.getUsername().equals(txtPetUsername.getText())) {
+                system.getPetVolunteerDirectory().updatePetVolunteerHospitalInfo(petVolunteer, txthospitalname.getText(), txtdriver.getText());
+            }
+        }
+
+        for (Driver driver : system.getDriverDirectory().getDriverDirectory()) {
+            if (driver.getUsername().equals(txtdriver.getText())) {
+                system.getDriverDirectory().updateDriverHealthCampInfo(driver, txtPetUsername.getText(), txtpettype.getText(), txtorgname.getText(), txthospitalname.getText());
+            }
+        }
+
+        JOptionPane.showMessageDialog(this, "Registerd for hospital successfully");
     }//GEN-LAST:event_btnRegisterForHospitalActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -246,11 +278,27 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         txtPetUsername.setText(petVolunterSelected.getUsername());
     }//GEN-LAST:event_btnViewActionPerformed
 
+    private void jComboBoxHealthMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxHealthMousePressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBoxHealthMousePressed
+
+    private void jComboBoxHealthItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxHealthItemStateChanged
+        // TODO add your handling code here:
+        Object selectedItem = jComboBoxHealth.getSelectedItem();
+        System.out.println("combo box value : " + selectedItem);
+        if (selectedItem == "Good") {
+            btnRegisterForHospital.setEnabled(false);
+        } else {
+            btnRegisterForHospital.setEnabled(true);
+        }
+    }//GEN-LAST:event_jComboBoxHealthItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegisterForHospital;
     private javax.swing.JButton btnView;
-    private javax.swing.JComboBox<String> comboxhealth;
+    private javax.swing.JComboBox<String> jComboBoxHealth;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbldriver;

@@ -9,6 +9,7 @@ import ReliefSystem.Ecosystem;
 import ReliefSystem.FundRaising.FundRaising;
 import ReliefSystem.Sponsor.Sponsor;
 import ReliefSystem.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -132,6 +133,7 @@ public class FundraiserWorkArea extends javax.swing.JPanel {
             system.getSponsorDirectory().updateSponsorPetOwnerInfo(sponsor, fundRaiserSelected.getPetOwner(), fundRaiserSelected.getPetType(), fundRaiserSelected.getHealthCamp(), fundRaiserSelected.getHospitalName());
             System.out.println("Sponsor successfully added");
         }
+        JOptionPane.showMessageDialog(this, "Request sent to sponsor");
 
     }//GEN-LAST:event_btnAddSponsorActionPerformed
 

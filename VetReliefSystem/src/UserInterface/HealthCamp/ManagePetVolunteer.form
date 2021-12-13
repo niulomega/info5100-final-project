@@ -40,7 +40,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="comboxhealth" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxHealth" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtpettype" pref="85" max="32767" attributes="0"/>
                                           <Component id="txtpetowner" pref="85" max="32767" attributes="0"/>
                                           <Component id="txtorgname" alignment="0" pref="85" max="32767" attributes="0"/>
@@ -92,7 +92,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblhealthstatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboxhealth" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxHealth" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -186,7 +186,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtorgname">
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboxhealth">
+    <Component class="javax.swing.JComboBox" name="jComboBoxHealth">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -195,6 +195,10 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxHealthItemStateChanged"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jComboBoxHealthMousePressed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

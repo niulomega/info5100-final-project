@@ -67,6 +67,11 @@ public class LabAssitantWorkArea extends javax.swing.JPanel {
         lbllabresult = new javax.swing.JLabel();
         txtlabresult = new javax.swing.JTextField();
         btnchangestatus = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbllabassitant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,47 +86,36 @@ public class LabAssitantWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tbllabassitant);
 
-        lbllabresult.setText("lab result ");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 375, 95));
 
-        btnchangestatus.setText("ChangeStatus");
+        lbllabresult.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        lbllabresult.setForeground(new java.awt.Color(0, 102, 102));
+        lbllabresult.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllabresult.setText("LAB RESULT");
+        add(lbllabresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 105, 30));
+
+        txtlabresult.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtlabresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 130, 30));
+
+        btnchangestatus.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnchangestatus.setForeground(new java.awt.Color(0, 102, 102));
+        btnchangestatus.setText("CHANGE STATUS");
+        btnchangestatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnchangestatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnchangestatusActionPerformed(evt);
             }
         });
+        add(btnchangestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 140, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnchangestatus)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbllabresult, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtlabresult, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbllabresult)
-                    .addComponent(txtlabresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnchangestatus)
-                .addContainerGap(115, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("WELCOME LAB ASSISTANT");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 370, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/welcome_lab_assistant.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 40, 550, 580));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnchangestatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchangestatusActionPerformed
@@ -146,6 +140,8 @@ public class LabAssitantWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnchangestatus;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbllabresult;
     private javax.swing.JTable tbllabassitant;

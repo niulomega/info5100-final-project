@@ -343,7 +343,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
     private void lblManageVetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageVetMousePressed
         // TODO add your handling code here:
-        ManageVet manageVetJPanel = new ManageVet(userProcessContainer, system);
+        ManageVet manageVetJPanel = new ManageVet(userProcessContainer, account, system);
         userProcessContainer.add("ManageVet", manageVetJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

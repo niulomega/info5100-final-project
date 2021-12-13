@@ -60,6 +60,11 @@ public class SponsorWorkArea extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSponsorPetOwnerInfo = new javax.swing.JTable();
         btnApproveFunds = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblSponsorPetOwnerInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,33 +79,27 @@ public class SponsorWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblSponsorPetOwnerInfo);
 
-        btnApproveFunds.setText("Approve");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 147, -1, 119));
+
+        btnApproveFunds.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnApproveFunds.setForeground(new java.awt.Color(0, 102, 102));
+        btnApproveFunds.setText("APPROVE SPONSOR");
+        btnApproveFunds.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnApproveFunds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApproveFundsActionPerformed(evt);
             }
         });
+        add(btnApproveFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 169, 34));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnApproveFunds)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnApproveFunds)
-                .addGap(251, 251, 251))
-        );
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("SPONSOR APPROVAL");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 399, 42));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\sponsor_approval (3).jpg")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 9, 830, 480));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnApproveFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveFundsActionPerformed
@@ -128,6 +127,8 @@ public class SponsorWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApproveFunds;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblSponsorPetOwnerInfo;
     // End of variables declaration//GEN-END:variables

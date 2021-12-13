@@ -25,10 +25,12 @@ public class ManageVet extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
-    public ManageVet(JPanel userProcessContainer, Ecosystem system) {
+    private UserAccount account;
+    public ManageVet(JPanel userProcessContainer,UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
         populateVetTable();
     }
 
@@ -199,7 +201,7 @@ public class ManageVet extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
             UserAccount userAccount = system.getUserAccountDirectory().createUserAccount(txtname.getText(), txtusername.getText(), txtpass.getText(), null, new VetRole());
-            Vet vet = system.getVetDirectory().createUserAccount(txtusername.getText());
+            Vet vet = system.getVetDirectory().createUserAccount(txtusername.getText(), account.getName());
             populateVetTable();
             txtname.setText("");
             txtusername.setText(""); 

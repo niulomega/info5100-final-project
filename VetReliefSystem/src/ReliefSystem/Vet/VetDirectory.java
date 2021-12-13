@@ -36,8 +36,8 @@ public class VetDirectory {
         this.vet = vet;
     }
 
-    public Vet createUserAccount(String username) {
-        vet = new Vet(username);
+    public Vet createUserAccount(String username, String hospitalName) {
+        vet = new Vet(username,hospitalName);
         vetDirectory.add(vet);
         return vet;
     }

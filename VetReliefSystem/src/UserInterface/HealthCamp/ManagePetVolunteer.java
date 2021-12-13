@@ -5,14 +5,20 @@
  */
 package UserInterface.HealthCamp;
 
+import ReliefSystem.Driver.Driver;
 import ReliefSystem.Ecosystem;
 import ReliefSystem.HealthCamp.HealthCamp;
 import ReliefSystem.HealthCamp.HealthCampDirectory;
+import ReliefSystem.Hospital.Hospital;
 import ReliefSystem.PetVolunteer.PetVolunteer;
 import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
 import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,6 +43,17 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         this.account = account;
 //        this.petVolunteerDirectory = petVolunteerDirectory;
         populatePetVolunteerTable();
+        populateHospitalTable();
+        populateDriverTable();
+          
+//        String driverNames[] = {};
+//        List driverList = new ArrayList(Arrays.asList(driverNames));
+//        for(Driver driver:system.getDriverDirectory().getDriverDirectory()) {
+//            driverList.add(driver.getUsername());
+//        }
+//        driverNames = (String[]) driverList.toArray(driverNames);
+//        System.out.println("Driver names: " + driverNames);
+//        JComboBox<String> jComboDrivers = new JComboBox<>(driverNames);
     }
 
     public void populatePetVolunteerTable() {
@@ -63,7 +80,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
                 row[2] = petVolunteer.getUsername();
                 row[1] = petVolunteer.getPetType();
                 row[3] = petVolunteer.getHealthCamp();
-                
+
                 tablemodel.addRow(row);
             }
         }
@@ -86,7 +103,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         txtpettype = new javax.swing.JTextField();
         lblorgname = new javax.swing.JLabel();
         txtorgname = new javax.swing.JTextField();
-        comboxhealth = new javax.swing.JComboBox<>();
+        jComboBoxHealth = new javax.swing.JComboBox<>();
         lblhealthstatus = new javax.swing.JLabel();
         btnRegisterForHospital = new javax.swing.JButton();
         lblhospitalname = new javax.swing.JLabel();
@@ -149,10 +166,12 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         txtorgname.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         add(txtorgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 130, 20));
 
-        comboxhealth.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        comboxhealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Good", "Bad" }));
-        comboxhealth.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
-        add(comboxhealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 130, 20));
+        jComboBoxHealth.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jComboBoxHealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Good", "Bad" }));
+        jComboBoxHealth.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        
+        
+        add(jComboBoxHealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 130, 20));
 
         lblhealthstatus.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         lblhealthstatus.setForeground(new java.awt.Color(0, 102, 102));
@@ -233,33 +252,33 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
 
         tblHospitals.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Hospital Name", "Hospital Username"
+                "Hospital Name"
             }
         ));
         jScrollPane2.setViewportView(tblHospitals);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 420, 90));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 160, 110));
 
         tblDrivers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Driver username", "Driver name"
+                "Driver name"
             }
         ));
         jScrollPane3.setViewportView(tblDrivers);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 400, 110));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 150, 110));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/voluneteer_needed (3).jpg"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 930, 600));
@@ -272,11 +291,19 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
 //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 //        layout.next(userProcessContainer);
 
-          for(PetVolunteer petVolunteer: system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
-              if(petVolunteer.getUsername().equals(txtPetUsername.getText())) {
-                  system.getPetVolunteerDirectory().updatePetVolunteerHospitalInfo(petVolunteer, txthospitalname.getText(), txtdriver.getText());
-              }
-          }
+        for (PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
+            if (petVolunteer.getUsername().equals(txtPetUsername.getText())) {
+                system.getPetVolunteerDirectory().updatePetVolunteerHospitalInfo(petVolunteer, txthospitalname.getText(), txtdriver.getText());
+            }
+        }
+
+        for (Driver driver : system.getDriverDirectory().getDriverDirectory()) {
+            if (driver.getUsername().equals(txtdriver.getText())) {
+                system.getDriverDirectory().updateDriverHealthCampInfo(driver, txtPetUsername.getText(), txtpettype.getText(), txtorgname.getText(), txthospitalname.getText());
+            }
+        }
+
+        JOptionPane.showMessageDialog(this, "Registerd for hospital successfully");
     }//GEN-LAST:event_btnRegisterForHospitalActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -285,7 +312,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         PetVolunteer petVolunterSelected = (PetVolunteer) tblPetVolunteerHealthCamp.getValueAt(selectedRow, 0);
         txtpetowner.setText(petVolunterSelected.getName());
         txtorgname.setText(petVolunterSelected.getHealthCamp());
-        txtpettype.setText(petVolunterSelected.getPetType());
+        txtpettype.setText(petVolunterSelected.getPetType()); 
         txtPetUsername.setText(petVolunterSelected.getUsername());
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -305,7 +332,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRegisterForHospital;
     private javax.swing.JButton btnView;
-    private javax.swing.JComboBox<String> comboxhealth;
+    private javax.swing.JComboBox<String> jComboBoxHealth;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -328,4 +355,26 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private javax.swing.JTextField txtpetowner;
     private javax.swing.JTextField txtpettype;
     // End of variables declaration//GEN-END:variables
+
+    private void populateHospitalTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblHospitals.getModel();
+        tablemodel.setRowCount(0);
+    
+        for(Hospital hospital: system.getHospitalDirectory().getHospitalDirectory()) {
+            Object[] row = new Object[1];
+            row[0] = hospital;
+            tablemodel.addRow(row);
+        }
+    }
+
+    private void populateDriverTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblDrivers.getModel();
+        tablemodel.setRowCount(0);
+        
+        for(Driver driver: system.getDriverDirectory().getDriverDirectory()) {
+            Object[] row = new Object[1];
+            row[0] = driver;
+            tablemodel.addRow(row);
+        }
+    }
 }

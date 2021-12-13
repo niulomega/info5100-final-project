@@ -75,8 +75,9 @@ public class Vet {
 //        this.number = number;
 //    }
     
-    public Vet(String username) {
+    public Vet(String username, String hospitalName) {
         this.username = username;
+        this.hospitalName = hospitalName;
     }
     
     @Override

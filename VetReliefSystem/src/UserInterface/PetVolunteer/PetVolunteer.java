@@ -6,6 +6,7 @@
 package UserInterface.PetVolunteer;
 
 import ReliefSystem.Ecosystem;
+import ReliefSystem.HealthCamp.HealthCamp;
 import ReliefSystem.UserAccount.UserAccount;
 import javax.swing.JPanel;
 //import ReliefSystem.PetVolunteer.PetVolunteerDirectory;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import java.awt.CardLayout;
 //import ReliefSystem.PetVolunteer.PetVolunteer;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,13 +29,14 @@ public class PetVolunteer extends javax.swing.JPanel {
     Ecosystem system;
     private UserAccount account;
     private PetVolunteer petVolunteer;
- 
+
     public PetVolunteer(JPanel userProcessContainer, UserAccount account, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.account = account;
         txtpetowner.setText(account.getUsername());
+        populateHealthCamptable();
     }
 
     /**
@@ -54,7 +57,7 @@ public class PetVolunteer extends javax.swing.JPanel {
         txtHealthCamp = new javax.swing.JTextField();
         btnSavePetVolunteer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblHealthCamps = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -110,20 +113,21 @@ public class PetVolunteer extends javax.swing.JPanel {
         });
         add(btnSavePetVolunteer, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 90, 40));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblHealthCamps.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        tblHealthCamps.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Health Camp Name", "Health Camp Qwner"
+                "Health Camp Name"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblHealthCamps);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 380, 90));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, 150, 90));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/welcome_volunteer.jpg"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 550));
@@ -151,11 +155,26 @@ public class PetVolunteer extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblpetowner;
     private javax.swing.JLabel lblpettype;
+    private javax.swing.JTable tblHealthCamps;
     private javax.swing.JTextField txtHealthCamp;
     private javax.swing.JTextField txtpetowner;
     private javax.swing.JTextField txtpettype;
     // End of variables declaration//GEN-END:variables
+
+    private void populateHealthCamptable() {
+
+        DefaultTableModel tablemodel = (DefaultTableModel) tblHealthCamps.getModel();
+
+        tablemodel.setRowCount(0);
+        
+        for(HealthCamp healthCamp: system.getHealthCampDirectory().getHealthCampDirectory()) {
+        
+            Object[] row = new Object[1];
+            row[0] = healthCamp.getHealthCampName();
+            tablemodel.addRow(row);
+            
+        } 
+    }
 }

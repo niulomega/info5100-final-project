@@ -5,6 +5,7 @@
  */
 package ReliefSystem;
 
+import ReliefSystem.Driver.DriverDirectory;
 import ReliefSystem.FundRaising.FundRaisingDirectory;
 import ReliefSystem.HealthCamp.HealthCampDirectory;
 import ReliefSystem.Hospital.HospitalDirectory;
@@ -30,8 +31,9 @@ public class Ecosystem extends Organization {
     private FundRaisingDirectory fundRaisingDirectory;
     private LabAssistantDirectory labAssistantDirectory;
     private SponsorDirectory sponsorDirectory;
+    private DriverDirectory driverDirectory;
 
-    public Ecosystem(HospitalDirectory hospitalDirectory, VetDirectory vetDirectory, PetVolunteerDirectory petVolunteerDirectory, HealthCampDirectory healthCampDirectory, FundRaisingDirectory fundRaisingDirectory, LabAssistantDirectory labAssistantDirectory,SponsorDirectory sponsorDirectory) {
+    public Ecosystem(HospitalDirectory hospitalDirectory, VetDirectory vetDirectory, PetVolunteerDirectory petVolunteerDirectory, HealthCampDirectory healthCampDirectory, FundRaisingDirectory fundRaisingDirectory, LabAssistantDirectory labAssistantDirectory,SponsorDirectory sponsorDirectory,DriverDirectory driverDirectory) {
         this.hospitalDirectory = hospitalDirectory;
         this.vetDirectory = vetDirectory;
         this.petVolunteerDirectory = petVolunteerDirectory;
@@ -39,6 +41,7 @@ public class Ecosystem extends Organization {
         this.fundRaisingDirectory = fundRaisingDirectory;
         this.labAssistantDirectory = labAssistantDirectory;
         this.sponsorDirectory = sponsorDirectory;
+        this.driverDirectory = driverDirectory;
     }
 
     public static Ecosystem getInstance() {
@@ -118,5 +121,12 @@ public class Ecosystem extends Organization {
             sponsorDirectory = new SponsorDirectory();
         }
         return sponsorDirectory;
+    }
+    
+     public DriverDirectory getDriverDirectory() {
+        if (driverDirectory == null) {
+            driverDirectory = new DriverDirectory();
+        }
+        return driverDirectory;
     }
 }

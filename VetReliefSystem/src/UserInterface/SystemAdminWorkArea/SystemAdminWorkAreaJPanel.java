@@ -20,10 +20,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem ecosystem;
+//    private UserAccount account;
     public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, Ecosystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
+//        this.account = account;
     }
 
     /**
@@ -52,6 +54,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageHealthCamp = new javax.swing.JPanel();
         txtManageHealthCamp = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        lblManageDrivers = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(883, 650));
@@ -140,6 +143,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         manageVet.setBackground(new java.awt.Color(0, 204, 204));
         
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet_owner.png"))); // NOI18N
 
         txtManagePetVolunteer.setBackground(new java.awt.Color(0, 204, 204));
@@ -232,6 +236,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         sidePane.add(manageHealthCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 260, 30));
 
+        lblManageDrivers.setText("Manage Drivers");
+        lblManageDrivers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageDriversMousePressed(evt);
+            }
+        });
+        sidePane.add(lblManageDrivers, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 120, 30));
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -251,11 +263,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -299,6 +311,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_txtManageSponsorsMousePressed
 
+    private void lblManageDriversMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageDriversMousePressed
+        // TODO add your handling code here:
+        Managedriver manageDriverJPanel = new Managedriver(userProcessContainer, ecosystem);
+        userProcessContainer.add("ManageDrivers", manageDriverJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_lblManageDriversMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
@@ -307,6 +327,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblFundRaiser;
     private javax.swing.JLabel lblHospNetwork;
+    private javax.swing.JLabel lblManageDrivers;
     private javax.swing.JLabel lblSponsors;
     private javax.swing.JPanel manageFundRaisongAgency;
     private javax.swing.JPanel manageHealthCamp;

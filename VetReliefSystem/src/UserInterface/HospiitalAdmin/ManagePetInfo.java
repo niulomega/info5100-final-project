@@ -33,6 +33,7 @@ public class ManagePetInfo extends javax.swing.JPanel {
         this.system = system;
         this.account = account;
         populatePetInfo();
+        populateVetTable();
     }
 
     public void populatePetInfo() {
@@ -71,7 +72,7 @@ public class ManagePetInfo extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblVets = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -141,23 +142,23 @@ public class ManagePetInfo extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 40));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVets.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Vet username", "Vet name"
+                "Vet username"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblVets);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 470, 110));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 470, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manage_pet_info_page.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 890, 510));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 890, 510));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignPetOwnerToVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignPetOwnerToVetActionPerformed
@@ -188,6 +189,8 @@ public class ManagePetInfo extends javax.swing.JPanel {
             system.getFundRaisingDirectory().updateFundRaisingInfo(fundRaising, vetPetOwner, vetPetType, vetHealthCamp, vetHospitalName);
             System.out.println("Fund raising agency updated sucessfully");
         }
+        
+        JOptionPane.showMessageDialog(this, "Successfully requested to the fundraising agency");
     }//GEN-LAST:event_btnaddfundraiserActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -206,9 +209,26 @@ public class ManagePetInfo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblVet;
+    private javax.swing.JTable tblVets;
     private javax.swing.JTable tblpetinfo;
     private javax.swing.JTextField txtvet;
     // End of variables declaration//GEN-END:variables
+
+    private void populateVetTable() {
+        
+        DefaultTableModel tablemodel = (DefaultTableModel) tblVets.getModel();
+        tablemodel.setRowCount(0);
+        
+        for(Vet vet: system.getVetDirectory().getVetDirectory()){
+            System.out.println("vet name :" + vet.getHospitalName());
+            System.out.println("account name :" + account.getName());
+            if(vet.getHospitalName().equals(account.getName())) {
+                Object[] row = new Object[1];
+                System.out.println("here");
+                row[0] = vet;
+                tablemodel.addRow(row);
+            }
+        }
+    }
 }

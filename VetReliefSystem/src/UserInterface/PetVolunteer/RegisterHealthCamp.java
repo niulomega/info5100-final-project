@@ -69,6 +69,11 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHealthCamp = new javax.swing.JTable();
         btnRegisterForHealthCamp = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblHealthCamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,36 +96,27 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHealthCamp);
 
-        btnRegisterForHealthCamp.setText("Register");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 133, 151));
+
+        btnRegisterForHealthCamp.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnRegisterForHealthCamp.setForeground(new java.awt.Color(0, 102, 102));
+        btnRegisterForHealthCamp.setText("REGISTER");
+        btnRegisterForHealthCamp.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnRegisterForHealthCamp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterForHealthCampActionPerformed(evt);
             }
         });
+        add(btnRegisterForHealthCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 140, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(btnRegisterForHealthCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegisterForHealthCamp)
-                .addGap(71, 71, 71))
-        );
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("REGISTER HEALTH CAMP");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 41, 335, 49));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/register_medical-camp.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 770, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterForHealthCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterForHealthCampActionPerformed
@@ -154,6 +150,8 @@ public class RegisterHealthCamp extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegisterForHealthCamp;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblHealthCamp;
     // End of variables declaration//GEN-END:variables

@@ -55,6 +55,11 @@ public class ManageSponsor extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblSponsor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,87 +74,72 @@ public class ManageSponsor extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblSponsor);
 
-        jLabel1.setText("Name");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, 96));
 
-        jLabel2.setText("Username");
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("NAME");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 150, 30));
 
-        jLabel3.setText("Password");
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("USERNAME");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 120, 30));
 
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("PASSWORD");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 120, 30));
+
+        txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 150, 30));
+
+        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 150, 30));
+
+        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 140, 30));
+
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 211, 110, 30));
 
+        btnDelete.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 102, 102));
         btnDelete.setText("Delete");
+        btnDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 211, 110, 30));
 
+        btnView.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 102, 102));
         btnView.setText("View");
+        btnView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 211, 100, 30));
 
-        btnSave.setText("Save");
+        btnSave.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 102, 102));
+        btnSave.setText("SAVE SPONSOR");
+        btnSave.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 120, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(btnView)
-                .addGap(86, 86, 86)
-                .addComponent(btnUpdate)
-                .addGap(81, 81, 81)
-                .addComponent(btnDelete)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSave)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                                        .addComponent(txtUsername)
-                                        .addComponent(txtPassword)))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(406, 406, 406))))
-                .addGap(91, 91, 91))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDelete)
-                            .addComponent(btnUpdate)
-                            .addComponent(btnView))))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(btnSave)
-                .addContainerGap(156, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("MANAGE SPONSOR");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 450, 50));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/financial_sponsor.jpg"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 20, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -187,6 +177,8 @@ public class ManageSponsor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblSponsor;
     private javax.swing.JTextField txtName;

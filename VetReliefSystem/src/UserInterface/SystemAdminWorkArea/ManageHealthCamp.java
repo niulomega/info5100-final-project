@@ -174,7 +174,7 @@ public class ManageHealthCamp extends javax.swing.JPanel {
         });
         add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, 190, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\divya\\Pictures\\AED Project\\health-camp.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/health-camp.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 860, 500));
     }// </editor-fold>//GEN-END:initComponents
 

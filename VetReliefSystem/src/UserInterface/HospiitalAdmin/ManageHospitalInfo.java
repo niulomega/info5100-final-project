@@ -9,6 +9,8 @@ import ReliefSystem.Ecosystem;
 import ReliefSystem.Hospital.Hospital;
 import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -180,7 +182,7 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-
+if(validateInputFields()){
         for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
             if (hospital.getUsername().equals(account.getUsername())) {
                 system.getHospitalDirectory().updateHospitalInfo(hospital, txthospitalname.getText(), txthospitalphone.getText(), txthospitaladdress.getText(), txtHospitalDriver.getText());
@@ -193,6 +195,7 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
         txthospitalphone.setEnabled(false);
         txtHospitalDriver.setEnabled(false);
         JOptionPane.showMessageDialog(this, "Hospital info saved sucessfully");
+}
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
@@ -242,4 +245,43 @@ public class ManageHospitalInfo extends javax.swing.JPanel {
     private javax.swing.JTextField txthospitalname;
     private javax.swing.JTextField txthospitalphone;
     // End of variables declaration//GEN-END:variables
+ private boolean validateInputFields() {
+
+        Pattern p = Pattern.compile("^[A-Za-z0-9 ]+$");
+        Matcher m = p.matcher(txthospitaladmin.getText());
+        Pattern p7 = Pattern.compile("^[A-Za-z0-9]+$");
+        Matcher m7 = p7.matcher(txthospitalname.getText());
+        Pattern p1 = Pattern.compile("^[A-Za-z0-9]+$");
+       Matcher m1 = p1.matcher(txthospitaladdress.getText());
+       Pattern p2 = Pattern.compile("^[0-9]{10,10}+$");
+       Matcher m2 = p2.matcher(txthospitalphone.getText());
+
+// Matcher m1 = p1.matcher(manuyeartxt.getText());
+// Pattern p2 = Pattern.compile("[0-9]");
+// Matcher m2 = p2.matcher(serialnumtxt.getText());
+// Pattern p3 = Pattern.compile("[0-9]");
+// Matcher m3 = p4.matcher(citytxt.getText());
+        if (!m.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for owner");
+            return false;
+        } else if (!m7.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for hospitalname ");
+            return false;
+        }
+        else if (!m1.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for address ");
+            return false;
+        }
+         else if (!m2.matches()) {
+
+        JOptionPane.showMessageDialog(this, "Please enter correct input format for phonenumber");
+            return false; 
+         }
+        else {
+            return true;
+        }
+    }
 }

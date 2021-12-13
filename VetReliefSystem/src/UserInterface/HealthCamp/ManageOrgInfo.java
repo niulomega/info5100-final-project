@@ -9,6 +9,9 @@ import ReliefSystem.Ecosystem;
 import ReliefSystem.HealthCamp.HealthCamp;
 import ReliefSystem.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -138,6 +141,7 @@ public class ManageOrgInfo extends javax.swing.JPanel {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
+        if(validateInputFields()){
         for (HealthCamp healthCamp : system.getHealthCampDirectory().getHealthCampDirectory()) {
             System.out.println("account username : " + account.getUsername());
             System.out.println("health camp username : " + healthCamp.getUsername());
@@ -153,6 +157,7 @@ public class ManageOrgInfo extends javax.swing.JPanel {
         txtorgowner.setEnabled(false);
         txtorgadd.setEnabled(false);
         txtphonenumber.setEnabled(false);
+        }
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
@@ -187,4 +192,44 @@ public class ManageOrgInfo extends javax.swing.JPanel {
     private javax.swing.JTextField txtorgowner;
     private javax.swing.JTextField txtphonenumber;
     // End of variables declaration//GEN-END:variables
+ private boolean validateInputFields() {
+
+        Pattern p = Pattern.compile("^[A-Za-z0-9 ]+$");
+        Matcher m = p.matcher(txtorgowner.getText());
+        Pattern p7 = Pattern.compile("^[A-Za-z0-9]+$");
+        Matcher m7 = p7.matcher(txtorgname.getText());
+        Pattern p1 = Pattern.compile("^[A-Za-z0-9]+$");
+       Matcher m1 = p1.matcher(txtorgadd.getText());
+       Pattern p2 = Pattern.compile("^[0-9]{10,10}+$");
+       Matcher m2 = p2.matcher(txtphonenumber.getText());
+
+// Matcher m1 = p1.matcher(manuyeartxt.getText());
+// Pattern p2 = Pattern.compile("[0-9]");
+// Matcher m2 = p2.matcher(serialnumtxt.getText());
+// Pattern p3 = Pattern.compile("[0-9]");
+// Matcher m3 = p4.matcher(citytxt.getText());
+        if (!m.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for owner");
+            return false;
+        } else if (!m7.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for orgname ");
+            return false;
+        }
+        else if (!m1.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for address ");
+            return false;
+        }
+         else if (!m2.matches()) {
+
+        JOptionPane.showMessageDialog(this, "Please enter correct input format for phonenumber");
+            return false; 
+         }
+        else {
+            return true;
+        }
+    }
 }
+

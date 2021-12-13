@@ -44,6 +44,9 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
         ManageLabAssitant = new javax.swing.JPanel();
         lblManageLabAssistant = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        ManageDriver = new javax.swing.JPanel();
+        lblManageDriver = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         ManageHospitalInfo = new javax.swing.JPanel();
         lblmanagehospitalinfo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -97,6 +100,37 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
         sidepane.add(ManageLabAssitant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 290, 40));
 
+        ManageDriver.setBackground(new java.awt.Color(0, 204, 204));
+
+        lblManageDriver.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        lblManageDriver.setText("Manage Driver");
+        
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/driver.png"))); // NOI18N
+
+        javax.swing.GroupLayout ManageDriverLayout = new javax.swing.GroupLayout(ManageDriver);
+        ManageDriver.setLayout(ManageDriverLayout);
+        ManageDriverLayout.setHorizontalGroup(
+            ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageDriverLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(lblManageDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+        ManageDriverLayout.setVerticalGroup(
+            ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageDriverLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ManageDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblManageDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        sidepane.add(ManageDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 290, 40));
+
         ManageHospitalInfo.setBackground(new java.awt.Color(0, 204, 204));
 
         lblmanagehospitalinfo.setBackground(new java.awt.Color(0, 255, 255));
@@ -127,9 +161,10 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
             .addGroup(ManageHospitalInfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ManageHospitalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblmanagehospitalinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(ManageHospitalInfoLayout.createSequentialGroup()
+                        .addComponent(lblmanagehospitalinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         sidepane.add(ManageHospitalInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 40));
@@ -212,7 +247,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setText("jLabel8");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sponsor.PNG"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -223,7 +258,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAddSponsor, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,6 +341,7 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ManageDriver;
     private javax.swing.JPanel ManageHospitalInfo;
     private javax.swing.JPanel ManageLabAssitant;
     private javax.swing.JPanel ManagePet;
@@ -314,10 +350,12 @@ public class HospitalAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblAddSponsor;
+    private javax.swing.JLabel lblManageDriver;
     private javax.swing.JLabel lblManageLabAssistant;
     private javax.swing.JLabel lblManageVet;
     private javax.swing.JLabel lblmanagehospitalinfo;

@@ -17,6 +17,8 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -45,7 +47,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         populatePetVolunteerTable();
         populateHospitalTable();
         populateDriverTable();
-          
+
 //        String driverNames[] = {};
 //        List driverList = new ArrayList(Arrays.asList(driverNames));
 //        for(Driver driver:system.getDriverDirectory().getDriverDirectory()) {
@@ -290,6 +292,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
 //        userProcessContainer.add("ManagePetVolunteers", manageHealthCampHospitalJPanel);
 //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 //        layout.next(userProcessContainer);
+if(validateInputFields()){
 
         for (PetVolunteer petVolunteer : system.getPetVolunteerDirectory().getPetVolunteerDirectory()) {
             if (petVolunteer.getUsername().equals(txtPetUsername.getText())) {
@@ -304,6 +307,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         }
 
         JOptionPane.showMessageDialog(this, "Registerd for hospital successfully");
+}
     }//GEN-LAST:event_btnRegisterForHospitalActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -312,7 +316,7 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
         PetVolunteer petVolunterSelected = (PetVolunteer) tblPetVolunteerHealthCamp.getValueAt(selectedRow, 0);
         txtpetowner.setText(petVolunterSelected.getName());
         txtorgname.setText(petVolunterSelected.getHealthCamp());
-        txtpettype.setText(petVolunterSelected.getPetType()); 
+        txtpettype.setText(petVolunterSelected.getPetType());
         txtPetUsername.setText(petVolunterSelected.getUsername());
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -359,8 +363,8 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private void populateHospitalTable() {
         DefaultTableModel tablemodel = (DefaultTableModel) tblHospitals.getModel();
         tablemodel.setRowCount(0);
-    
-        for(Hospital hospital: system.getHospitalDirectory().getHospitalDirectory()) {
+
+        for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
             Object[] row = new Object[1];
             row[0] = hospital;
             tablemodel.addRow(row);
@@ -370,11 +374,45 @@ public class ManagePetVolunteer extends javax.swing.JPanel {
     private void populateDriverTable() {
         DefaultTableModel tablemodel = (DefaultTableModel) tblDrivers.getModel();
         tablemodel.setRowCount(0);
-        
-        for(Driver driver: system.getDriverDirectory().getDriverDirectory()) {
+
+        for (Driver driver : system.getDriverDirectory().getDriverDirectory()) {
             Object[] row = new Object[1];
             row[0] = driver;
             tablemodel.addRow(row);
         }
     }
-}
+
+    private boolean validateInputFields() {
+
+        Pattern p = Pattern.compile("^[A-Za-z0-9 ]+$");
+        Matcher m = p.matcher(txthospitalname.getText());
+        Pattern p7 = Pattern.compile("^[A-Za-z0-9]{3,14}+$");
+        Matcher m7 = p7.matcher(txtdriver.getText());
+//        Pattern p1 = Pattern.compile("^[A-Za-z0-9]{5,20}+$");
+//        Matcher m1 = p1.matcher(txtPassword.getText());
+
+// Matcher m1 = p1.matcher(manuyeartxt.getText());
+// Pattern p2 = Pattern.compile("[0-9]");
+// Matcher m2 = p2.matcher(serialnumtxt.getText());
+// Pattern p3 = Pattern.compile("[0-9]");
+// Matcher m3 = p4.matcher(citytxt.getText());
+        if (!m.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for hospital");
+            return false;
+        } else if (!m7.matches()) {
+
+            JOptionPane.showMessageDialog(this, "Please enter correct input format for driver ");
+            return false;
+        }
+//        } else if (!m1.matches()) {
+//
+//            JOptionPane.showMessageDialog(this, "Please enter correct input format for password");
+//            return false;
+//        
+        else {
+            return true;
+        }
+    }
+}       
+
